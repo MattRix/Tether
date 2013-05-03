@@ -1,0 +1,20 @@
+{"frames": {
+
+"TreeA.png":
+{
+	"frame": {"x":3,"y":3,"w":392,"h":638},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":392,"h":638},
+	"sourceSize": {"w":400,"h":637}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "BackgroundAtlas_png.bytes",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ea729b12bce14d689364ee3480f86fee$"
+}
+}

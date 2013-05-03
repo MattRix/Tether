@@ -1,0 +1,796 @@
+{"frames": {
+
+"AttackButton.png":
+{
+	"frame": {"x":1678,"y":434,"w":272,"h":272},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":14,"w":272,"h":272},
+	"sourceSize": {"w":300,"h":300}
+},
+"BlockCell.png":
+{
+	"frame": {"x":1908,"y":1154,"w":130,"h":130},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":130,"h":130},
+	"sourceSize": {"w":144,"h":144}
+},
+"BlockPreview.png":
+{
+	"frame": {"x":2,"y":772,"w":10,"h":768},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":768},
+	"sourceSize": {"w":10,"h":768}
+},
+"BlockPreview_FailIcon.png":
+{
+	"frame": {"x":1498,"y":876,"w":138,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":138,"h":136},
+	"sourceSize": {"w":152,"h":152}
+},
+"BlockPreview_ShieldIcon.png":
+{
+	"frame": {"x":1358,"y":876,"w":138,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":138,"h":136},
+	"sourceSize": {"w":152,"h":152}
+},
+"BlockPreview_ToolIcon.png":
+{
+	"frame": {"x":1218,"y":876,"w":138,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":138,"h":136},
+	"sourceSize": {"w":152,"h":152}
+},
+"BlockPreview_WeaponIcon.png":
+{
+	"frame": {"x":1078,"y":876,"w":138,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":138,"h":136},
+	"sourceSize": {"w":152,"h":152}
+},
+"Block_1x1_0.png":
+{
+	"frame": {"x":1908,"y":1016,"w":134,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":134,"h":136},
+	"sourceSize": {"w":142,"h":144}
+},
+"Block_1x1_1.png":
+{
+	"frame": {"x":1700,"y":1248,"w":140,"h":140},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":4,"w":140,"h":140},
+	"sourceSize": {"w":144,"h":148}
+},
+"Block_2x1_0.png":
+{
+	"frame": {"x":14,"y":280,"w":290,"h":142},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":290,"h":142},
+	"sourceSize": {"w":296,"h":148}
+},
+"CloseButton.png":
+{
+	"frame": {"x":14,"y":698,"w":268,"h":266},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":266},
+	"sourceSize": {"w":300,"h":300}
+},
+"Coin.png":
+{
+	"frame": {"x":402,"y":362,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":88,"h":88},
+	"sourceSize": {"w":91,"h":91}
+},
+"Debug/Circle.png":
+{
+	"frame": {"x":1830,"y":1416,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Square.png":
+{
+	"frame": {"x":1556,"y":1516,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Triangle.png":
+{
+	"frame": {"x":1700,"y":1390,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"DragIndicator.png":
+{
+	"frame": {"x":496,"y":2,"w":598,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":598,"h":116},
+	"sourceSize": {"w":600,"h":120}
+},
+"GameWhiteBox.png":
+{
+	"frame": {"x":1842,"y":1286,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Ground.png":
+{
+	"frame": {"x":2008,"y":2,"w":34,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":34,"h":110},
+	"sourceSize": {"w":33,"h":109}
+},
+"Hero_Boy_Back_BG.png":
+{
+	"frame": {"x":1950,"y":872,"w":72,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":34},
+	"sourceSize": {"w":71,"h":34}
+},
+"Hero_Boy_Back_FG.png":
+{
+	"frame": {"x":1986,"y":220,"w":60,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":60,"h":22},
+	"sourceSize": {"w":71,"h":34}
+},
+"Hero_Boy_Body_BG.png":
+{
+	"frame": {"x":372,"y":136,"w":122,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":0,"w":122,"h":224},
+	"sourceSize": {"w":152,"h":224}
+},
+"Hero_Boy_Body_FG.png":
+{
+	"frame": {"x":1564,"y":518,"w":110,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":6,"w":110,"h":212},
+	"sourceSize": {"w":152,"h":224}
+},
+"Hero_Boy_Cannon_BG.png":
+{
+	"frame": {"x":1132,"y":836,"w":66,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":66,"h":38},
+	"sourceSize": {"w":70,"h":43}
+},
+"Hero_Boy_Cannon_FG.png":
+{
+	"frame": {"x":308,"y":220,"w":52,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":52,"h":26},
+	"sourceSize": {"w":70,"h":43}
+},
+"Hero_Boy_Front_BG.png":
+{
+	"frame": {"x":1950,"y":836,"w":72,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":34},
+	"sourceSize": {"w":71,"h":33}
+},
+"Hero_Boy_Front_FG.png":
+{
+	"frame": {"x":1986,"y":196,"w":60,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":60,"h":22},
+	"sourceSize": {"w":71,"h":33}
+},
+"Hero_Boy_Wrench_BG.png":
+{
+	"frame": {"x":1952,"y":558,"w":80,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":48},
+	"sourceSize": {"w":80,"h":48}
+},
+"Hero_Boy_Wrench_FG.png":
+{
+	"frame": {"x":1950,"y":908,"w":70,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":6,"w":70,"h":36},
+	"sourceSize": {"w":80,"h":48}
+},
+"Hero_Girl_Back_BG.png":
+{
+	"frame": {"x":1950,"y":800,"w":72,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":34},
+	"sourceSize": {"w":72,"h":33}
+},
+"Hero_Girl_Back_FG.png":
+{
+	"frame": {"x":1986,"y":172,"w":60,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":60,"h":22},
+	"sourceSize": {"w":72,"h":33}
+},
+"Hero_Girl_Body_BG.png":
+{
+	"frame": {"x":542,"y":508,"w":120,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":0,"w":120,"h":224},
+	"sourceSize": {"w":152,"h":224}
+},
+"Hero_Girl_Body_FG.png":
+{
+	"frame": {"x":664,"y":508,"w":108,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":6,"w":108,"h":212},
+	"sourceSize": {"w":152,"h":224}
+},
+"Hero_Girl_Cannon_BG.png":
+{
+	"frame": {"x":1132,"y":836,"w":66,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":66,"h":38},
+	"sourceSize": {"w":70,"h":43}
+},
+"Hero_Girl_Cannon_FG.png":
+{
+	"frame": {"x":1986,"y":414,"w":52,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":8,"w":52,"h":26},
+	"sourceSize": {"w":70,"h":43}
+},
+"Hero_Girl_Front_BG.png":
+{
+	"frame": {"x":1950,"y":764,"w":72,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":34},
+	"sourceSize": {"w":71,"h":33}
+},
+"Hero_Girl_Front_FG.png":
+{
+	"frame": {"x":1986,"y":148,"w":60,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":60,"h":22},
+	"sourceSize": {"w":71,"h":33}
+},
+"Hero_Girl_Wrench_BG.png":
+{
+	"frame": {"x":1952,"y":558,"w":80,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":48},
+	"sourceSize": {"w":80,"h":48}
+},
+"Hero_Girl_Wrench_FG.png":
+{
+	"frame": {"x":1950,"y":908,"w":70,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":6,"w":70,"h":36},
+	"sourceSize": {"w":80,"h":48}
+},
+"IceBlock.png":
+{
+	"frame": {"x":1638,"y":966,"w":268,"h":280},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":20,"w":268,"h":280},
+	"sourceSize": {"w":300,"h":300}
+},
+"NightOverlay.png":
+{
+	"frame": {"x":2,"y":2,"w":10,"h":768},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":768},
+	"sourceSize": {"w":10,"h":768}
+},
+"OffscreenIndicator.png":
+{
+	"frame": {"x":956,"y":750,"w":174,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":124},
+	"sourceSize": {"w":174,"h":124}
+},
+"OffscreenPlane.png":
+{
+	"frame": {"x":402,"y":2,"w":92,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":40},
+	"sourceSize": {"w":91,"h":40}
+},
+"OffscreenTank.png":
+{
+	"frame": {"x":440,"y":686,"w":100,"h":62},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":2,"w":100,"h":62},
+	"sourceSize": {"w":112,"h":66}
+},
+"Particles/Bullseye.png":
+{
+	"frame": {"x":1564,"y":732,"w":110,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":110,"h":110},
+	"sourceSize": {"w":120,"h":120}
+},
+"Particles/Flame.png":
+{
+	"frame": {"x":206,"y":1942,"w":98,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":10,"w":98,"h":98},
+	"sourceSize": {"w":120,"h":120}
+},
+"Particles/Plus.png":
+{
+	"frame": {"x":104,"y":1942,"w":100,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":10,"w":100,"h":100},
+	"sourceSize": {"w":120,"h":120}
+},
+"Particles/SnowFlake.png":
+{
+	"frame": {"x":1686,"y":1520,"w":128,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":128,"h":126},
+	"sourceSize": {"w":130,"h":130}
+},
+"PigBlock.png":
+{
+	"frame": {"x":698,"y":750,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"Projectiles/Missile.png":
+{
+	"frame": {"x":1986,"y":244,"w":52,"h":114},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":4,"w":52,"h":114},
+	"sourceSize": {"w":92,"h":124}
+},
+"Projectiles/Snowball_Medium.png":
+{
+	"frame": {"x":1950,"y":946,"w":68,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":16,"w":68,"h":68},
+	"sourceSize": {"w":100,"h":100}
+},
+"Projectiles/Snowball_Small.png":
+{
+	"frame": {"x":14,"y":966,"w":46,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":26,"y":26,"w":46,"h":46},
+	"sourceSize": {"w":100,"h":100}
+},
+"Projectiles/Snowball_Super.png":
+{
+	"frame": {"x":402,"y":44,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":6,"w":90,"h":90},
+	"sourceSize": {"w":100,"h":100}
+},
+"PropBlades.png":
+{
+	"frame": {"x":14,"y":1530,"w":170,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":170,"h":10},
+	"sourceSize": {"w":170,"h":10}
+},
+"RangeQuarter.png":
+{
+	"frame": {"x":2,"y":1542,"w":398,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":398,"h":398},
+	"sourceSize": {"w":400,"h":400}
+},
+"RepairBeam.png":
+{
+	"frame": {"x":1682,"y":2,"w":324,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":44,"y":20,"w":324,"h":126},
+	"sourceSize": {"w":400,"h":166}
+},
+"RepairButton.png":
+{
+	"frame": {"x":14,"y":424,"w":272,"h":272},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":14,"w":272,"h":272},
+	"sourceSize": {"w":300,"h":300}
+},
+"RollBomb_Bomb.png":
+{
+	"frame": {"x":956,"y":876,"w":120,"h":138},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":0,"w":120,"h":138},
+	"sourceSize": {"w":128,"h":160}
+},
+"RollBomb_Wheel.png":
+{
+	"frame": {"x":1952,"y":688,"w":74,"h":74},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":74,"h":74},
+	"sourceSize": {"w":77,"h":77}
+},
+"SnowBlock.png":
+{
+	"frame": {"x":1676,"y":708,"w":272,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":16,"w":272,"h":256},
+	"sourceSize": {"w":300,"h":284}
+},
+"SnowBomb.png":
+{
+	"frame": {"x":774,"y":508,"w":104,"h":194},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":194},
+	"sourceSize": {"w":104,"h":196}
+},
+"SnowGadgetCopter.png":
+{
+	"frame": {"x":284,"y":698,"w":154,"h":310},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":310},
+	"sourceSize": {"w":154,"h":309}
+},
+"SnowPlane.png":
+{
+	"frame": {"x":1096,"y":2,"w":584,"h":232},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":584,"h":232},
+	"sourceSize": {"w":583,"h":231}
+},
+"Snowman.png":
+{
+	"frame": {"x":1556,"y":1248,"w":142,"h":266},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":266},
+	"sourceSize": {"w":143,"h":266}
+},
+"SnowmanArm.png":
+{
+	"frame": {"x":372,"y":2,"w":26,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":26,"h":84},
+	"sourceSize": {"w":26,"h":84}
+},
+"Support/BonusStar.png":
+{
+	"frame": {"x":1564,"y":236,"w":114,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":22,"y":24,"w":114,"h":110},
+	"sourceSize": {"w":160,"h":160}
+},
+"Support/BrickFireplace.png":
+{
+	"frame": {"x":440,"y":750,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"Support/Magnet.png":
+{
+	"frame": {"x":2,"y":1942,"w":100,"h":104},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":34,"w":100,"h":104},
+	"sourceSize": {"w":160,"h":160}
+},
+"Support/RepairerBase.png":
+{
+	"frame": {"x":1682,"y":130,"w":302,"h":302},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":10,"w":302,"h":302},
+	"sourceSize": {"w":320,"h":320}
+},
+"Support/RepairerGlow.png":
+{
+	"frame": {"x":1952,"y":442,"w":84,"h":86},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":12,"w":84,"h":86},
+	"sourceSize": {"w":112,"h":112}
+},
+"Support/RepairerKnob.png":
+{
+	"frame": {"x":372,"y":88,"w":20,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":20,"h":22},
+	"sourceSize": {"w":24,"h":24}
+},
+"Support/RepairerWrench.png":
+{
+	"frame": {"x":1952,"y":608,"w":78,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":78,"h":78},
+	"sourceSize": {"w":80,"h":80}
+},
+"Tank_Body.png":
+{
+	"frame": {"x":496,"y":120,"w":552,"h":386},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":552,"h":386},
+	"sourceSize": {"w":551,"h":386}
+},
+"Tank_Cannon.png":
+{
+	"frame": {"x":14,"y":220,"w":292,"h":58},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":58},
+	"sourceSize": {"w":291,"h":57}
+},
+"Tank_Tread.png":
+{
+	"frame": {"x":372,"y":112,"w":16,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":10},
+	"sourceSize": {"w":16,"h":10}
+},
+"Tank_Wheel_Big.png":
+{
+	"frame": {"x":358,"y":508,"w":176,"h":176},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":20,"w":176,"h":176},
+	"sourceSize": {"w":216,"h":216}
+},
+"Tank_Wheel_Med.png":
+{
+	"frame": {"x":398,"y":1942,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":16,"w":90,"h":90},
+	"sourceSize": {"w":123,"h":123}
+},
+"Tank_Wheel_Small.png":
+{
+	"frame": {"x":1986,"y":360,"w":52,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":14,"w":52,"h":52},
+	"sourceSize": {"w":83,"h":83}
+},
+"Thermometer_BG.png":
+{
+	"frame": {"x":1556,"y":844,"w":110,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":110,"h":30},
+	"sourceSize": {"w":113,"h":34}
+},
+"Thermometer_Fill.png":
+{
+	"frame": {"x":1200,"y":836,"w":102,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":102,"h":22},
+	"sourceSize": {"w":113,"h":34}
+},
+"Thermometer_Highlight.png":
+{
+	"frame": {"x":398,"y":2034,"w":96,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":10,"w":96,"h":12},
+	"sourceSize": {"w":113,"h":34}
+},
+"Tiles/BuildTiles.png":
+{
+	"frame": {"x":1042,"y":1016,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Tiles/CannonTiles.png":
+{
+	"frame": {"x":1010,"y":1530,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Tiles/IceTiles.png":
+{
+	"frame": {"x":528,"y":1016,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Tiles/RockTiles.png":
+{
+	"frame": {"x":496,"y":1530,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Tiles/SnowTiles.png":
+{
+	"frame": {"x":14,"y":1016,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Tiles/SterileTiles.png":
+{
+	"frame": {"x":1050,"y":236,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"Weapons/CannonCharger.png":
+{
+	"frame": {"x":1952,"y":530,"w":84,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":84,"h":26},
+	"sourceSize": {"w":88,"h":30}
+},
+"Weapons/CannonMain.png":
+{
+	"frame": {"x":1564,"y":348,"w":114,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":32,"w":114,"h":54},
+	"sourceSize": {"w":120,"h":120}
+},
+"Weapons/CannonShadow.png":
+{
+	"frame": {"x":402,"y":452,"w":86,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":32,"w":86,"h":54},
+	"sourceSize": {"w":120,"h":120}
+},
+"Weapons/LaserBase.png":
+{
+	"frame": {"x":880,"y":508,"w":148,"h":152},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":6,"w":148,"h":152},
+	"sourceSize": {"w":160,"h":160}
+},
+"Weapons/LaserBeam.png":
+{
+	"frame": {"x":1050,"y":120,"w":32,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":32,"h":16},
+	"sourceSize": {"w":32,"h":24}
+},
+"Weapons/LaserBurn.png":
+{
+	"frame": {"x":288,"y":580,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Weapons/LaserGear.png":
+{
+	"frame": {"x":1564,"y":404,"w":112,"h":112},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":112,"h":112},
+	"sourceSize": {"w":128,"h":128}
+},
+"Weapons/LaserGun.png":
+{
+	"frame": {"x":1132,"y":750,"w":158,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":2,"w":158,"h":84},
+	"sourceSize": {"w":168,"h":88}
+},
+"Weapons/LaserGunGlow.png":
+{
+	"frame": {"x":306,"y":1942,"w":90,"h":94},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":90,"h":94},
+	"sourceSize": {"w":112,"h":96}
+},
+"Weapons/LaserTrack.png":
+{
+	"frame": {"x":308,"y":248,"w":48,"h":330},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":48,"h":330},
+	"sourceSize": {"w":64,"h":336}
+},
+"Weapons/MissileLauncher.png":
+{
+	"frame": {"x":14,"y":2,"w":356,"h":216},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":14,"w":356,"h":216},
+	"sourceSize": {"w":384,"h":240}
+},
+"Weapons/SmallLight.png":
+{
+	"frame": {"x":2008,"y":114,"w":34,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":34,"h":32},
+	"sourceSize": {"w":35,"h":36}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "GameAtlas_Scale4.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:50cfee8d23102ffb901b45870764c23a$"
+}
+}

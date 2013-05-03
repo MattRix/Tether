@@ -1,0 +1,76 @@
+{"frames": {
+
+"BackgroundStar.png":
+{
+	"frame": {"x":3,"y":1959,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"CloudA.png":
+{
+	"frame": {"x":3,"y":1723,"w":440,"h":232},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":440,"h":232},
+	"sourceSize": {"w":440,"h":232}
+},
+"HillA.png":
+{
+	"frame": {"x":3,"y":863,"w":3000,"h":856},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":168,"w":3000,"h":856},
+	"sourceSize": {"w":3000,"h":1024}
+},
+"HillB.png":
+{
+	"frame": {"x":3,"y":3,"w":3000,"h":856},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":168,"w":3000,"h":856},
+	"sourceSize": {"w":3000,"h":1024}
+},
+"Moon.png":
+{
+	"frame": {"x":3795,"y":3,"w":286,"h":330},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":14,"w":286,"h":330},
+	"sourceSize": {"w":360,"h":360}
+},
+"Sun.png":
+{
+	"frame": {"x":3007,"y":645,"w":332,"h":332},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":14,"w":332,"h":332},
+	"sourceSize": {"w":362,"h":362}
+},
+"TreeA.png":
+{
+	"frame": {"x":3007,"y":3,"w":392,"h":638},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":392,"h":638},
+	"sourceSize": {"w":400,"h":637}
+},
+"TreeB.png":
+{
+	"frame": {"x":3403,"y":3,"w":388,"h":672},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":388,"h":672},
+	"sourceSize": {"w":388,"h":672}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "BackgroundAtlas_Scale4.png",
+	"format": "RGBA8888",
+	"size": {"w":4096,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8c18d01adc17ebed8bb3c9c96cc5c4ea$"
+}
+}

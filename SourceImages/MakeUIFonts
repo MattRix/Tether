@@ -1,0 +1,4 @@
+#! /bin/bash
+#  Generate the background texture atlas and copy the relevant PNGs
+
+TexturePacker UIFonts.tps

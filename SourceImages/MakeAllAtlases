@@ -1,0 +1,7 @@
+#! /bin/bash
+#  Run all atlas generation scripts
+
+./MakeBackgroundAtlas
+./MakeGameAtlas
+./MakeUIAtlas
+./MakeUIFonts

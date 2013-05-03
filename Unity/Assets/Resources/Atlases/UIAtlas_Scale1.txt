@@ -1,0 +1,388 @@
+{"frames": {
+
+"ArrowButton.png":
+{
+	"frame": {"x":215,"y":659,"w":68,"h":66},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":4,"w":68,"h":66},
+	"sourceSize": {"w":72,"h":72}
+},
+"AttackIcon.png":
+{
+	"frame": {"x":473,"y":131,"w":26,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":26,"h":26},
+	"sourceSize": {"w":25,"h":25}
+},
+"BevelButton_Blue_normal.png":
+{
+	"frame": {"x":109,"y":821,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Blue_over.png":
+{
+	"frame": {"x":3,"y":915,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Green_normal.png":
+{
+	"frame": {"x":3,"y":809,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Green_over.png":
+{
+	"frame": {"x":109,"y":715,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Pink_normal.png":
+{
+	"frame": {"x":3,"y":703,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Pink_over.png":
+{
+	"frame": {"x":109,"y":609,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Yellow_normal.png":
+{
+	"frame": {"x":3,"y":597,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"BevelButton_Yellow_over.png":
+{
+	"frame": {"x":163,"y":503,"w":102,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":102,"h":102},
+	"sourceSize": {"w":106,"h":106}
+},
+"Btn_Rounded_Down.png":
+{
+	"frame": {"x":455,"y":537,"w":46,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":46},
+	"sourceSize": {"w":46,"h":46}
+},
+"Btn_Rounded_Up.png":
+{
+	"frame": {"x":455,"y":487,"w":46,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":46},
+	"sourceSize": {"w":46,"h":46}
+},
+"Btn_Temp.png":
+{
+	"frame": {"x":207,"y":61,"w":100,"h":44},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":44},
+	"sourceSize": {"w":100,"h":44}
+},
+"Btn_TempBig.png":
+{
+	"frame": {"x":3,"y":61,"w":200,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":88},
+	"sourceSize": {"w":200,"h":88}
+},
+"BuildButton.png":
+{
+	"frame": {"x":165,"y":191,"w":136,"h":72},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":136,"h":72},
+	"sourceSize": {"w":140,"h":76}
+},
+"BuildPointsLeft.png":
+{
+	"frame": {"x":207,"y":109,"w":84,"h":64},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":4,"w":84,"h":64},
+	"sourceSize": {"w":88,"h":72}
+},
+"Cards/CardBack.png":
+{
+	"frame": {"x":3,"y":153,"w":158,"h":218},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":158,"h":218},
+	"sourceSize": {"w":166,"h":226}
+},
+"Cards/PigCardBG.png":
+{
+	"frame": {"x":295,"y":447,"w":156,"h":218},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":4,"w":156,"h":218},
+	"sourceSize": {"w":166,"h":226}
+},
+"Cards/PigCardCategory.png":
+{
+	"frame": {"x":491,"y":307,"w":18,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":14},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/PigCardIcon.png":
+{
+	"frame": {"x":465,"y":259,"w":22,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":24},
+	"sourceSize": {"w":22,"h":24}
+},
+"Cards/RarityCommon.png":
+{
+	"frame": {"x":165,"y":153,"w":38,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":0,"w":38,"h":16},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/RarityLegendary.png":
+{
+	"frame": {"x":455,"y":447,"w":50,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":16},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/RarityRare.png":
+{
+	"frame": {"x":473,"y":161,"w":26,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":0,"w":26,"h":16},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/RarityUncommon.png":
+{
+	"frame": {"x":455,"y":467,"w":48,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":48,"h":16},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/RarityUnique.png":
+{
+	"frame": {"x":473,"y":93,"w":30,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":0,"w":30,"h":16},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/ShieldCardBG.png":
+{
+	"frame": {"x":311,"y":3,"w":158,"h":218},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":158,"h":218},
+	"sourceSize": {"w":166,"h":226}
+},
+"Cards/ShieldCardCategory.png":
+{
+	"frame": {"x":473,"y":113,"w":30,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":14},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/ShieldCardIcon.png":
+{
+	"frame": {"x":491,"y":281,"w":18,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":22},
+	"sourceSize": {"w":22,"h":24}
+},
+"Cards/SupportCardBG.png":
+{
+	"frame": {"x":3,"y":375,"w":156,"h":218},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":4,"w":156,"h":218},
+	"sourceSize": {"w":166,"h":226}
+},
+"Cards/SupportCardCategory.png":
+{
+	"frame": {"x":165,"y":173,"w":38,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":14},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/SupportCardIcon.png":
+{
+	"frame": {"x":493,"y":253,"w":14,"h":24},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":14,"h":24},
+	"sourceSize": {"w":22,"h":24}
+},
+"Cards/WeaponCardBG.png":
+{
+	"frame": {"x":305,"y":225,"w":156,"h":218},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":4,"w":156,"h":218},
+	"sourceSize": {"w":166,"h":226}
+},
+"Cards/WeaponCardCategory.png":
+{
+	"frame": {"x":473,"y":3,"w":36,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":14},
+	"sourceSize": {"w":50,"h":15}
+},
+"Cards/WeaponCardIcon.png":
+{
+	"frame": {"x":465,"y":287,"w":22,"h":20},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":22,"h":20},
+	"sourceSize": {"w":22,"h":24}
+},
+"DropButton.png":
+{
+	"frame": {"x":163,"y":395,"w":128,"h":62},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":128,"h":62},
+	"sourceSize": {"w":131,"h":66}
+},
+"EndTurnButton.png":
+{
+	"frame": {"x":163,"y":461,"w":108,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":108,"h":38},
+	"sourceSize": {"w":110,"h":42}
+},
+"HammerIcon.png":
+{
+	"frame": {"x":465,"y":233,"w":24,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":22},
+	"sourceSize": {"w":24,"h":21}
+},
+"HoursLeft.png":
+{
+	"frame": {"x":215,"y":609,"w":76,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":14,"w":76,"h":46},
+	"sourceSize": {"w":88,"h":72}
+},
+"MoreInfoButton.png":
+{
+	"frame": {"x":165,"y":331,"w":136,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":136,"h":60},
+	"sourceSize": {"w":140,"h":60}
+},
+"Popup_Bg.png":
+{
+	"frame": {"x":493,"y":233,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"ReDealButton.png":
+{
+	"frame": {"x":165,"y":267,"w":136,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":136,"h":60},
+	"sourceSize": {"w":140,"h":60}
+},
+"RoundedRectLargeRadius.png":
+{
+	"frame": {"x":473,"y":57,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"SnowSiegeLogo.png":
+{
+	"frame": {"x":3,"y":3,"w":304,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":36,"w":304,"h":54},
+	"sourceSize": {"w":375,"h":125}
+},
+"UIWhiteBox.png":
+{
+	"frame": {"x":473,"y":21,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"WrenchIcon.png":
+{
+	"frame": {"x":465,"y":311,"w":20,"h":20},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":20,"h":20},
+	"sourceSize": {"w":24,"h":21}
+},
+"pause.png":
+{
+	"frame": {"x":473,"y":207,"w":24,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":22},
+	"sourceSize": {"w":24,"h":21}
+},
+"pauseDown.png":
+{
+	"frame": {"x":473,"y":181,"w":24,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":24,"h":22},
+	"sourceSize": {"w":24,"h":21}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "UIAtlas_Scale1.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "0.25",
+	"smartupdate": "$TexturePacker:SmartUpdate:138f2e1766b60119c1713684b9ccc750$"
+}
+}

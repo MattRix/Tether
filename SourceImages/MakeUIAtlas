@@ -1,0 +1,4 @@
+#! /bin/bash
+#  Generate the UI texture atlas and copy the relevant PNGs
+
+TexturePacker UIAtlas.tps

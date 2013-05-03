@@ -1,0 +1,36 @@
+{"frames": {
+
+"Cubano136_Scale2.png":
+{
+	"frame": {"x":3,"y":3,"w":506,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":506,"h":396},
+	"sourceSize": {"w":512,"h":512}
+},
+"Cubano_InnerShadow_Scale2.png":
+{
+	"frame": {"x":3,"y":769,"w":246,"h":226},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":246,"h":226},
+	"sourceSize": {"w":256,"h":256}
+},
+"FranchiseFont_Scale2.png":
+{
+	"frame": {"x":3,"y":403,"w":500,"h":362},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":4,"w":500,"h":362},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "UIFonts_Scale2.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:fe06f15f93a337c8aefd4fc8799f30d2$"
+}
+}

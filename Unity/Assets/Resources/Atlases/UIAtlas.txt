@@ -1,0 +1,116 @@
+{"frames": {
+
+"BevelButton_Blue_normal.png":
+{
+	"frame": {"x":1615,"y":415,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Blue_over.png":
+{
+	"frame": {"x":1203,"y":415,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Green_normal.png":
+{
+	"frame": {"x":3,"y":771,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Green_over.png":
+{
+	"frame": {"x":791,"y":415,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Pink_normal.png":
+{
+	"frame": {"x":1631,"y":3,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Pink_over.png":
+{
+	"frame": {"x":1219,"y":3,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Yellow_normal.png":
+{
+	"frame": {"x":3,"y":359,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"BevelButton_Yellow_over.png":
+{
+	"frame": {"x":807,"y":3,"w":408,"h":408},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":408,"h":408},
+	"sourceSize": {"w":424,"h":424}
+},
+"Btn_Rounded_Down.png":
+{
+	"frame": {"x":603,"y":359,"w":184,"h":184},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":184},
+	"sourceSize": {"w":184,"h":184}
+},
+"Btn_Rounded_Up.png":
+{
+	"frame": {"x":415,"y":359,"w":184,"h":184},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":184},
+	"sourceSize": {"w":184,"h":184}
+},
+"Btn_Temp.png":
+{
+	"frame": {"x":3,"y":1183,"w":400,"h":176},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":176},
+	"sourceSize": {"w":400,"h":176}
+},
+"Btn_TempBig.png":
+{
+	"frame": {"x":3,"y":3,"w":800,"h":352},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":352},
+	"sourceSize": {"w":800,"h":352}
+},
+"Popup_Bg.png":
+{
+	"frame": {"x":415,"y":547,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "UIAtlas_png.bytes",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e855d5ddbad1cab5ebe6d360ebafcb5e$"
+}
+}

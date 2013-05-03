@@ -1,0 +1,4 @@
+#! /bin/bash
+#  Generate the Game texture atlas and copy the relevant PNGs
+
+TexturePacker GameAtlas.tps
