@@ -7,7 +7,7 @@ public class GamepadManager
 {
     static public GamepadManager instance;
 
-    private List<Gamepad> _gamepads = new List<Gamepad>();
+    public List<Gamepad> gamepads = new List<Gamepad>();
 
     public static void Init()
     {
@@ -19,23 +19,18 @@ public class GamepadManager
         Update();
     }
 
-    public int GetGamepadCount()
-    {
-        return _gamepads.Count;
-	}
-    
     public Gamepad GetGamepad(int index)
     {
-        if (index < 0 || index >= _gamepads.Count) throw new Exception("Attempt to access gamepad " + index + " failed");
+        if (index < 0 || index >= gamepads.Count) throw new Exception("Attempt to access gamepad " + index + " failed");
         
-        return _gamepads [index];   
+        return gamepads [index];   
 	}
     
     public void Update()
     {
         string[] joystickNames = Input.GetJoystickNames();
 
-        int countDelta = joystickNames.Length - _gamepads.Count;
+        int countDelta = joystickNames.Length - gamepads.Count;
 
         if (countDelta > 0)
         {
@@ -44,7 +39,7 @@ public class GamepadManager
             {
                 countDelta --;
                 Gamepad gamepad = new Gamepad();
-                _gamepads.Add(gamepad);
+                gamepads.Add(gamepad);
             }
         } 
         else if(countDelta < 0)
@@ -54,14 +49,14 @@ public class GamepadManager
             while(countDelta < 0)
             {
                 countDelta++;
-                _gamepads.Pop();
+                gamepads.Pop();
             }
         } 
  
-        for(int g = 0; g<_gamepads.Count; g++)
+        for(int g = 0; g<gamepads.Count; g++)
         {
-            _gamepads[g].index = g;
-            _gamepads[g].Update();
+            gamepads[g].index = g;
+            gamepads[g].Update();
         }
     }
 }
