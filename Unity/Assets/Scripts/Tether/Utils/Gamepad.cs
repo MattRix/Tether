@@ -23,8 +23,8 @@ public class Gamepad
 		axisJoyName = "Joystick " + indexString;
 		buttonJoyName = "joystick " + indexString;
 
-		leftStick = Deadzonize(0.25f, Input.GetAxisRaw(axisJoyName + " X"), Input.GetAxisRaw(axisJoyName + " Y"));
-		rightStick = Deadzonize(0.25f, Input.GetAxisRaw(axisJoyName + " Axis 3"), Input.GetAxisRaw(axisJoyName + " Axis 4"));
+		leftStick = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " X"), Input.GetAxisRaw(axisJoyName + " Y"));
+		rightStick = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " Axis 3"), Input.GetAxisRaw(axisJoyName + " Axis 4"));
         
 //      for (int b = 0; b<PS3ButtonType.allButtons.Count; b++)
 //		{

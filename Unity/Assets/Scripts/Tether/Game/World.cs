@@ -15,6 +15,8 @@ public class World : FContainer
 	public List<Beast> beasts = new List<Beast>();
 	public List<Chain> chains = new List<Chain>();
 
+	public List<Orb> orbs = new List<Orb>();
+
 	public World()
 	{
 		instance = this;

@@ -39,7 +39,8 @@ public class TMain : MonoBehaviour
 		
 		fparams.backgroundColor = RXUtils.GetColorFromHex(0xE7F5FF); //light blue 0x94D7FF or 0x74CBFF
 		
-		fparams.AddResolutionLevel(1280.0f,	1.0f,	1.0f,	""); //1280x720
+		fparams.AddResolutionLevel(1440.0f,	1.0f,	2.0f,	""); //1280x720
+		fparams.AddResolutionLevel(720.0f,	1.0f,	0.5f,	""); //1280x720
 		
 		fparams.origin = new Vector2(0.5f,0.5f);
 		

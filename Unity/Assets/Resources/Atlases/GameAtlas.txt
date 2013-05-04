@@ -2,31 +2,23 @@
 
 "ChainLink.png":
 {
-	"frame": {"x":399,"y":75,"w":50,"h":24},
+	"frame": {"x":3,"y":173,"w":100,"h":50},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":24},
-	"sourceSize": {"w":50,"h":25}
-},
-"GameTree.png":
-{
-	"frame": {"x":3,"y":3,"w":392,"h":638},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":392,"h":638},
-	"sourceSize": {"w":400,"h":637}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":50},
+	"sourceSize": {"w":100,"h":50}
 },
 "Player.png":
 {
-	"frame": {"x":399,"y":3,"w":80,"h":68},
+	"frame": {"x":3,"y":3,"w":186,"h":166},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":18,"w":80,"h":68},
-	"sourceSize": {"w":100,"h":100}
+	"spriteSourceSize": {"x":12,"y":26,"w":186,"h":166},
+	"sourceSize": {"w":200,"h":200}
 },
 "WhiteBox.png":
 {
-	"frame": {"x":453,"y":75,"w":32,"h":32},
+	"frame": {"x":193,"y":3,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
@@ -37,8 +29,8 @@
 	"version": "1.0",
 	"image": "GameAtlas_png.bytes",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":1024},
+	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:52f10ff7a9ba016c7cab2e38fe0c417e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:df55685edd422f5b1b1438b2b0e282c6$"
 }
 }
