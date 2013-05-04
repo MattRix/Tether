@@ -16,6 +16,9 @@ public class World : FContainer
 	public List<Chain> chains = new List<Chain>();
 
 	public List<Orb> orbs = new List<Orb>();
+	public TRandomCollection orbColl;
+
+	public float timeUntilNextOrb = 0;
 
 	public World()
 	{
@@ -27,10 +30,28 @@ public class World : FContainer
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
 
-		CreateBeasts();
+		InitBeasts();
+
+		InitOrbs();
+
+		ListenForUpdate(HandleUpdate);
 	}
 
-	void CreateBeasts()
+	public void Destroy()
+	{
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			beasts[b].Destroy();
+		}
+		
+		for(int c = 0; c<chains.Count; c++)
+		{
+			chains[c].Destroy();
+		}
+	}
+
+
+	void InitBeasts()
 	{
 		List<Player> players = GameManager.instance.activePlayers;
 		float radiansPerPlayer = RXMath.DOUBLE_PI / (float)players.Count;
@@ -66,18 +87,71 @@ public class World : FContainer
 		}
 	}
 
-	public void Destroy()
+	void InitOrbs()
 	{
-		for(int b = 0; b<beasts.Count; b++)
+		orbColl = new TRandomCollection();
+
+		for (int b = 0; b<beasts.Count; b++)
 		{
-			beasts[b].Destroy();
+			orbColl.AddItem(beasts[b],100.0f);
 		}
 
-		for(int c = 0; c<chains.Count; c++)
+		timeUntilNextOrb = RXRandom.Range(7.0f,12.0f);
+	}
+
+	void HandleUpdate()
+	{
+		if (timeUntilNextOrb <= 0)
 		{
-			chains[c].Destroy();
+			CreateOrb();
 		}
 	}
+	
+	void CreateOrb()
+	{
+		Beast beast = orbColl.GetRandomItem() as Beast;
+
+		Vector2 beastPos = beast.GetPos();
+
+		Vector2 createPos = new Vector2();
+
+		float closeDistance = 200.0f;
+		closeDistance *= closeDistance; //for sqrMagnitude compare
+
+		while (true)
+		{
+			float createRadius = RXRandom.Range(0.0f, 300.0f);
+			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
+			createPos.x = Mathf.Cos(angle) * createRadius;
+			createPos.y = Mathf.Cos(angle) * createRadius;
+
+			float sqrDist = (createPos - beastPos).sqrMagnitude;
+
+			if(sqrDist >= closeDistance) //it's far enough away so we can create it
+			{
+				break;
+			}
+			else 
+			{
+				closeDistance -= 2; //this will help it eventually reach a manageable range and prevent an infite loop
+			}
+		}
+
+		Orb orb = Orb.Create(this);
+		orb.Init(beast.player, createPos);
+
+		if (RXRandom.Float() < 0.15f) //similar timing
+		{
+			timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
+		}
+		else
+		{
+			timeUntilNextOrb = RXRandom.Range(7.0f,12.0f);
+		}
+
+	}
+
+
 }
 
 

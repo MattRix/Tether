@@ -2,11 +2,19 @@
 
 "ChainLink.png":
 {
-	"frame": {"x":3,"y":173,"w":100,"h":50},
+	"frame": {"x":3,"y":353,"w":100,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":50},
 	"sourceSize": {"w":100,"h":50}
+},
+"Orb.png":
+{
+	"frame": {"x":3,"y":173,"w":170,"h":176},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":14,"w":170,"h":176},
+	"sourceSize": {"w":200,"h":200}
 },
 "Player.png":
 {
@@ -29,8 +37,8 @@
 	"version": "1.0",
 	"image": "GameAtlas_png.bytes",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":256},
+	"size": {"w":256,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:df55685edd422f5b1b1438b2b0e282c6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1f927ddf85901175789bee1dd4799a7d$"
 }
 }
