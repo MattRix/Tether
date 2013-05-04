@@ -2,15 +2,39 @@
 
 "ChainLink.png":
 {
-	"frame": {"x":3,"y":353,"w":100,"h":50},
+	"frame": {"x":171,"y":183,"w":100,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":50},
 	"sourceSize": {"w":100,"h":50}
 },
+"Debug/Circle.png":
+{
+	"frame": {"x":3,"y":173,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Square.png":
+{
+	"frame": {"x":367,"y":135,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Debug/Triangle.png":
+{
+	"frame": {"x":367,"y":3,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
 "Orb.png":
 {
-	"frame": {"x":3,"y":173,"w":170,"h":176},
+	"frame": {"x":193,"y":3,"w":170,"h":176},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":28,"y":14,"w":170,"h":176},
@@ -26,7 +50,7 @@
 },
 "WhiteBox.png":
 {
-	"frame": {"x":193,"y":3,"w":32,"h":32},
+	"frame": {"x":135,"y":173,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
@@ -37,8 +61,8 @@
 	"version": "1.0",
 	"image": "GameAtlas_png.bytes",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":512},
+	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1f927ddf85901175789bee1dd4799a7d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d8f0f892b1f796c167bc7e3ed01c1686$"
 }
 }
