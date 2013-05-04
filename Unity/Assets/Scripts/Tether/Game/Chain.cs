@@ -4,7 +4,7 @@ using System;
 
 public class Chain
 {
-	public static int LINK_COUNT = 11;
+	public static int LINK_COUNT = 56;
 
 	public World world;
 
@@ -106,6 +106,11 @@ public class ChainLink : MonoBehaviour
 
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS, startPos.y * FPhysics.POINTS_TO_METERS, 0);
 		gameObject.transform.parent = world.root.transform;
+
+		gameObject.layer = 10;
+
+		Physics.IgnoreLayerCollision(0, 10);
+		Physics.IgnoreLayerCollision(10, 10);
 	
 		if (this.previousLink != null)
 		{
@@ -134,6 +139,11 @@ public class ChainLink : MonoBehaviour
 			rb.angularDrag = 1.0f;
 			rb.drag = 0.8f;
 			rb.mass = 1.0f;
+
+			BoxCollider collider = gameObject.AddComponent<BoxCollider>();
+			collider.size = new Vector3(50 * FPhysics.POINTS_TO_METERS,15 * FPhysics.POINTS_TO_METERS,FPhysics.DEFAULT_Z_THICKNESS);
+			
+			//FPDebugRenderer.Create(gameObject, world.effectHolder, 0xFF0000, false);
 		}
 
 		hinge = gameObject.AddComponent<HingeJoint>();

@@ -26,10 +26,10 @@ public class GameManager
 
 	public void Rest()
 	{
-		foreach (Player player in players)
-		{
-			player.Reset();
-		}
+//		foreach (Player player in players)
+//		{
+//			player.Reset();
+//		}
 	}
 }
 

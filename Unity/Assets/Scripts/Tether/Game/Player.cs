@@ -33,16 +33,6 @@ public class Player
 			this.gamepad = GamepadManager.instance.GetGamepad(index);
 		}
 
-		if (this.gamepad != null)
-		{
-			isConnected = true;
-
-			if(GameConfig.IS_DEBUG)
-			{
-				isReady = true;
-			}
-		}
-
 		this.numString = (index + 1).ToString();
 
 		this.color = color;
@@ -53,7 +43,16 @@ public class Player
 	public void Reset()
 	{
 		score = 0;
-		isReady = false;
+
+		if (this.gamepad != null)
+		{
+			isConnected = true;
+			
+			if(GameConfig.IS_DEBUG)
+			{
+				isReady = true;
+			}
+		}
 	}
 
 	public void AddScore()

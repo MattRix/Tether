@@ -31,6 +31,8 @@ public class Orb : MonoBehaviour
 		
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS,startPos.y * FPhysics.POINTS_TO_METERS,0);
 		gameObject.transform.parent = world.root.transform;
+
+		gameObject.layer = 11;
 		
 		link = gameObject.AddComponent<FPNodeLink>();
 		link.Init(holder, true);
@@ -59,8 +61,9 @@ public class Orb : MonoBehaviour
 		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 		rb.angularDrag = 5.0f;
-		rb.mass = 50.0f;
-		rb.drag = 50.0f;
+		rb.mass = 20.0f;
+		rb.drag = 2.0f;
+	
 		//rb.mass = 0.0f;
 		//rb.drag = OrbConfig.DRAG;
 		

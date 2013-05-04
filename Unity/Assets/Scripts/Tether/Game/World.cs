@@ -67,19 +67,22 @@ public class World : FContainer
 			beasts.Add(beast);
 		}
 
-		for(int b = 0; b<beasts.Count; b++)
-		{
-			int firstIndex = b;
-			int secondIndex = (b+1)%beasts.Count;
+//		for(int b = 0; b<beasts.Count; b++)
+//		{
+//			int firstIndex = b;
+//			int secondIndex = (b+1)%beasts.Count;
+//
+//			Chain chain = new Chain(this, beasts[firstIndex], beasts[secondIndex]);
+//			chains.Add(chain);
+//
+//			if(beasts.Count == 2)
+//			{
+//				return;
+//			}
+//		}
 
-			Chain chain = new Chain(this, beasts[firstIndex], beasts[secondIndex]);
-			chains.Add(chain);
-
-			if(beasts.Count == 2)
-			{
-				return;
-			}
-		}
+		chains.Add(new Chain(this, beasts[0], beasts[2]));
+		chains.Add(new Chain(this, beasts[1], beasts[3]));
 
 		for(int b = 0; b<beasts.Count; b++)
 		{
@@ -142,7 +145,7 @@ public class World : FContainer
 		Orb orb = Orb.Create(this);
 		orb.Init(beast.player, createPos);
 
-		timeUntilNextOrb = RXRandom.Range(0.5f,8.0f);
+		timeUntilNextOrb = RXRandom.Range(0.5f,2.0f);
 	}
 
 
