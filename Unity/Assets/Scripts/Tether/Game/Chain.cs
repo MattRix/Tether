@@ -4,7 +4,7 @@ using System;
 
 public class Chain
 {
-	public static int LINK_COUNT = 12;
+	public static int LINK_COUNT = 11;
 
 	public World world;
 

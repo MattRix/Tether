@@ -57,6 +57,7 @@ public class Beast : MonoBehaviour
 		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		rb.angularDrag = 5.0f;
+		rb.mass = 12.0f;
 		//rb.mass = 0.0f;
 		//rb.drag = BeastConfig.DRAG;
 		
@@ -84,7 +85,7 @@ public class Beast : MonoBehaviour
 		
 		Vector2 movementVector = player.isSpecial ? gamepad.rightStick : gamepad.leftStick;
 
-		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime;
+		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime * rigidbody.mass;
 		bodyVelocity += movementVector;
 		
 		rigidbody.AddForce(new Vector3(bodyVelocity.x, bodyVelocity.y, 0.0f), ForceMode.Impulse);
