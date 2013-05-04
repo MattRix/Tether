@@ -137,7 +137,7 @@ public class ChainLink : MonoBehaviour
 			Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 			rb.angularDrag = 1.0f;
-			rb.drag = 1.0f;
+			rb.drag = 0.8f;
 			rb.mass = 1.0f;
 		}
 

@@ -100,9 +100,9 @@ public class Beast : MonoBehaviour
 
 public static class BeastConfig
 {
-	public static float DRAG = 20.0f;
-	public static float MOVE_SPEED = 25.0f;
-	public static float MOVE_FRICTION = 0.85f;
+	public static float DRAG = 15.0f;
+	public static float MOVE_SPEED = 35.0f;
+	public static float MOVE_FRICTION = 0.87f;
 
 	static BeastConfig()
 	{
