@@ -44,10 +44,18 @@ public class World : FContainer
 			beasts.Add(beast);
 		}
 
-		for(int b = 0; b<beasts.Count-1; b++)
+		for(int b = 0; b<beasts.Count; b++)
 		{
-			Chain chain = new Chain(this, beasts[b], beasts[(b+1)%beasts.Count]);
+			int firstIndex = b;
+			int secondIndex = (b+1)%beasts.Count;
+
+			Chain chain = new Chain(this, beasts[firstIndex], beasts[secondIndex]);
 			chains.Add(chain);
+
+			if(beasts.Count == 2)
+			{
+				return;
+			}
 		}
 
 		for(int b = 0; b<beasts.Count; b++)

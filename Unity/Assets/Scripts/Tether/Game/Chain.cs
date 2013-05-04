@@ -42,12 +42,7 @@ public class Chain
 				link = ChainLink.Create(world, null);
 			}
 
-			Debug.Log("c " + c);
-
-			//Vector2 linkPos = startPos + delta * (c+1);
 			Vector2 linkPos = new Vector2(startPos.x + ChainLink.LENGTH * (c), startPos.y);
-
-			Debug.Log("Create at " + linkPos.x);
 
 			link.Init(this, previousLink, linkPos, isLastLink);
 			links.Add(link);

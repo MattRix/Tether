@@ -15,10 +15,21 @@ public class Player
 
 	public Color color;
 
-	public Player(int index, Color color)
+	public bool isSpecial;
+
+	public Player(int index, Color color, bool isSpecial)
 	{
 		this.index = index;
-		this.gamepad = GamepadManager.instance.GetGamepad(index);
+		this.isSpecial = isSpecial;
+
+		if (isSpecial)
+		{
+			this.gamepad = GamepadManager.instance.GetGamepad(index-2);
+		}
+		else
+		{
+			this.gamepad = GamepadManager.instance.GetGamepad(index);
+		}
 
 		if (this.gamepad != null)
 		{
@@ -33,8 +44,6 @@ public class Player
 		this.numString = (index + 1).ToString();
 
 		this.color = color;
-
-
 	}
 }
 

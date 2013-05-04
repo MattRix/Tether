@@ -82,7 +82,8 @@ public class Beast : MonoBehaviour
 		
 		Gamepad gamepad = player.gamepad;
 		
-		Vector2 movementVector = gamepad.leftStick;
+		Vector2 movementVector = player.isSpecial ? gamepad.rightStick : gamepad.leftStick;
+
 		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime;
 		bodyVelocity += movementVector;
 		
