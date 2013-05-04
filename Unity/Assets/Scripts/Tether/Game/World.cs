@@ -49,6 +49,11 @@ public class World : FContainer
 			Chain chain = new Chain(this, beasts[b], beasts[(b+1)%beasts.Count]);
 			chains.Add(chain);
 		}
+
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			beasts[b].holder.MoveToFront();
+		}
 	}
 
 	public void Destroy()

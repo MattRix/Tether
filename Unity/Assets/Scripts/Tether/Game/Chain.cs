@@ -4,7 +4,7 @@ using System;
 
 public class Chain
 {
-	public static int LINK_COUNT = 10;
+	public static int LINK_COUNT = 12;
 
 	public World world;
 
@@ -115,9 +115,7 @@ public class ChainLink : MonoBehaviour
 		if (this.previousLink != null)
 		{
 			sprite = new FSprite("ChainLink");
-			sprite.color = Color.blue;
-			sprite.scale = 1.0f;
-			world.AddChild(sprite);
+			world.entityHolder.AddChild(sprite);
 
 			sprite.ListenForUpdate(HandleUpdate);
 		}
@@ -129,7 +127,7 @@ public class ChainLink : MonoBehaviour
 	{
 		UnityEngine.Object.Destroy(gameObject);
 		
-		world.RemoveChild(sprite);
+		sprite.RemoveFromContainer();
 	}
 	
 	void InitPhysics()
@@ -140,6 +138,7 @@ public class ChainLink : MonoBehaviour
 			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 			rb.angularDrag = 1.0f;
 			rb.drag = 1.0f;
+			rb.mass = 1.0f;
 		}
 
 		hinge = gameObject.AddComponent<HingeJoint>();
@@ -152,6 +151,12 @@ public class ChainLink : MonoBehaviour
 		{
 			hinge.connectedBody = chain.beastA.rigidbody;
 		}
+
+		JointSpring jspring = hinge.spring;
+
+		jspring.spring = 0.1f;
+
+		hinge.spring = jspring;
 
 		hinge.axis = new Vector3(0.0f, 0.0f, 1.0f);
 	}
