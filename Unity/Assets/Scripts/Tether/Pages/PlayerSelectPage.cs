@@ -99,6 +99,7 @@ public class PlayerSelectPage : TPage
 					if (player.gamepad.GetButtonDown(PS3ButtonType.Start))
 					{
 						StartGame();
+						return;
 					}
 				}
 			}
@@ -107,6 +108,21 @@ public class PlayerSelectPage : TPage
 
 	void StartGame()
 	{
+		List<Player> activePlayers = new List<Player>();
+
+		List<Player> players = GameManager.instance.players;
+		
+		for (int p = 0; p<players.Count; p++)
+		{
+			Player player = players [p];
+			
+			if (player.isConnected && player.isReady)
+			{
+				activePlayers.Add(player);
+			}
+		}
+
+		GameManager.instance.SetRoundData(activePlayers);
 		TMain.instance.GoToPage(TPageType.PageInGame);
 	}
 }
