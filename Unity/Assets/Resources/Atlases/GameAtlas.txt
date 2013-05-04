@@ -2,11 +2,11 @@
 
 "ChainLink.png":
 {
-	"frame": {"x":399,"y":3,"w":94,"h":42},
+	"frame": {"x":399,"y":75,"w":50,"h":24},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":4,"w":94,"h":42},
-	"sourceSize": {"w":100,"h":50}
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":24},
+	"sourceSize": {"w":50,"h":25}
 },
 "GameTree.png":
 {
@@ -18,7 +18,7 @@
 },
 "Player.png":
 {
-	"frame": {"x":399,"y":49,"w":80,"h":68},
+	"frame": {"x":399,"y":3,"w":80,"h":68},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":12,"y":18,"w":80,"h":68},
@@ -26,7 +26,7 @@
 },
 "WhiteBox.png":
 {
-	"frame": {"x":399,"y":121,"w":32,"h":32},
+	"frame": {"x":453,"y":75,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
@@ -39,6 +39,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:45992f11decf31787ec846dbc3d33412$"
+	"smartupdate": "$TexturePacker:SmartUpdate:52f10ff7a9ba016c7cab2e38fe0c417e$"
 }
 }

@@ -13,6 +13,7 @@ public class World : FContainer
 	public FContainer effectHolder;
 
 	public List<Beast> beasts = new List<Beast>();
+	public List<Chain> chains = new List<Chain>();
 
 	public World()
 	{
@@ -31,7 +32,8 @@ public class World : FContainer
 	{
 		List<Player> players = GameManager.instance.activePlayers;
 		float radiansPerPlayer = RXMath.DOUBLE_PI / (float)players.Count;
-		float startRadius = 100.0f;
+		float startRadius = 150.0f;
+
 		for (int p = 0; p < players.Count; p++)
 		{
 			Vector2 startPos = new Vector2();
@@ -40,6 +42,25 @@ public class World : FContainer
 			Beast beast = Beast.Create(this);
 			beast.Init(players[p], startPos);
 			beasts.Add(beast);
+		}
+
+		for(int b = 0; b<beasts.Count-1; b++)
+		{
+			Chain chain = new Chain(this, beasts[b], beasts[(b+1)%beasts.Count]);
+			chains.Add(chain);
+		}
+	}
+
+	public void Destroy()
+	{
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			beasts[b].Destroy();
+		}
+
+		for(int c = 0; c<chains.Count; c++)
+		{
+			chains[c].Destroy();
 		}
 	}
 }

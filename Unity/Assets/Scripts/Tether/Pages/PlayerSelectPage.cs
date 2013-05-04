@@ -88,6 +88,12 @@ public class PlayerSelectPage : TPage
 	{
 		if (areAllPlayersReady)
 		{
+			if(GameConfig.IS_DEBUG) 
+			{
+				StartGame();
+				return;
+			}
+
 			List<Player> players = GameManager.instance.players;
         
 			for (int p = 0; p<players.Count; p++)

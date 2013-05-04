@@ -22,14 +22,12 @@ public class Beast : MonoBehaviour
 	public SphereCollider bodyCollider;
 
 	public Vector2 bodyVelocity = new Vector2();
-
-
-
+		
 	public void Init(Player player, Vector2 startPos)
 	{
 		this.player = player;
 
-		world.AddChild(holder = new FContainer());
+		world.entityHolder.AddChild(holder = new FContainer());
 
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS,startPos.y * FPhysics.POINTS_TO_METERS,0);
 		gameObject.transform.parent = world.root.transform;
@@ -44,19 +42,20 @@ public class Beast : MonoBehaviour
 		InitPhysics();
 
 		holder.ListenForUpdate(HandleUpdate);
+		holder.ListenForFixedUpdate(HandleFixedUpdate);
 	}
 
 	public void Destroy()
 	{
 		UnityEngine.Object.Destroy(gameObject);
 		
-		world.RemoveChild(holder);
+		holder.RemoveFromContainer();
 	}
 	
 	void InitPhysics()
 	{
 		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
-		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		rb.angularDrag = 5.0f;
 		//rb.mass = 0.0f;
 		//rb.drag = BeastConfig.DRAG;
@@ -74,8 +73,13 @@ public class Beast : MonoBehaviour
 
 	void HandleUpdate()
 	{
-		rigidbody.drag = BeastConfig.DRAG;
 
+	}
+
+	void HandleFixedUpdate()
+	{
+		rigidbody.drag = BeastConfig.DRAG;
+		
 		Gamepad gamepad = player.gamepad;
 		
 		Vector2 movementVector = gamepad.leftStick;
@@ -83,10 +87,14 @@ public class Beast : MonoBehaviour
 		bodyVelocity += movementVector;
 		
 		rigidbody.AddForce(new Vector3(bodyVelocity.x, bodyVelocity.y, 0.0f), ForceMode.Impulse);
-
+		
 		bodyVelocity *= BeastConfig.MOVE_FRICTION;
 	}
 
+	public Vector2 GetPos()
+	{
+		return new Vector2(transform.position.x * FPhysics.METERS_TO_POINTS, transform.position.y * FPhysics.METERS_TO_POINTS);
+	}
 
 }
 
