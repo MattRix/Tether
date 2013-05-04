@@ -21,7 +21,7 @@ public class GamepadManager
 
     public Gamepad GetGamepad(int index)
     {
-        if (index < 0 || index >= gamepads.Count) throw new Exception("Attempt to access gamepad " + index + " failed");
+		if (index < 0 || index >= gamepads.Count) return null;
         
         return gamepads [index];   
 	}
@@ -39,6 +39,7 @@ public class GamepadManager
             {
                 countDelta --;
                 Gamepad gamepad = new Gamepad();
+				Debug.Log("Adding gamepad " + joystickNames[gamepads.Count]);
                 gamepads.Add(gamepad);
             }
         } 

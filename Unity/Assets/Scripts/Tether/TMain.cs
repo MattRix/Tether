@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public enum TPageType
 {
 	PageNone,
-	PageCharSelect,
+	PagePlayerSelect,
 	PageInGame,
 	PageResults
 }
@@ -67,11 +67,12 @@ public class TMain : MonoBehaviour
 		textParams.kerningOffset = -0.5f;
 		Futile.atlasManager.LoadFont("CubanoBig","Cubano136", "Atlases/Cubano136", 0.0f,2.0f,textParams);
 
-        GamepadManager.Init();
+		GamepadManager.Init();
+		GameManager.Init();
 
         _stage = Futile.stage;
 
-        GoToPage(TPageType.PageCharSelect);
+        GoToPage(TPageType.PagePlayerSelect);
        
 		_stage.ListenForUpdate (HandleUpdate);
 	}
@@ -93,17 +94,17 @@ public class TMain : MonoBehaviour
 		
 		TPage pageToCreate = null;
 		
-		if(pageType == TPageType.PageCharSelect)
+		if(pageType == TPageType.PagePlayerSelect)
 		{
-			pageToCreate = new CharSelectPage();
+			pageToCreate = new PlayerSelectPage();
 		}
 		else if (pageType == TPageType.PageInGame)
 		{
-			pageToCreate = new CharSelectPage();
+			pageToCreate = new InGamePage();
 		}  
         else if (pageType == TPageType.PageResults)
         {
-			pageToCreate = new CharSelectPage();
+			pageToCreate = new PlayerSelectPage();
         }  
 		
 		if(pageToCreate != null) //destroy the old page and create a new one

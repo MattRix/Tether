@@ -26,13 +26,13 @@ public class Gamepad
 		leftStick = Deadzonize(0.25f, Input.GetAxisRaw(axisJoyName + " X"), Input.GetAxisRaw(axisJoyName + " Y"));
 		rightStick = Deadzonize(0.25f, Input.GetAxisRaw(axisJoyName + " Axis 3"), Input.GetAxisRaw(axisJoyName + " Axis 4"));
         
-        for (int b = 0; b<PS3ButtonType.allButtons.Count; b++)
-		{
-        	if(GetButtonDown(PS3ButtonType.allButtons[b]))
-            {
-                Debug.Log("Joystick " +index + " Button " + PS3ButtonType.allButtons[b].name + " Pressed!");
-            }
-		}
+//      for (int b = 0; b<PS3ButtonType.allButtons.Count; b++)
+//		{
+//        	if(GetButtonDown(PS3ButtonType.allButtons[b]))
+//            {
+//                Debug.Log("Joystick " +index + " Button " + PS3ButtonType.allButtons[b].name + " Pressed!");
+//            }
+//		}
     }
     
     static public Vector2 Deadzonize(float deadzone, float axisX, float axisY)
