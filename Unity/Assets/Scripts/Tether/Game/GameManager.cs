@@ -23,6 +23,14 @@ public class GameManager
 	{
 		this.activePlayers = activePlayers;
 	}
+
+	public void Rest()
+	{
+		foreach (Player player in players)
+		{
+			player.Reset();
+		}
+	}
 }
 
 

@@ -17,6 +17,8 @@ public class Player
 
 	public bool isSpecial;
 
+	public int score;
+
 	public Player(int index, Color color, bool isSpecial)
 	{
 		this.index = index;
@@ -44,6 +46,19 @@ public class Player
 		this.numString = (index + 1).ToString();
 
 		this.color = color;
+
+		Reset();
+	}
+
+	public void Reset()
+	{
+		score = 0;
+		isReady = false;
+	}
+
+	public void AddScore()
+	{
+		score++;
 	}
 }
 

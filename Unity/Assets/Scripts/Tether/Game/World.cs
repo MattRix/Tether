@@ -96,11 +96,13 @@ public class World : FContainer
 			orbColl.AddItem(beasts[b],100.0f);
 		}
 
-		timeUntilNextOrb = RXRandom.Range(7.0f,12.0f);
+		timeUntilNextOrb = RXRandom.Range(3.0f,4.0f);
 	}
 
 	void HandleUpdate()
 	{
+		timeUntilNextOrb -= Time.deltaTime;
+
 		if (timeUntilNextOrb <= 0)
 		{
 			CreateOrb();
@@ -122,8 +124,8 @@ public class World : FContainer
 		{
 			float createRadius = RXRandom.Range(0.0f, 300.0f);
 			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
-			createPos.x = Mathf.Cos(angle) * createRadius;
-			createPos.y = Mathf.Cos(angle) * createRadius;
+			createPos.x = Mathf.Cos(angle) * createRadius * 1.5f; //elliptical
+			createPos.y = Mathf.Sin(angle) * createRadius;
 
 			float sqrDist = (createPos - beastPos).sqrMagnitude;
 
@@ -140,15 +142,7 @@ public class World : FContainer
 		Orb orb = Orb.Create(this);
 		orb.Init(beast.player, createPos);
 
-		if (RXRandom.Float() < 0.15f) //similar timing
-		{
-			timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
-		}
-		else
-		{
-			timeUntilNextOrb = RXRandom.Range(7.0f,12.0f);
-		}
-
+		timeUntilNextOrb = RXRandom.Range(0.5f,8.0f);
 	}
 
 

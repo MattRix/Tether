@@ -20,6 +20,8 @@ public class Orb : MonoBehaviour
 	public FPNodeLink link;
 	public FSprite sprite;
 	public SphereCollider sphereCollider;
+
+	public float lifetime = 7.0f;
 	
 	public void Init(Player player, Vector2 startPos)
 	{
@@ -45,6 +47,8 @@ public class Orb : MonoBehaviour
 	
 	public void Destroy()
 	{
+		world.orbs.Remove(this);
+
 		UnityEngine.Object.Destroy(gameObject);
 		
 		holder.RemoveFromContainer();
@@ -73,7 +77,24 @@ public class Orb : MonoBehaviour
 	
 	void HandleUpdate()
 	{
-		
+		lifetime -= Time.deltaTime;
+
+		if (lifetime < 3.0f)
+		{
+			if(Time.frameCount % 10 < 5)
+			{
+				holder.isVisible = false;
+			}
+			else 
+			{
+				holder.isVisible = true;
+			}
+		}
+
+		if(lifetime <= 0)
+		{
+			Destroy();
+		}
 	}
 	
 	void HandleFixedUpdate()

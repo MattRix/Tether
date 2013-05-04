@@ -72,6 +72,20 @@ public class Beast : MonoBehaviour
 		collider.material = mat;
 	}
 
+	void OnCollisionEnter(Collision coll)
+	{
+		Beast beast = coll.collider.gameObject.GetComponent<Beast>();
+
+		if (beast != null)
+		{
+			if(beast.player == this.player)
+			{
+				beast.player.AddScore();
+				Destroy();
+			}
+		}
+	}
+
 	void HandleUpdate()
 	{
 
