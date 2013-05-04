@@ -1,5 +1,13 @@
 {"frames": {
 
+"ChainLink.png":
+{
+	"frame": {"x":399,"y":3,"w":94,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":4,"w":94,"h":42},
+	"sourceSize": {"w":100,"h":50}
+},
 "GameTree.png":
 {
 	"frame": {"x":3,"y":3,"w":392,"h":638},
@@ -7,6 +15,22 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":392,"h":638},
 	"sourceSize": {"w":400,"h":637}
+},
+"Player.png":
+{
+	"frame": {"x":399,"y":49,"w":80,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":18,"w":80,"h":68},
+	"sourceSize": {"w":100,"h":100}
+},
+"WhiteBox.png":
+{
+	"frame": {"x":399,"y":121,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
 }},
 "meta": {
 	"app": "http://www.texturepacker.com",
@@ -15,6 +39,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:aa398bac22273f3374579b801452aa05$"
+	"smartupdate": "$TexturePacker:SmartUpdate:45992f11decf31787ec846dbc3d33412$"
 }
 }

@@ -6,6 +6,7 @@ public class World : FContainer
 {
 	public static World instance;
 
+	public FPWorld root;
 
 	public FContainer backgroundHolder;
 	public FContainer entityHolder;
@@ -16,6 +17,8 @@ public class World : FContainer
 	public World()
 	{
 		instance = this;
+
+		root = FPWorld.Create(64.0f);
 
 		AddChild(backgroundHolder = new FContainer());
 		AddChild(entityHolder = new FContainer());

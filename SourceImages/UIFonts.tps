@@ -22,7 +22,7 @@
         <key>dataFormat</key>
         <string>unity</string>
         <key>textureFileName</key>
-        <filename>../Unity/Assets/Resources/Atlases/BackgroundAtlas_png.bytes</filename>
+        <filename>../Unity/Assets/Resources/Atlases/UIFonts_png.bytes</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -111,7 +111,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>../Unity/Assets/Resources/Atlases/BackgroundAtlas.txt</filename>
+        <filename>../Unity/Assets/Resources/Atlases/UIFonts.txt</filename>
         <key>mainExtension</key>
         <string></string>
         <key>forceIdenticalLayout</key>
@@ -146,7 +146,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>BackgroundImages</filename>
+            <filename>UIFonts</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
