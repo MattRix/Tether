@@ -74,14 +74,14 @@ public class Beast : MonoBehaviour
 
 	void OnCollisionEnter(Collision coll)
 	{
-		Beast beast = coll.collider.gameObject.GetComponent<Beast>();
+		Orb orb = coll.collider.gameObject.GetComponent<Orb>();
 
-		if (beast != null)
+		if (orb != null)
 		{
-			if(beast.player == this.player)
+			if(orb.player == this.player)
 			{
-				beast.player.AddScore();
-				Destroy();
+				orb.player.AddScore();
+				orb.Destroy();
 			}
 		}
 	}

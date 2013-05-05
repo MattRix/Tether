@@ -11,6 +11,7 @@ public class World : FContainer
 	public FContainer backgroundHolder;
 	public FContainer entityHolder;
 	public FContainer effectHolder;
+	public FContainer uiHolder;
 
 	public List<Beast> beasts = new List<Beast>();
 	public List<Chain> chains = new List<Chain>();
@@ -19,6 +20,8 @@ public class World : FContainer
 	public TRandomCollection orbColl;
 
 	public float timeUntilNextOrb = 0;
+
+	public FStage uiStage;
 
 	public World()
 	{
@@ -30,9 +33,16 @@ public class World : FContainer
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
 
+		uiStage = new FStage("UIStage");
+		Futile.AddStage(uiStage);
+
+		uiStage.AddChild(uiHolder = new FContainer());
+
 		InitBeasts();
 
 		InitOrbs();
+
+		InitUI();
 
 		ListenForUpdate(HandleUpdate);
 	}
@@ -48,6 +58,8 @@ public class World : FContainer
 		{
 			chains[c].Destroy();
 		}
+
+		Futile.RemoveStage(uiStage);
 	}
 
 
@@ -99,6 +111,29 @@ public class World : FContainer
 		timeUntilNextOrb = RXRandom.Range(3.0f,4.0f);
 	}
 
+	void InitUI()
+	{
+		float spreadX = 100.0f;
+		float spreadY = 100.0f;
+
+		CreateBeastPanel(0, new Vector2(-spreadX,spreadY));
+		CreateBeastPanel(1, new Vector2(spreadX,spreadY));
+		CreateBeastPanel(2, new Vector2(-spreadX,-spreadY));
+		CreateBeastPanel(3, new Vector2(spreadX,-spreadY));
+	}
+
+	void CreateBeastPanel(int index, Vector2 pos)
+	{
+		if (index > beasts.Count - 1) return;
+
+		Beast beast = beasts [index];
+
+		BeastPanel panel = new BeastPanel(beast);
+		panel.SetPosition(pos);
+
+		uiHolder.AddChild(panel);
+	}
+
 	void HandleUpdate()
 	{
 		timeUntilNextOrb -= Time.deltaTime;
@@ -142,7 +177,7 @@ public class World : FContainer
 		Orb orb = Orb.Create(this);
 		orb.Init(beast.player, createPos);
 
-		timeUntilNextOrb = RXRandom.Range(0.5f,8.0f);
+		timeUntilNextOrb = RXRandom.Range(0.5f,4.0f);
 	}
 
 

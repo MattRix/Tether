@@ -59,8 +59,8 @@ public class Orb : MonoBehaviour
 		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 		rb.angularDrag = 5.0f;
-		rb.mass = 50.0f;
-		rb.drag = 50.0f;
+		rb.mass = 5.0f;
+		rb.drag = 1.0f;
 		//rb.mass = 0.0f;
 		//rb.drag = OrbConfig.DRAG;
 		

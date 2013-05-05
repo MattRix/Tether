@@ -19,10 +19,14 @@ public class Player
 
 	public int score;
 
+	public event Action SignalPlayerChange;
+
 	public Player(int index, Color color, bool isSpecial)
 	{
 		this.index = index;
 		this.isSpecial = isSpecial;
+
+		if (!GameConfig.SHOULD_SIMULATE_FOUR_PLAYER) isSpecial = false;
 
 		if (isSpecial)
 		{
@@ -33,19 +37,19 @@ public class Player
 			this.gamepad = GamepadManager.instance.GetGamepad(index);
 		}
 
+		this.numString = (index + 1).ToString();
+
+		this.color = color;
+
 		if (this.gamepad != null)
 		{
 			isConnected = true;
-
+			
 			if(GameConfig.IS_DEBUG)
 			{
 				isReady = true;
 			}
 		}
-
-		this.numString = (index + 1).ToString();
-
-		this.color = color;
 
 		Reset();
 	}
@@ -53,12 +57,13 @@ public class Player
 	public void Reset()
 	{
 		score = 0;
-		isReady = false;
 	}
 
 	public void AddScore()
 	{
 		score++;
+
+		if (SignalPlayerChange != null) SignalPlayerChange();
 	}
 }
 
