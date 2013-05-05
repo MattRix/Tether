@@ -19,6 +19,8 @@ public class TMain : MonoBehaviour
 	private TPage _currentPage = null;
 	
 	private FStage _stage;
+
+	private Background _background;
 	
 	private void Start()
 	{
@@ -73,9 +75,13 @@ public class TMain : MonoBehaviour
 
         _stage = Futile.stage;
 
+		_stage.AddChild(_background = new Background());
+
         GoToPage(TPageType.PagePlayerSelect);
        
 		_stage.ListenForUpdate (HandleUpdate);
+
+		FSoundManager.isMuted = !GameConfig.IS_SOUND_ON;
 	}
 
 	void HandleUpdate ()

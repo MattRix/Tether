@@ -90,7 +90,7 @@ public class PlayerSelectPage : TPage
 	{
 		if (areAllPlayersReady)
 		{
-			if(GameConfig.IS_DEBUG) 
+			if(GameConfig.SHOULD_SKIP_CHAR_SELECT) 
 			{
 				StartGame();
 				return;
@@ -197,7 +197,7 @@ public class PlayerSelectPanel : FContainer
 			if(player.isReady)
 			{
 				readyLabel.text = "READY!";
-				readyLabel.color = RXColor.GetColorFromHex(0x66FF66);
+				readyLabel.color = RXColor.GetColorFromHex(0xFFFFFF);
 			}
 			else 
 			{

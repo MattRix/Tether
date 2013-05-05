@@ -132,7 +132,7 @@ public class Beast : MonoBehaviour
 	{
 		Vector2 eyeCenter = new Vector2(3.0f, 19.0f);
 
-		if (RXRandom.Float() < 0.01f)
+		if (RXRandom.Float() < 0.02f)
 		{
 			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
 			float dist = RXRandom.Range(0.0f,9.0f);

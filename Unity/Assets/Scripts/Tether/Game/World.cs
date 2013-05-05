@@ -38,12 +38,9 @@ public class World : FContainer
 
 		root = FPWorld.Create(64.0f);
 
-		AddChild(backgroundHolder = new FContainer());
 		AddChild(tentacleHolder = new FContainer());
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
-
-		backgroundHolder.AddChild(new FSprite("background"));
 
 		tentacleHolder.AddChild(backParticles = new FParticleSystem(100));
 		//backParticles.shader = FShader.Additive;
@@ -219,20 +216,27 @@ public class World : FContainer
 			{
 				if (beasts [b].player.gamepad.GetButtonDown(PS3ButtonType.Start))
 				{
+					GameConfig.SHOULD_SKIP_CHAR_SELECT = true;
 					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
 					break;
 				}
 			}
-			else
+			else 
 			{
-				//if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
-				if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start))
+				if (beasts [b].player.gamepad.GetButtonDown(PS3ButtonType.Start))
 				{
-					GameConfig.IS_DEBUG = false;
-					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
-					break;
+					TogglePause();
 				}
 			}
+
+			//if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
+			if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
+			{
+				GameConfig.SHOULD_SKIP_CHAR_SELECT = false;
+				TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+				break;
+			}
+		
 		}
 
 		if (!isGameOver)
@@ -243,10 +247,15 @@ public class World : FContainer
 			{
 				if(beasts[b].player.score == GameConfig.WIN_SCORE-1)
 				{
-					if(Time.frameCount % 75 == 0)
-					{
-						FSoundManager.PlaySound("alarm",0.6f);
-					}
+					isOneCloseToWinning = true;
+				}
+			}
+
+			if(isOneCloseToWinning)
+			{
+				if(Time.frameCount % 75 == 0)
+				{
+					FSoundManager.PlaySound("alarm",0.6f);
 				}
 			}
 		}
@@ -292,6 +301,17 @@ public class World : FContainer
 	}
 
 
+	void TogglePause()
+	{
+		if (Time.timeScale <= 0.1f)
+		{
+			Time.timeScale = 1.0f;
+		}
+		else
+		{
+			Time.timeScale = 0.001f;
+		}
+	}
 }
 
 
