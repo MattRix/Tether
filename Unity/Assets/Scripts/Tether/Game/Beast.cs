@@ -112,7 +112,7 @@ public class Beast : MonoBehaviour
 					orb.player.AddScore();
 					FSoundManager.PlaySound("pickUpOrb");
 				}
-				orb.Destroy();
+				orb.Explode(true);
 			}
 			else //hit enemy orb
 			{

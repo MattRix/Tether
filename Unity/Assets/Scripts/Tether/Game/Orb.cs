@@ -22,23 +22,37 @@ public class Orb : MonoBehaviour
 	public SphereCollider sphereCollider;
 
 	public float lifetime = 7.0f;
+
+	public int frameIndex = 0;
+	public FAtlasElement[] frames;
+
+	public float scale = 0.5f;
 	
 	public void Init(Player player, Vector2 startPos)
 	{
 		this.player = player;
 		
-		world.entityHolder.AddChild(holder = new FContainer());
+		world.effectHolder.AddChild(holder = new FContainer());
 		
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS,startPos.y * FPhysics.POINTS_TO_METERS,0);
 		gameObject.transform.parent = world.root.transform;
 		
 		link = gameObject.AddComponent<FPNodeLink>();
 		link.Init(holder, true);
-		
-		sprite = new FSprite("Orb");
+
+
+
+		frames = new FAtlasElement[11];
+
+		for (int f = 0; f<frames.Length; f++)
+		{
+			frames[f] = Futile.atlasManager.GetElementWithName("orb"+f.ToString("00"));
+		}
+
+		sprite = new FSprite(frames[0].name);
 		holder.AddChild(sprite);
 		sprite.color = player.color;
-		sprite.scale = 1.0f;
+		sprite.scale = scale;
 		
 		InitPhysics();
 		
@@ -68,7 +82,7 @@ public class Orb : MonoBehaviour
 		//rb.drag = OrbConfig.DRAG;
 		
 		sphereCollider = gameObject.AddComponent<SphereCollider>();
-		sphereCollider.radius = 35.0f * sprite.scale * FPhysics.POINTS_TO_METERS;
+		sphereCollider.radius = 50.0f * scale * FPhysics.POINTS_TO_METERS;
 		
 		PhysicMaterial mat = new PhysicMaterial();
 		mat.bounciness = 0.3f;
@@ -91,32 +105,42 @@ public class Orb : MonoBehaviour
 
 		if (wall != null)
 		{
-			FSoundManager.PlaySound("BombSmall");
-			Debug.Log("DO EXPLOSION");
-			Destroy();
+			Explode(false);
 		}
+	}
+
+	public void Explode(bool isGood)
+	{
+		FSoundManager.PlaySound("BombSmall");
+		OrbExplosion explosion = new OrbExplosion(isGood, player);
+		explosion.SetPosition(this.GetPos());
+		world.effectHolder.AddChild(explosion);
+		Destroy();
 	}
 	
 	void HandleUpdate()
 	{
+		int frameRate = 2;
+		
+		if (Time.frameCount % frameRate == 0)
+		{
+			frameIndex++;
+			sprite.element = frames[frameIndex%frames.Length];
+		}
+
 		lifetime -= Time.deltaTime;
 
-		if (lifetime < 3.0f)
+		if (lifetime <= 2.0f)
 		{
-			if(Time.frameCount % 6 < 3)
-			{
-				holder.isVisible = false;
-			}
-			else 
-			{
-				holder.isVisible = true;
-			}
+			sprite.isVisible = (Time.frameCount % 14 < 7);
 		}
 
 		if(lifetime <= 0)
 		{
-			Destroy();
+			Explode(false);
 		}
+
+		
 	}
 	
 	void HandleFixedUpdate()
