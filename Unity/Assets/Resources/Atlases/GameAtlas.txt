@@ -2,10 +2,10 @@
 
 "ChainLink.png":
 {
-	"frame": {"x":407,"y":725,"w":98,"h":46},
+	"frame": {"x":687,"y":1741,"w":100,"h":50},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":2,"w":98,"h":46},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":50},
 	"sourceSize": {"w":100,"h":50}
 },
 "Debug/Circle.png":
@@ -479,6 +479,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:29ce5c33786f90fbea8c2a4b7fe4e86a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d7667c37fc1bffe2a7cee126ae78052f$"
 }
 }

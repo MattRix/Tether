@@ -20,7 +20,7 @@ public class PlayerSelectPage : TPage
 		FSoundManager.StopMusic();
 
 		FSprite logo = new FSprite("TetherLogo");
-		logo.y = 275.0f;
+		logo.y = 270.0f;
 		AddChild(logo);
 
 //		FLabel titleLabel = new FLabel("CubanoBig", "TETHER");
@@ -29,7 +29,7 @@ public class PlayerSelectPage : TPage
 
 		allReadyLabel = new FLabel("CubanoBig", "");
 		AddChild(allReadyLabel);
-		allReadyLabel.y = 195;
+		allReadyLabel.y = 190;
 		allReadyLabel.scale = 0.75f;
 
 		float spreadX = 280;

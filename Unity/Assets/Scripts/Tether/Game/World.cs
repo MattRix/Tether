@@ -124,19 +124,24 @@ public class World : FContainer
 			beast.player.SignalPlayerChange += HandleSignalPlayerChange;
 		}
 
-		for(int b = 0; b<beasts.Count; b++)
+		if (beasts.Count == 2)
 		{
-			int firstIndex = b;
-			int secondIndex = (b+1)%beasts.Count;
-
-			Chain chain = new Chain(this, beasts[firstIndex], beasts[secondIndex]);
-			chains.Add(chain);
-
-			if(beasts.Count == 2)
-			{
-				break;
-			}
+			chains.Add(new Chain(this, beasts[0], beasts[1]));
 		}
+		else if (beasts.Count == 3)
+		{
+			chains.Add(new Chain(this, beasts[0], beasts[1]));
+			chains.Add(new Chain(this, beasts[1], beasts[2]));
+			chains.Add(new Chain(this, beasts[2], beasts[0]));
+		}
+		else if (beasts.Count == 4)
+		{
+			chains.Add(new Chain(this, beasts[0], beasts[1]));
+			chains.Add(new Chain(this, beasts[1], beasts[2]));
+			chains.Add(new Chain(this, beasts[2], beasts[3]));
+			chains.Add(new Chain(this, beasts[3], beasts[0]));
+		}
+
 
 		for(int b = 0; b<beasts.Count; b++)
 		{
@@ -218,8 +223,15 @@ public class World : FContainer
 
 		pauseContainer.AddChild(blackSprite);
 
-		FLabel pauseLabel = new FLabel("Franchise", "PAUSED!");
+		FLabel pauseLabel = new FLabel("Franchise", "PAUSED");
+		pauseLabel.y = 16.0f;
 		pauseContainer.AddChild(pauseLabel);
+
+		FLabel changeLabel = new FLabel("Franchise", "(PRESS SELECT TO CHANGE PLAYERS)");
+		changeLabel.alpha = 0.7f;
+		changeLabel.scale = 0.5f;
+		changeLabel.y = -36.0f;
+		pauseContainer.AddChild(changeLabel);
 	}
 
 	void CreateBeastPanel(int index, Vector2 pos)
@@ -326,7 +338,7 @@ public class World : FContainer
 
 		Vector2 createPos = new Vector2();
 
-		float closeDistance = 200.0f;
+		float closeDistance = 250.0f;
 		closeDistance *= closeDistance; //for sqrMagnitude compare
 
 		while (true)
@@ -344,7 +356,7 @@ public class World : FContainer
 			}
 			else 
 			{
-				closeDistance -= 2; //this will help it eventually reach a manageable range and prevent an infite loop
+				closeDistance -= 1; //this will help it eventually reach a manageable range and prevent an infite loop
 			}
 		}
 

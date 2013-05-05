@@ -21,12 +21,12 @@ public class Orb : MonoBehaviour
 	public FSprite sprite;
 	public SphereCollider sphereCollider;
 
-	public float lifetime = 7.0f;
+	public float lifetime = 6.0f;
 
 	public int frameIndex = 0;
 	public FAtlasElement[] frames;
 
-	public float scale = 0.5f;
+	public float scale = 0.333f;
 
 	public FParticleDefinition pd;
 	
