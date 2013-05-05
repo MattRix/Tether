@@ -26,7 +26,7 @@ public class TMain : MonoBehaviour
 		
 		Go.defaultEaseType = EaseType.Linear;
 		Go.duplicatePropertyRule = DuplicatePropertyRuleType.RemoveRunningProperty;
-		
+
 		//Time.timeScale = 0.1f;
 		
 		bool landscape = true;

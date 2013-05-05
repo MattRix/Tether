@@ -110,9 +110,21 @@ public class Beast : MonoBehaviour
 				if(!world.isGameOver)
 				{
 					orb.player.AddScore();
+					FSoundManager.PlaySound("pickUpOrb");
 				}
 				orb.Destroy();
 			}
+			else //hit enemy orb
+			{
+				FSoundManager.PlaySound("SnowAttack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.5f);
+			}
+		}
+
+		Beast beast = coll.collider.gameObject.GetComponent<Beast>();
+
+		if (beast != null)
+		{
+			FSoundManager.PlaySound("SnowAttack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.2f);
 		}
 	}
 

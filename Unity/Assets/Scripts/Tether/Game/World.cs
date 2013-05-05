@@ -144,6 +144,9 @@ public class World : FContainer
 	{
 		if (isGameOver) return; //it's already over
 
+		FSoundManager.PlaySound("win");
+		FSoundManager.StopMusic();
+
 		isGameOver = true;
 
 		FContainer gameOverHolder = new FContainer();
@@ -232,6 +235,21 @@ public class World : FContainer
 			}
 		}
 
+		if (!isGameOver)
+		{
+			bool isOneCloseToWinning = false;
+
+			for (int b = 0; b<beasts.Count; b++)
+			{
+				if(beasts[b].player.score == GameConfig.WIN_SCORE-1)
+				{
+					if(Time.frameCount % 75 == 0)
+					{
+						FSoundManager.PlaySound("alarm",0.6f);
+					}
+				}
+			}
+		}
 
 	}
 	

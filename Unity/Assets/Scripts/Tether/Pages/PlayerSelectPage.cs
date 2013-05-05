@@ -17,6 +17,8 @@ public class PlayerSelectPage : TPage
 	
 	override public void Start()
 	{
+		FSoundManager.StopMusic();
+
 		FLabel titleLabel = new FLabel("CubanoBig", "TETHER");
 		AddChild(titleLabel);
 		titleLabel.y = 300;
@@ -173,6 +175,15 @@ public class PlayerSelectPanel : FContainer
 				player.isReady = !player.isReady;
 				UpdateState();
 				background.scale = 1.1f;
+
+				if(player.isReady)
+				{
+					FSoundManager.PlaySound("tone");
+				}
+				else 
+				{
+					FSoundManager.PlaySound("click4");
+				}
 			}
 		}
 

@@ -44,6 +44,8 @@ public class Orb : MonoBehaviour
 		
 		holder.ListenForUpdate(HandleUpdate);
 		holder.ListenForFixedUpdate(HandleFixedUpdate);
+
+		FSoundManager.PlaySound("orbAppears");
 	}
 	
 	public void Destroy()

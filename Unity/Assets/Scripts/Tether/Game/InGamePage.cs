@@ -13,6 +13,9 @@ public class InGamePage : TPage
 	
 	override public void Start()
 	{
+		//FSoundManager.PlaySound("turbo");
+		FSoundManager.PlayMusic("NO_DROP_VERSION", 0.8f);
+
 		this.world = new World();
 		AddChild(world);
 	}
