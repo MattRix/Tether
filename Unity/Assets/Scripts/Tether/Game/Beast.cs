@@ -43,10 +43,10 @@ public class Beast : MonoBehaviour
 		bodyLink = gameObject.AddComponent<FPNodeLink>();
 		bodyLink.Init(holder, false);
 
-		bodySprite = new FSprite("Eye/Evil-Eye_"+player.numString+"_01");
+		bodySprite = new FSprite("Evil-Eye_"+player.numString+"_01");
 		holder.AddChild(bodySprite);
 
-		eyeSprite = new FSprite("Eye/Eye_" + player.numString);
+		eyeSprite = new FSprite("Eye_" + player.numString);
 		eyeSprite.scale = 0.33f;
 		holder.AddChild(eyeSprite);
 		//holder.alpha = 0.25f;
@@ -135,8 +135,8 @@ public class Beast : MonoBehaviour
 		if (RXRandom.Float() < 0.02f)
 		{
 			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
-			float dist = RXRandom.Range(0.0f,9.0f);
-			eyeTarget = eyeCenter += new Vector2(Mathf.Cos(angle)*dist, Mathf.Sin(angle)*dist);
+			float dist = RXRandom.Range(0.0f,8.0f);
+			eyeTarget = eyeCenter += new Vector2(Mathf.Cos(angle)*dist * 1.3f, Mathf.Sin(angle)*dist);
 		}
 
 		eyeSprite.x += (eyeTarget.x - eyeSprite.x) / 10.0f;

@@ -30,6 +30,10 @@ public class World : FContainer
 
 	public FParticleSystem backParticles;
 
+	public Walls walls;
+
+	public FContainer pauseContainer;
+
 	public World()
 	{
 		instance = this;
@@ -56,6 +60,8 @@ public class World : FContainer
 
 		InitUI();
 
+		walls = new Walls(this);
+
 		ListenForUpdate(HandleUpdate);
 
 		Input.ResetInputAxes();
@@ -63,6 +69,8 @@ public class World : FContainer
 
 	public void Destroy()
 	{
+		walls.Destroy();
+
 		for(int b = 0; b<beasts.Count; b++)
 		{
 			beasts[b].Destroy();
@@ -80,6 +88,8 @@ public class World : FContainer
 		UnityEngine.Object.Destroy(root.gameObject);
 
 		Input.ResetInputAxes();
+
+		Time.timeScale = 1.0f;
 
 		//GamepadManager.Init();
 		//GameManager.Init();
@@ -187,6 +197,19 @@ public class World : FContainer
 		CreateBeastPanel(1, new Vector2(0,baseY-spacing*1));
 		CreateBeastPanel(2, new Vector2(0,baseY-spacing*2));
 		CreateBeastPanel(3, new Vector2(0,baseY-spacing*3));
+
+		pauseContainer = new FContainer();
+
+		FSprite blackSprite = new FSprite("WhiteBox");
+		blackSprite.color = Color.black;
+		blackSprite.alpha = 0.5f;
+		blackSprite.width = Futile.screen.width;
+		blackSprite.height = Futile.screen.height;
+
+		pauseContainer.AddChild(blackSprite);
+
+		FLabel pauseLabel = new FLabel("Franchise", "PAUSED!");
+		pauseContainer.AddChild(pauseLabel);
 	}
 
 	void CreateBeastPanel(int index, Vector2 pos)
@@ -297,7 +320,19 @@ public class World : FContainer
 		Orb orb = Orb.Create(this);
 		orb.Init(beast.player, createPos);
 
-		timeUntilNextOrb = RXRandom.Range(0.5f,4.0f);
+		if (beasts.Count == 2)
+		{
+			timeUntilNextOrb = RXRandom.Range(0.5f,3.5f);
+		}
+		else if (beasts.Count == 3)
+		{
+			timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
+		}
+		else if (beasts.Count == 4)
+		{
+			timeUntilNextOrb = RXRandom.Range(0.5f,2.5f);
+		}
+
 	}
 
 
@@ -306,10 +341,12 @@ public class World : FContainer
 		if (Time.timeScale <= 0.1f)
 		{
 			Time.timeScale = 1.0f;
+			pauseContainer.RemoveFromContainer();
 		}
 		else
 		{
 			Time.timeScale = 0.001f;
+			AddChild(pauseContainer);
 		}
 	}
 }

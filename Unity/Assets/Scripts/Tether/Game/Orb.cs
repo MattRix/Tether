@@ -62,8 +62,8 @@ public class Orb : MonoBehaviour
 		Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 		rb.angularDrag = 5.0f;
-		rb.mass = 5.0f;
-		rb.drag = 0.0f;
+		rb.mass = 10.0f;
+		rb.drag = 0.8f;
 		//rb.mass = 0.0f;
 		//rb.drag = OrbConfig.DRAG;
 		
@@ -77,10 +77,24 @@ public class Orb : MonoBehaviour
 		mat.frictionCombine = PhysicMaterialCombine.Maximum;
 		collider.material = mat;
 
-		float speed = 15.0f;
+		float speed = 30.0f;
 		float angle = RXRandom.Range(0, RXMath.DOUBLE_PI);
 		Vector2 startVector = new Vector2(Mathf.Cos(angle)*speed, Mathf.Sin(angle)*speed);
 		rb.velocity = startVector.ToVector3InMeters();
+	}
+
+	void OnCollisionEnter(Collision coll)
+	{
+		FPPolygonalCollider wall = coll.gameObject.GetComponent<FPPolygonalCollider>();
+
+		//Debug.Log(collider.gameObject.name + " hit orb ");
+
+		if (wall != null)
+		{
+			FSoundManager.PlaySound("BombSmall");
+			Debug.Log("DO EXPLOSION");
+			Destroy();
+		}
 	}
 	
 	void HandleUpdate()
