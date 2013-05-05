@@ -26,9 +26,10 @@ public class Player
 	{
 		this.index = index;
 		this.name = name;
-		this.isSpecial = isSpecial;
 
 		if (!GameConfig.SHOULD_SIMULATE_FOUR_PLAYER) isSpecial = false;
+
+		this.isSpecial = isSpecial;
 
 		if (isSpecial)
 		{
@@ -47,6 +48,11 @@ public class Player
 		{
 			isConnected = true;
 			isReady = true;
+
+			if (index >= 2)
+			{
+				isReady = false;
+			}
 		}
 
 		Reset();

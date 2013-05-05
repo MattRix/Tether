@@ -60,6 +60,8 @@ public class World : FContainer
 		InitUI();
 
 		ListenForUpdate(HandleUpdate);
+
+		Input.ResetInputAxes();
 	}
 
 	public void Destroy()
@@ -220,7 +222,8 @@ public class World : FContainer
 			}
 			else
 			{
-				if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
+				//if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
+				if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start))
 				{
 					GameConfig.IS_DEBUG = false;
 					TMain.instance.GoToPage(TPageType.PagePlayerSelect);

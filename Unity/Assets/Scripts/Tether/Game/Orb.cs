@@ -38,6 +38,7 @@ public class Orb : MonoBehaviour
 		sprite = new FSprite("Orb");
 		holder.AddChild(sprite);
 		sprite.color = player.color;
+		sprite.scale = 1.0f;
 		
 		InitPhysics();
 		
@@ -60,12 +61,12 @@ public class Orb : MonoBehaviour
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 		rb.angularDrag = 5.0f;
 		rb.mass = 5.0f;
-		rb.drag = 1.0f;
+		rb.drag = 0.0f;
 		//rb.mass = 0.0f;
 		//rb.drag = OrbConfig.DRAG;
 		
 		sphereCollider = gameObject.AddComponent<SphereCollider>();
-		sphereCollider.radius = 35.0f * FPhysics.POINTS_TO_METERS;
+		sphereCollider.radius = 35.0f * sprite.scale * FPhysics.POINTS_TO_METERS;
 		
 		PhysicMaterial mat = new PhysicMaterial();
 		mat.bounciness = 0.3f;
@@ -73,6 +74,11 @@ public class Orb : MonoBehaviour
 		mat.staticFriction = 0.5f;
 		mat.frictionCombine = PhysicMaterialCombine.Maximum;
 		collider.material = mat;
+
+		float speed = 15.0f;
+		float angle = RXRandom.Range(0, RXMath.DOUBLE_PI);
+		Vector2 startVector = new Vector2(Mathf.Cos(angle)*speed, Mathf.Sin(angle)*speed);
+		rb.velocity = startVector.ToVector3InMeters();
 	}
 	
 	void HandleUpdate()
@@ -81,7 +87,7 @@ public class Orb : MonoBehaviour
 
 		if (lifetime < 3.0f)
 		{
-			if(Time.frameCount % 10 < 5)
+			if(Time.frameCount % 6 < 3)
 			{
 				holder.isVisible = false;
 			}

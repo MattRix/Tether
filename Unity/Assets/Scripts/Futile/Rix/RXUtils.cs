@@ -10,6 +10,11 @@ public static class RXUtils
 		return Mathf.Atan2(-vector.y, vector.x) * RXMath.RTOD;
 	}
 
+	public static float GetRadians(this Vector2 vector)
+	{
+		return Mathf.Atan2(-vector.y, vector.x);
+	}
+
 	public static Rect ExpandRect(Rect rect, float paddingX, float paddingY)
 	{
 		return new Rect(rect.x - paddingX, rect.y - paddingY, rect.width + paddingX*2, rect.height+paddingY*2);	

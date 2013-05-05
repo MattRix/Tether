@@ -29,6 +29,7 @@ public class Beast : MonoBehaviour
 	public float targetAngle = 0;
 
 	public FSprite eyeSprite;
+	public Vector2 eyeTarget = new Vector2(3,19);
 		
 	public void Init(Player player, Vector2 startPos)
 	{
@@ -96,9 +97,6 @@ public class Beast : MonoBehaviour
 		mat.staticFriction = 0.1f;
 		mat.frictionCombine = PhysicMaterialCombine.Maximum;
 		collider.material = mat;
-
-		eyeSprite.x = 3.0f;
-		eyeSprite.y = 19.0f;
 	}
 
 	void OnCollisionEnter(Collision coll)
@@ -120,7 +118,17 @@ public class Beast : MonoBehaviour
 
 	void HandleUpdate()
 	{
+		Vector2 eyeCenter = new Vector2(3.0f, 19.0f);
 
+		if (RXRandom.Float() < 0.01f)
+		{
+			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
+			float dist = RXRandom.Range(0.0f,9.0f);
+			eyeTarget = eyeCenter += new Vector2(Mathf.Cos(angle)*dist, Mathf.Sin(angle)*dist);
+		}
+
+		eyeSprite.x += (eyeTarget.x - eyeSprite.x) / 10.0f;
+		eyeSprite.y += (eyeTarget.y - eyeSprite.y) / 10.0f;
 	}
 
 	void HandleFixedUpdate()
@@ -194,7 +202,7 @@ public class Beast : MonoBehaviour
 			pd.y = pos.y + RXRandom.Range(-20.0f, 20.0f);
 
 			pd.startColor = player.color.CloneWithNewAlpha(0.1f);
-			pd.endColor = player.color.CloneWithNewAlpha(0.0f);
+			pd.endColor = Color.clear;
 
 			pd.lifetime = 3.0f;
 	
