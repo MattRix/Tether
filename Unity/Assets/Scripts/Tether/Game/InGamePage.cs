@@ -16,4 +16,9 @@ public class InGamePage : TPage
 		this.world = new World();
 		AddChild(world);
 	}
+
+	override public void Destroy()
+	{
+		world.Destroy();
+	}
 }

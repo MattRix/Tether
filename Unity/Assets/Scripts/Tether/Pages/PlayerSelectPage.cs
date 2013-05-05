@@ -151,7 +151,7 @@ public class PlayerSelectPanel : FContainer
 		AddChild(background = new FSliceSprite("Popup_Bg",350,200,16,16,16,16));
 		background.color = player.color;
 
-		AddChild(nameLabel = new FLabel("CubanoBig", "PLAYER " + player.numString));
+		AddChild(nameLabel = new FLabel("CubanoBig", player.name));
 		nameLabel.y = 40.0f;
 
 		AddChild(readyLabel = new FLabel("CubanoBig", ""));

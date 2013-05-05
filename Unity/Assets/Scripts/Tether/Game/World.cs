@@ -23,9 +23,15 @@ public class World : FContainer
 
 	public FStage uiStage;
 
+	public bool isGameOver;
+
+	public Player winningPlayer;
+
 	public World()
 	{
 		instance = this;
+
+		isGameOver = false;
 
 		root = FPWorld.Create(64.0f);
 
@@ -59,7 +65,11 @@ public class World : FContainer
 			chains[c].Destroy();
 		}
 
+		GameManager.instance.Reset();
+
 		Futile.RemoveStage(uiStage);
+
+		UnityEngine.Object.Destroy(root);
 	}
 
 
@@ -77,6 +87,8 @@ public class World : FContainer
 			Beast beast = Beast.Create(this);
 			beast.Init(players[p], startPos);
 			beasts.Add(beast);
+
+			beast.player.SignalPlayerChange += HandleSignalPlayerChange;
 		}
 
 		for(int b = 0; b<beasts.Count; b++)
@@ -99,6 +111,45 @@ public class World : FContainer
 		}
 	}
 
+	void HandleSignalPlayerChange ()
+	{
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player.score >= GameConfig.WIN_SCORE)
+			{
+				this.winningPlayer = beasts[b].player;
+				DoGameOver();
+				break;
+			}
+		}
+	}
+
+	void DoGameOver()
+	{
+		if (isGameOver) return; //it's already over
+
+		isGameOver = true;
+
+		FContainer gameOverHolder = new FContainer();
+
+		uiStage.AddChild(gameOverHolder);
+
+		FLabel titleLabel = new FLabel("CubanoBig", winningPlayer.name + " WON!");
+		titleLabel.color = winningPlayer.color;
+		titleLabel.y = 30.0f;
+		gameOverHolder.AddChild(titleLabel);
+
+		FLabel instructionLabel = new FLabel("CubanoBig", "PRESS START TO PLAY AGAIN!");
+		instructionLabel.color = Color.white;
+		instructionLabel.y = -40.0f;
+		instructionLabel.scale = 0.75f;
+		gameOverHolder.AddChild(instructionLabel);
+
+		gameOverHolder.scale = 0.5f;
+
+		Go.to(gameOverHolder, 0.5f, new TweenConfig().floatProp("scale", 1.0f).setEaseType(EaseType.BackOut));
+	}
+
 	void InitOrbs()
 	{
 		orbColl = new TRandomCollection();
@@ -113,8 +164,8 @@ public class World : FContainer
 
 	void InitUI()
 	{
-		float spreadX = 100.0f;
-		float spreadY = 100.0f;
+		float spreadX = Futile.screen.halfWidth - 50.0f;
+		float spreadY = Futile.screen.halfHeight - 50.0f;
 
 		CreateBeastPanel(0, new Vector2(-spreadX,spreadY));
 		CreateBeastPanel(1, new Vector2(spreadX,spreadY));
@@ -142,10 +193,24 @@ public class World : FContainer
 		{
 			CreateOrb();
 		}
+
+		if (isGameOver) //check for start being pressed to end the game
+		{
+			for (int b = 0; b<beasts.Count; b++)
+			{
+				if(beasts[b].player.gamepad.GetButtonDown(PS3ButtonType.Start))
+				{
+					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+					break;
+				}
+			}
+		}
 	}
 	
 	void CreateOrb()
 	{
+		if (isGameOver) return;
+
 		Beast beast = orbColl.GetRandomItem() as Beast;
 
 		Vector2 beastPos = beast.GetPos();

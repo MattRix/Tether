@@ -13,4 +13,9 @@ public class TPage : FContainer
 		
 	}
 
+	virtual public void Destroy()
+	{
+
+	}
+
 }

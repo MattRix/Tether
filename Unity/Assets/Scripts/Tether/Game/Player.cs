@@ -6,6 +6,7 @@ public class Player
 {
 	public int index;
 	public Gamepad gamepad;
+	public string name;
 
 	public bool isConnected = false;
 
@@ -21,9 +22,10 @@ public class Player
 
 	public event Action SignalPlayerChange;
 
-	public Player(int index, Color color, bool isSpecial)
+	public Player(int index, String name, Color color, bool isSpecial)
 	{
 		this.index = index;
+		this.name = name;
 		this.isSpecial = isSpecial;
 
 		if (!GameConfig.SHOULD_SIMULATE_FOUR_PLAYER) isSpecial = false;

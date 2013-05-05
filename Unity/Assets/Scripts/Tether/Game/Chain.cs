@@ -122,7 +122,7 @@ public class ChainLink : MonoBehaviour
 	{
 		UnityEngine.Object.Destroy(gameObject);
 		
-		sprite.RemoveFromContainer();
+		if(sprite != null) sprite.RemoveFromContainer();
 	}
 	
 	void InitPhysics()

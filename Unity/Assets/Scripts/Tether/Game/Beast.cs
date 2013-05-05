@@ -80,7 +80,10 @@ public class Beast : MonoBehaviour
 		{
 			if(orb.player == this.player)
 			{
-				orb.player.AddScore();
+				if(!world.isGameOver)
+				{
+					orb.player.AddScore();
+				}
 				orb.Destroy();
 			}
 		}
@@ -93,6 +96,8 @@ public class Beast : MonoBehaviour
 
 	void HandleFixedUpdate()
 	{
+		//if (world.isGameOver) return; //you can't play if you lose!
+
 		rigidbody.drag = BeastConfig.DRAG;
 		
 		Gamepad gamepad = player.gamepad;
