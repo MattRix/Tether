@@ -169,13 +169,13 @@ public class World : FContainer
 
 	void InitUI()
 	{
-		float spreadX = Futile.screen.halfWidth - 50.0f;
-		float spreadY = Futile.screen.halfHeight - 50.0f;
+		float baseY = Futile.screen.halfHeight-20.0f;
+		float spacing = 32.0f;
 
-		CreateBeastPanel(0, new Vector2(-spreadX,spreadY));
-		CreateBeastPanel(1, new Vector2(spreadX,spreadY));
-		CreateBeastPanel(2, new Vector2(-spreadX,-spreadY));
-		CreateBeastPanel(3, new Vector2(spreadX,-spreadY));
+		CreateBeastPanel(0, new Vector2(0,baseY-spacing*0));
+		CreateBeastPanel(1, new Vector2(0,baseY-spacing*1));
+		CreateBeastPanel(2, new Vector2(0,baseY-spacing*2));
+		CreateBeastPanel(3, new Vector2(0,baseY-spacing*3));
 	}
 
 	void CreateBeastPanel(int index, Vector2 pos)
