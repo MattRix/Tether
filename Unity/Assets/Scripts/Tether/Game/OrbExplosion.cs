@@ -40,6 +40,12 @@ public class OrbExplosion : FContainer
 
 		sprite.color = player.color;
 
+		if (isGood)
+		{
+			sprite.y += 20.0f;
+			sprite.scale = 0.75f;
+		}
+
 		ListenForUpdate(HandleUpdate);
 	}
 

@@ -12,6 +12,7 @@ public class World : FContainer
 	public FContainer tentacleHolder;
 	public FContainer entityHolder;
 	public FContainer effectHolder;
+	public FContainer additiveEffectHolder;
 	public FContainer uiHolder;
 
 	public List<Beast> beasts = new List<Beast>();
@@ -45,6 +46,7 @@ public class World : FContainer
 		AddChild(tentacleHolder = new FContainer());
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
+		AddChild(additiveEffectHolder = new FContainer());
 
 		tentacleHolder.AddChild(backParticles = new FParticleSystem(100));
 		//backParticles.shader = FShader.Additive;
