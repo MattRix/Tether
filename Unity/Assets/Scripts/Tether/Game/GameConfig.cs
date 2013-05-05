@@ -7,7 +7,7 @@ public class GameConfig
 
 	public static bool SHOULD_SIMULATE_FOUR_PLAYER = false;
 
-	public static int WIN_SCORE = 1;
+	public static int WIN_SCORE = 10;
 
 	public GameConfig()
 	{

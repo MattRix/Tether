@@ -69,7 +69,12 @@ public class World : FContainer
 
 		Futile.RemoveStage(uiStage);
 
-		UnityEngine.Object.Destroy(root);
+		UnityEngine.Object.Destroy(root.gameObject);
+
+		Input.ResetInputAxes();
+
+		//GamepadManager.Init();
+		//GameManager.Init();
 	}
 
 
@@ -194,17 +199,28 @@ public class World : FContainer
 			CreateOrb();
 		}
 
-		if (isGameOver) //check for start being pressed to end the game
+		for (int b = 0; b<beasts.Count; b++)
 		{
-			for (int b = 0; b<beasts.Count; b++)
+			if (isGameOver) //check for start being pressed to end the game
 			{
-				if(beasts[b].player.gamepad.GetButtonDown(PS3ButtonType.Start))
+				if (beasts [b].player.gamepad.GetButtonDown(PS3ButtonType.Start))
 				{
 					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
 					break;
 				}
 			}
+			else
+			{
+				if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
+				{
+					GameConfig.IS_DEBUG = false;
+					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+					break;
+				}
+			}
 		}
+
+
 	}
 	
 	void CreateOrb()

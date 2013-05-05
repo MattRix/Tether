@@ -19,14 +19,14 @@ public class PlayerSelectPage : TPage
 	{
 		FLabel titleLabel = new FLabel("CubanoBig", "TETHER");
 		AddChild(titleLabel);
-		titleLabel.y = 270;
+		titleLabel.y = 300;
 
 		allReadyLabel = new FLabel("CubanoBig", "");
 		AddChild(allReadyLabel);
-		allReadyLabel.y = 215;
+		allReadyLabel.y = 245;
 		allReadyLabel.scale = 0.75f;
 
-		float spreadX = 200;
+		float spreadX = 280;
 		float spreadY = 120;
 
 		AddChild(panelHolder = new FContainer());
@@ -148,14 +148,15 @@ public class PlayerSelectPanel : FContainer
 	{
 		this.player = player;
 
-		AddChild(background = new FSliceSprite("Popup_Bg",350,200,16,16,16,16));
+		AddChild(background = new FSliceSprite("Popup_Bg",520,200,16,16,16,16));
 		background.color = player.color;
 
 		AddChild(nameLabel = new FLabel("CubanoBig", player.name));
-		nameLabel.y = 40.0f;
+		nameLabel.scale = 1.0f;
+		nameLabel.y = 30.0f;
 
 		AddChild(readyLabel = new FLabel("CubanoBig", ""));
-		readyLabel.y = -40.0f;
+		readyLabel.y = -30.0f;
 		readyLabel.scale = 0.75f;
 
 		ListenForUpdate(HandleUpdate);

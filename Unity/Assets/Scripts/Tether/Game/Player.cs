@@ -46,11 +46,7 @@ public class Player
 		if (this.gamepad != null)
 		{
 			isConnected = true;
-			
-			if(GameConfig.IS_DEBUG)
-			{
-				isReady = true;
-			}
+			isReady = true;
 		}
 
 		Reset();
