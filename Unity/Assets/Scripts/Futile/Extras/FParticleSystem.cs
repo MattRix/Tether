@@ -66,7 +66,8 @@ public class FParticleSystem : FFacetNode
 				
 				particle.speedX += accelX * deltaTime;
 				particle.speedY += accelY * deltaTime;
-				
+
+
 				particle.x += particle.speedX * deltaTime;
 				particle.y += particle.speedY * deltaTime;
 			}
@@ -205,6 +206,8 @@ public class FParticleSystem : FFacetNode
 			for(int p = 0; p<_maxParticleCount; p++)
 			{
 				FParticle particle = _particles[p];
+
+
 				
 				if(particle.timeRemaining > 0)
 				{		
@@ -264,6 +267,7 @@ public class FParticleSystem : FFacetNode
 				vertexIndex2 += 4;
 				vertexIndex3 += 4;
 			}
+
 			
 			_renderLayer.HandleVertsChange();
 		}

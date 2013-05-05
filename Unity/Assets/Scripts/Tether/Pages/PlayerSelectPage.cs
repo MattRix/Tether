@@ -19,20 +19,24 @@ public class PlayerSelectPage : TPage
 	{
 		FSoundManager.StopMusic();
 
-		FLabel titleLabel = new FLabel("CubanoBig", "TETHER");
-		AddChild(titleLabel);
-		titleLabel.y = 300;
+		FSprite logo = new FSprite("TetherLogo");
+		logo.y = 275.0f;
+		AddChild(logo);
+
+//		FLabel titleLabel = new FLabel("CubanoBig", "TETHER");
+//		AddChild(titleLabel);
+//		titleLabel.y = 300;
 
 		allReadyLabel = new FLabel("CubanoBig", "");
 		AddChild(allReadyLabel);
-		allReadyLabel.y = 245;
+		allReadyLabel.y = 195;
 		allReadyLabel.scale = 0.75f;
 
 		float spreadX = 280;
 		float spreadY = 120;
 
 		AddChild(panelHolder = new FContainer());
-		panelHolder.y = -60.0f;
+		panelHolder.y = -90.0f;
 
 		CreatePlayerPanel(0, -spreadX, spreadY);
 		CreatePlayerPanel(1, spreadX, spreadY);
@@ -75,7 +79,7 @@ public class PlayerSelectPage : TPage
 		if (readyPlayersCount >= 2)
 		{
 			allReadyLabel.text = "PRESS START TO BEGIN!";
-			allReadyLabel.color = RXColor.GetColorFromHex(0x66FF66);
+			allReadyLabel.color = RXColor.GetColorFromHex(0xEECCFF);
 			areAllPlayersReady = true;
         }
 		else
@@ -152,6 +156,7 @@ public class PlayerSelectPanel : FContainer
 
 		AddChild(background = new FSliceSprite("Popup_Bg",520,200,16,16,16,16));
 		background.color = player.color;
+		background.alpha = 0.4f;
 
 		AddChild(nameLabel = new FLabel("CubanoBig", player.name));
 		nameLabel.scale = 1.0f;

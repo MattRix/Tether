@@ -27,20 +27,20 @@ public class Orb : MonoBehaviour
 	public FAtlasElement[] frames;
 
 	public float scale = 0.5f;
+
+	public FParticleDefinition pd;
 	
 	public void Init(Player player, Vector2 startPos)
 	{
 		this.player = player;
 		
-		world.effectHolder.AddChild(holder = new FContainer());
+		world.orbHolder.AddChild(holder = new FContainer());
 		
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS,startPos.y * FPhysics.POINTS_TO_METERS,0);
 		gameObject.transform.parent = world.root.transform;
 		
 		link = gameObject.AddComponent<FPNodeLink>();
 		link.Init(holder, true);
-
-
 
 		frames = new FAtlasElement[11];
 
@@ -60,6 +60,11 @@ public class Orb : MonoBehaviour
 		holder.ListenForFixedUpdate(HandleFixedUpdate);
 
 		FSoundManager.PlaySound("orbAppears");
+
+		pd = new FParticleDefinition("Particles/Flame");
+		
+		pd.startColor = player.color.CloneWithNewAlpha(0.2f);
+		pd.endColor = Color.clear;
 	}
 	
 	public void Destroy()
@@ -140,6 +145,23 @@ public class Orb : MonoBehaviour
 			Explode(false);
 		}
 
+		if (Time.frameCount % 5 == 0)
+		{
+
+			Vector2 pos = GetPos();
+
+			pd.x = pos.x + RXRandom.Range(-5.0f, 5.0f);
+			pd.y = pos.y + RXRandom.Range(-5.0f, 5.0f);
+		
+			Vector2 speed = RXRandom.Vector2Normalized() * RXRandom.Range(20.0f,80.0f);
+
+			pd.speedX = speed.x;
+			pd.speedY = speed.y;
+		
+			pd.lifetime = RXRandom.Range(0.5f, 1.0f);
+		
+			world.glowParticles.AddParticle(pd);
+		}
 		
 	}
 	

@@ -7,6 +7,7 @@ public class BeastPanel : FContainer
 	public Beast beast;
 
 	public FSliceSprite bg;
+	public FSliceSprite goldBG;
 
 	public int currentPoints = 0;
 
@@ -14,6 +15,7 @@ public class BeastPanel : FContainer
 	public float fullWidth;
 
 	public List<FContainer>nibs = new List<FContainer>();
+
 
 	public BeastPanel(Beast beast)
 	{
@@ -26,6 +28,11 @@ public class BeastPanel : FContainer
 		bg = new FSliceSprite("PointBarBG", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
 		AddChild(bg);
 		bg.color = beast.player.color;
+
+		goldBG = new FSliceSprite("PointBarBGGold", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
+		AddChild(goldBG);
+		goldBG.alpha = 0.7f;
+		goldBG.isVisible = false;
 
 		for(int p = 0; p<GameConfig.WIN_SCORE; p++)
 		{

@@ -30,6 +30,8 @@ public class Beast : MonoBehaviour
 
 	public FSprite eyeSprite;
 	public Vector2 eyeTarget = new Vector2(3,19);
+	
+	public FSprite goldSprite;
 		
 	public void Init(Player player, Vector2 startPos)
 	{
@@ -50,6 +52,11 @@ public class Beast : MonoBehaviour
 		eyeSprite.scale = 0.33f;
 		holder.AddChild(eyeSprite);
 		//holder.alpha = 0.25f;
+
+		goldSprite = new FSprite("Evil-Eye_crown_01");
+		holder.AddChild(goldSprite);
+		goldSprite.isVisible = false;
+		//goldSprite.shader = FShader.Additive;
 
 		InitPhysics();
 
@@ -154,26 +161,10 @@ public class Beast : MonoBehaviour
 
 		Vector2 movementVector = player.isSpecial ? gamepad.rightStick : gamepad.leftStick;
 
-//		if (movementVector.magnitude > 0.1f)
-//		{
-//			rigidbody.drag = BeastConfig.DRAG;
-//		}
-//		else
-//		{
-//			rigidbody.drag = 5.0f;
-//		}
-
 		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime * rigidbody.mass;
 
 		if (movementVector.magnitude > 0.1f)
 		{
-			//			float targetRotation = -rigidbody.velocity.ToVector2InPoints().GetAngle() + 90.0f;
-			//
-			//			float delta = RXMath.GetDegreeDelta(targetRotation,rigidbody.transform.rotation.eulerAngles.z);
-			//
-			//			rigidbody.AddTorque(new Vector3(0,0,delta*0.7f));
-			
-			
 			targetAngle = movementVector.GetAngle() + 90.0f;
 		}
 		
@@ -183,20 +174,11 @@ public class Beast : MonoBehaviour
 
 		movementVector *= 2.0f;
 
-//		if (player.isSpecial)
-//		{
-//			if (gamepad.GetButton(PS3ButtonType.Square))
-//			{
-//				movementVector *= 2.0f;
-//			}
-//		}
-//		else
-//		{
+
 //			if (gamepad.GetButton(PS3ButtonType.X))
 //			{
 //				movementVector *= 2.0f;
 //			}
-//		}
 
 		bodyVelocity += movementVector;
 		
@@ -208,15 +190,15 @@ public class Beast : MonoBehaviour
 		{
 			Vector2 pos = this.transform.position.ToVector2InPoints();
 
-			FParticleDefinition pd = new FParticleDefinition("Particles/SplotchA");
+			FParticleDefinition pd = new FParticleDefinition(RXRandom.Bool() ? "Particles/SplotchA" : "Particles/SplotchB");
 
-			pd.x = pos.x + RXRandom.Range(-20.0f, 20.0f);
-			pd.y = pos.y + RXRandom.Range(-20.0f, 20.0f);
+			pd.x = pos.x + RXRandom.Range(-10.0f, 10.0f);
+			pd.y = pos.y + RXRandom.Range(-10.0f, 10.0f);
 
-			pd.startColor = player.color.CloneWithNewAlpha(0.1f);
-			pd.endColor = Color.clear;
+			pd.startColor = player.color.CloneWithNewAlpha(0.35f);
+			pd.endColor = player.color.CloneWithNewAlpha(-2.5f);
 
-			pd.lifetime = 3.0f;
+			pd.lifetime = 4.0f;
 	
 			world.backParticles.AddParticle(pd);
 		}
@@ -226,6 +208,7 @@ public class Beast : MonoBehaviour
 	{
 		return new Vector2(transform.position.x * FPhysics.METERS_TO_POINTS, transform.position.y * FPhysics.METERS_TO_POINTS);
 	}
+
 }
 
 public static class BeastConfig

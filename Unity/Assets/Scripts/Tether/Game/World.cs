@@ -13,6 +13,7 @@ public class World : FContainer
 	public FContainer entityHolder;
 	public FContainer effectHolder;
 	public FContainer additiveEffectHolder;
+	public FContainer orbHolder;
 	public FContainer uiHolder;
 
 	public List<Beast> beasts = new List<Beast>();
@@ -30,10 +31,13 @@ public class World : FContainer
 	public Player winningPlayer;
 
 	public FParticleSystem backParticles;
+	public FParticleSystem glowParticles;
 
 	public Walls walls;
 
 	public FContainer pauseContainer;
+
+	public List<BeastPanel> beastPanels = new List<BeastPanel>();
 
 	public World()
 	{
@@ -47,9 +51,13 @@ public class World : FContainer
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
 		AddChild(additiveEffectHolder = new FContainer());
+		AddChild(orbHolder = new FContainer());
 
 		tentacleHolder.AddChild(backParticles = new FParticleSystem(100));
 		//backParticles.shader = FShader.Additive;
+
+		additiveEffectHolder.AddChild(glowParticles = new FParticleSystem(100));
+		glowParticles.shader = FShader.Additive;
 
 		uiStage = new FStage("UIStage");
 		Futile.AddStage(uiStage);
@@ -224,6 +232,8 @@ public class World : FContainer
 		panel.SetPosition(pos);
 
 		uiHolder.AddChild(panel);
+
+		beastPanels.Add(panel);
 	}
 
 	void HandleUpdate()
@@ -264,24 +274,43 @@ public class World : FContainer
 		
 		}
 
-		if (!isGameOver)
-		{
-			bool isOneCloseToWinning = false;
 
-			for (int b = 0; b<beasts.Count; b++)
+		bool isOneCloseToWinning = false;
+
+		int winningScore = 0;
+
+		for (int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player.score == GameConfig.WIN_SCORE-1)
 			{
-				if(beasts[b].player.score == GameConfig.WIN_SCORE-1)
-				{
-					isOneCloseToWinning = true;
-				}
+				isOneCloseToWinning = true;
 			}
 
-			if(isOneCloseToWinning)
+			winningScore = Mathf.Max(beasts[b].player.score, winningScore);
+		}
+
+		if (!isGameOver)
+		{
+			if (isOneCloseToWinning)
 			{
-				if(Time.frameCount % 75 == 0)
+				if (Time.frameCount % 75 == 0)
 				{
-					FSoundManager.PlaySound("alarm",0.6f);
+					FSoundManager.PlaySound("alarm", 0.6f);
 				}
+			}
+		}
+
+		for (int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player.score == winningScore && winningScore != 0)
+			{
+				beasts[b].goldSprite.isVisible = true;
+				beastPanels[b].goldBG.isVisible = true;
+			}
+			else 
+			{
+				beasts[b].goldSprite.isVisible = false;
+				beastPanels[b].goldBG.isVisible = false;
 			}
 		}
 

@@ -1,5 +1,13 @@
 {"frames": {
 
+"TetherLogo.png":
+{
+	"frame": {"x":3,"y":1447,"w":914,"h":220},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":914,"h":220},
+	"sourceSize": {"w":914,"h":219}
+},
 "background.png":
 {
 	"frame": {"x":3,"y":3,"w":2560,"h":1440},
@@ -15,6 +23,6 @@
 	"format": "RGBA8888",
 	"size": {"w":4096,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:768b695501d1ff37a7413146d489b354$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5acb4b69025c619ecb5388b86a6c2812$"
 }
 }

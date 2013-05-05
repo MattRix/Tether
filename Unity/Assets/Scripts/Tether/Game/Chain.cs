@@ -112,6 +112,9 @@ public class ChainLink : MonoBehaviour
 			sprite = new FSprite("ChainLink");
 			world.entityHolder.AddChild(sprite);
 
+			sprite.shader = FShader.Additive;
+			sprite.alpha = 0.7f;
+
 			sprite.ListenForUpdate(HandleUpdate);
 		}
 
