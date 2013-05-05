@@ -9,6 +9,7 @@ public class World : FContainer
 	public FPWorld root;
 
 	public FContainer backgroundHolder;
+	public FContainer tentacleHolder;
 	public FContainer entityHolder;
 	public FContainer effectHolder;
 	public FContainer uiHolder;
@@ -27,6 +28,8 @@ public class World : FContainer
 
 	public Player winningPlayer;
 
+	public FParticleSystem backParticles;
+
 	public World()
 	{
 		instance = this;
@@ -36,8 +39,14 @@ public class World : FContainer
 		root = FPWorld.Create(64.0f);
 
 		AddChild(backgroundHolder = new FContainer());
+		AddChild(tentacleHolder = new FContainer());
 		AddChild(entityHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
+
+		backgroundHolder.AddChild(new FSprite("background"));
+
+		tentacleHolder.AddChild(backParticles = new FParticleSystem(100));
+		//backParticles.shader = FShader.Additive;
 
 		uiStage = new FStage("UIStage");
 		Futile.AddStage(uiStage);
@@ -106,7 +115,7 @@ public class World : FContainer
 
 			if(beasts.Count == 2)
 			{
-				return;
+				break;
 			}
 		}
 

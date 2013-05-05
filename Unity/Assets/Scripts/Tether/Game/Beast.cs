@@ -22,6 +22,13 @@ public class Beast : MonoBehaviour
 	public SphereCollider bodyCollider;
 
 	public Vector2 bodyVelocity = new Vector2();
+
+	public List<Tentacle>tentacles = new List<Tentacle>();
+
+	public float angle = 0;
+	public float targetAngle = 0;
+
+	public FSprite eyeSprite;
 		
 	public void Init(Player player, Vector2 startPos)
 	{
@@ -33,16 +40,30 @@ public class Beast : MonoBehaviour
 		gameObject.transform.parent = world.root.transform;
 
 		bodyLink = gameObject.AddComponent<FPNodeLink>();
-		bodyLink.Init(holder, true);
+		bodyLink.Init(holder, false);
 
-		bodySprite = new FSprite("Player");
+		bodySprite = new FSprite("Eye/Evil-Eye_"+player.numString+"_01");
 		holder.AddChild(bodySprite);
-		bodySprite.color = player.color;
+
+		eyeSprite = new FSprite("Eye/Eye_" + player.numString);
+		eyeSprite.scale = 0.33f;
+		holder.AddChild(eyeSprite);
+		//holder.alpha = 0.25f;
 
 		InitPhysics();
 
 		holder.ListenForUpdate(HandleUpdate);
 		holder.ListenForFixedUpdate(HandleFixedUpdate);
+
+		//AddTentacle(new Vector2(-20.0f, -20.0f), -90.0f);
+		//AddTentacle(new Vector2(0.0f, -30.0f), 0.0f);
+		//AddTentacle(new Vector2(20.0f, -20.0f), 90.0f);
+	}
+
+	void AddTentacle(Vector2 pos, float angle)
+	{
+		Tentacle tentacle = new Tentacle(world, this, pos, angle);
+		tentacles.Add(tentacle);
 	}
 
 	public void Destroy()
@@ -50,6 +71,11 @@ public class Beast : MonoBehaviour
 		UnityEngine.Object.Destroy(gameObject);
 		
 		holder.RemoveFromContainer();
+
+		foreach (Tentacle tentacle in tentacles)
+		{
+			tentacle.Destroy();
+		}
 	}
 	
 	void InitPhysics()
@@ -70,6 +96,9 @@ public class Beast : MonoBehaviour
 		mat.staticFriction = 0.1f;
 		mat.frictionCombine = PhysicMaterialCombine.Maximum;
 		collider.material = mat;
+
+		eyeSprite.x = 3.0f;
+		eyeSprite.y = 19.0f;
 	}
 
 	void OnCollisionEnter(Collision coll)
@@ -116,6 +145,22 @@ public class Beast : MonoBehaviour
 
 		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime * rigidbody.mass;
 
+		if (movementVector.magnitude > 0.1f)
+		{
+			//			float targetRotation = -rigidbody.velocity.ToVector2InPoints().GetAngle() + 90.0f;
+			//
+			//			float delta = RXMath.GetDegreeDelta(targetRotation,rigidbody.transform.rotation.eulerAngles.z);
+			//
+			//			rigidbody.AddTorque(new Vector3(0,0,delta*0.7f));
+			
+			
+			targetAngle = movementVector.GetAngle() + 90.0f;
+		}
+		
+		angle += RXMath.GetDegreeDelta(angle,targetAngle) / 10.0f;
+		
+		holder.rotation = angle;
+
 		movementVector *= 2.0f;
 
 //		if (player.isSpecial)
@@ -138,6 +183,23 @@ public class Beast : MonoBehaviour
 		rigidbody.AddForce(new Vector3(bodyVelocity.x, bodyVelocity.y, 0.0f), ForceMode.Impulse);
 		
 		bodyVelocity *= BeastConfig.MOVE_FRICTION;
+
+		if (RXRandom.Float() < 0.99f)
+		{
+			Vector2 pos = this.transform.position.ToVector2InPoints();
+
+			FParticleDefinition pd = new FParticleDefinition("Particles/SplotchA");
+
+			pd.x = pos.x + RXRandom.Range(-20.0f, 20.0f);
+			pd.y = pos.y + RXRandom.Range(-20.0f, 20.0f);
+
+			pd.startColor = player.color.CloneWithNewAlpha(0.1f);
+			pd.endColor = player.color.CloneWithNewAlpha(0.0f);
+
+			pd.lifetime = 3.0f;
+	
+			world.backParticles.AddParticle(pd);
+		}
 	}
 
 	public Vector2 GetPos()

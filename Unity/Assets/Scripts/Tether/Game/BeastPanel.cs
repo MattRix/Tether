@@ -47,7 +47,7 @@ public class BeastPanel : FContainer
 
 	void HandleUpdate()
 	{
-		scale += (1.0f - scale) / 20.0f;
+		scale += (1.0f - scale) / 12.0f;
 	}
 
 	void HandleSignalPlayerChange ()

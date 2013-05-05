@@ -90,6 +90,7 @@ public class FParticleSystem : FFacetNode
 		{
 			_hasInited = true;
 			Init(FFacetType.Quad, element.atlas, _maxParticleCount);
+			stage.HandleFacetsChanged();
 		}
 		
 		FParticle particle;
@@ -244,7 +245,7 @@ public class FParticleSystem : FFacetNode
 					uvs[vertexIndex1] = particle.uvTopRight;
 					uvs[vertexIndex2] = particle.uvBottomRight;
 					uvs[vertexIndex3] = particle.uvBottomLeft;
-							
+
 					colors[vertexIndex0] = particle.color;
 					colors[vertexIndex1] = particle.color;
 					colors[vertexIndex2] = particle.color;
