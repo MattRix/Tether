@@ -4,18 +4,19 @@ using System;
 
 public class Chain
 {
-	public static int LINK_COUNT = 11;
-
 	public World world;
 
 	public Beast beastA;
 	public Beast beastB;
 
 	public List<ChainLink>links = new List<ChainLink>();
+
+	public int linkCount;
 	
-	public Chain(World world, Beast beastA, Beast beastB)
+	public Chain(World world,int linkCount, Beast beastA, Beast beastB)
 	{
 		this.world = world;
+		this.linkCount = linkCount;
 
 		this.beastA = beastA;
 		this.beastB = beastB;
@@ -27,11 +28,11 @@ public class Chain
 
 		ChainLink previousLink = null;
 
-		for (int c = 0; c<LINK_COUNT; c++)
+		for (int c = 0; c<linkCount; c++)
 		{
 			ChainLink link;
 
-			bool isLastLink = (c == LINK_COUNT-1);
+			bool isLastLink = (c == linkCount-1);
 
 			if(isLastLink)
 			{

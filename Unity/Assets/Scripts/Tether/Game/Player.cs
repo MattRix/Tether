@@ -49,10 +49,10 @@ public class Player
 			isConnected = true;
 			isReady = true;
 
-			if (index >= 2)
-			{
-				isReady = false;
-			}
+//			if (index >= 2)
+//			{
+//				isReady = false;
+//			}
 		}
 
 		Reset();

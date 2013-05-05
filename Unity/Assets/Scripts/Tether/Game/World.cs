@@ -124,22 +124,51 @@ public class World : FContainer
 			beast.player.SignalPlayerChange += HandleSignalPlayerChange;
 		}
 
+		int linkCount = 11;
+
 		if (beasts.Count == 2)
 		{
-			chains.Add(new Chain(this, beasts[0], beasts[1]));
+			linkCount = 11;
+			chains.Add(new Chain(this, 11, beasts[0], beasts[1]));
 		}
 		else if (beasts.Count == 3)
 		{
-			chains.Add(new Chain(this, beasts[0], beasts[1]));
-			chains.Add(new Chain(this, beasts[1], beasts[2]));
-			chains.Add(new Chain(this, beasts[2], beasts[0]));
+			chains.Add(new Chain(this, 11, beasts[0], beasts[1]));
+			chains.Add(new Chain(this, 11, beasts[1], beasts[2]));
+			chains.Add(new Chain(this, 11, beasts[2], beasts[0]));
 		}
 		else if (beasts.Count == 4)
 		{
-			chains.Add(new Chain(this, beasts[0], beasts[1]));
-			chains.Add(new Chain(this, beasts[1], beasts[2]));
-			chains.Add(new Chain(this, beasts[2], beasts[3]));
-			chains.Add(new Chain(this, beasts[3], beasts[0]));
+			//chains.Add(new Chain(this, 11, beasts[0], beasts[1]));
+			//chains.Add(new Chain(this, 11, beasts[1], beasts[2]));
+			//chains.Add(new Chain(this, 11, beasts[2], beasts[3]));
+			//chains.Add(new Chain(this, 11, beasts[3], beasts[0]));
+
+			chains.Add(new Chain(this, 11, beasts[0], beasts[2]));
+			chains.Add(new Chain(this, 11, beasts[1], beasts[3]));
+
+			Chain ca = chains[0];
+			Chain cb = chains[1];
+
+			int middleLink = (int)Mathf.Round((float)linkCount/2.0f) -1;
+			ChainLink linkA = ca.links[middleLink];
+			ChainLink linkB = cb.links[middleLink];
+
+			linkA.gameObject.transform.position = new Vector2(0,0).ToVector3InMeters();
+			linkB.gameObject.transform.position = new Vector2(0,0).ToVector3InMeters();
+
+			HingeJoint hinge = linkA.gameObject.AddComponent<HingeJoint>();
+
+			hinge.connectedBody = linkB.rigidbody;
+
+			JointSpring jspring = hinge.spring;
+			
+			jspring.spring = 0.1f;
+			
+			hinge.spring = jspring;
+			
+			hinge.axis = new Vector3(0.0f, 0.0f, 1.0f);
+
 		}
 
 
