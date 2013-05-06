@@ -106,7 +106,7 @@ public class Walls
 		else if (Input.GetMouseButtonDown(0))
 		{
 			Vector2 mousePos = world.effectHolder.GetLocalMousePosition();
-			result += "verts.Add(new Vector2("+mousePos.x+"f,"+mousePos.y+"f));\n";
+			result += "lavaPositions.Add(new Vector2("+mousePos.x+"f,"+mousePos.y+"f));\n";
 		}
 	}
 	

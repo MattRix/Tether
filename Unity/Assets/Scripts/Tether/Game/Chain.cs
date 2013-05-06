@@ -111,7 +111,7 @@ public class ChainLink : MonoBehaviour
 		if (this.previousLink != null)
 		{
 			sprite = new FSprite("ChainLink");
-			world.entityHolder.AddChild(sprite);
+			world.chainHolder.AddChild(sprite);
 
 			//sprite.shader = FShader.Additive;
 			//sprite.alpha = 0.5f;

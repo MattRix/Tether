@@ -22,9 +22,7 @@ public class Beast : MonoBehaviour
 	public SphereCollider bodyCollider;
 
 	public Vector2 bodyVelocity = new Vector2();
-
-	public List<Tentacle>tentacles = new List<Tentacle>();
-
+	
 	public float angle = 0;
 	public float targetAngle = 0;
 
@@ -37,7 +35,7 @@ public class Beast : MonoBehaviour
 	{
 		this.player = player;
 
-		world.entityHolder.AddChild(holder = new FContainer());
+		world.beastHolder.AddChild(holder = new FContainer());
 
 		gameObject.transform.position = new Vector3(startPos.x * FPhysics.POINTS_TO_METERS,startPos.y * FPhysics.POINTS_TO_METERS,0);
 		gameObject.transform.parent = world.root.transform;
@@ -67,23 +65,12 @@ public class Beast : MonoBehaviour
 		//AddTentacle(new Vector2(0.0f, -30.0f), 0.0f);
 		//AddTentacle(new Vector2(20.0f, -20.0f), 90.0f);
 	}
-
-	void AddTentacle(Vector2 pos, float angle)
-	{
-		Tentacle tentacle = new Tentacle(world, this, pos, angle);
-		tentacles.Add(tentacle);
-	}
-
+	
 	public void Destroy()
 	{
 		UnityEngine.Object.Destroy(gameObject);
 		
 		holder.RemoveFromContainer();
-
-		foreach (Tentacle tentacle in tentacles)
-		{
-			tentacle.Destroy();
-		}
 	}
 	
 	void InitPhysics()
