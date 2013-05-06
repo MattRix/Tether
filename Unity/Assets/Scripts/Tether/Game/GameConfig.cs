@@ -9,7 +9,7 @@ public class GameConfig
 
 	public static int WIN_SCORE = 10;
 
-	public static bool IS_SOUND_ON = false;
+	public static bool IS_SOUND_ON = true;
 
 	public GameConfig()
 	{
