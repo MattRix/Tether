@@ -394,6 +394,14 @@ public class World : FContainer
 
 		uiStage.AddChild(gameOverHolder);
 
+		FSprite blackSprite = new FSprite("WhiteBox");
+		blackSprite.color = Color.black;
+		blackSprite.alpha = 0.5f;
+		blackSprite.width = Futile.screen.width;
+		blackSprite.height = Futile.screen.height;
+		
+		gameOverHolder.AddChild(blackSprite);
+
 		FLabel titleLabel = new FLabel("CubanoBig", winningPlayer.name + " WON!");
 		titleLabel.color = winningPlayer.color;
 		titleLabel.y = 30.0f;
@@ -403,6 +411,13 @@ public class World : FContainer
 		instructionLabel.color = Color.white;
 		instructionLabel.y = -40.0f;
 		instructionLabel.scale = 0.75f;
+		gameOverHolder.AddChild(instructionLabel);
+
+		instructionLabel = new FLabel("CubanoBig", "PRESS SELECT TO CHANGE PLAYERS");
+		instructionLabel.color = Color.white;
+		instructionLabel.alpha = 0.7f;
+		instructionLabel.y = -150.0f;
+		instructionLabel.scale = 0.5f;
 		gameOverHolder.AddChild(instructionLabel);
 
 		gameOverHolder.scale = 0.5f;
