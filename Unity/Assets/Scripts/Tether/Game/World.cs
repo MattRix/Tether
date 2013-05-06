@@ -513,6 +513,11 @@ public class World : FContainer
 			//if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
 			if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
 			{
+				foreach(Player player in GameManager.instance.players)
+				{
+					player.isReady = false;
+				}
+
 				GameConfig.SHOULD_SKIP_CHAR_SELECT = false;
 				TMain.instance.GoToPage(TPageType.PagePlayerSelect);
 				break;

@@ -47,6 +47,8 @@ public class Player
 		if (this.gamepad != null)
 		{
 			isConnected = true;
+			//isReady = true;
+
 			isReady = true;
 
 //			if (index >= 2)
