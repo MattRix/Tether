@@ -91,7 +91,7 @@ public class World : FContainer
 	{
 		lavaPD = new FParticleDefinition("Particles/Flame");
 		
-		lavaPD.startColor = new Color(1.0f,RXRandom.Range(0.0f,1.0f),0,0.6f);
+		lavaPD.startColor = new Color(1.0f,RXRandom.Range(0.0f,1.0f),0,0.4f);
 		lavaPD.endColor = lavaPD.startColor.CloneWithNewAlpha(-0.5f);
 
 		lavaPositions.Add(new Vector2(-623.9141f,278.9141f));
@@ -385,7 +385,7 @@ public class World : FContainer
 	{
 		if (isGameOver) return; //it's already over
 
-		FSoundManager.PlaySound("win");
+		FSoundManager.PlaySound("win", 0.5f);
 		FSoundManager.StopMusic();
 
 		isGameOver = true;
@@ -561,8 +561,8 @@ public class World : FContainer
 		lavaPD.speedX = RXRandom.Range(-10.0f,10.0f);
 		lavaPD.speedY = RXRandom.Range(-5.0f,20.0f);
 
-		lavaPD.startScale = RXRandom.Range(0.2f,0.3f);
-		lavaPD.endScale = RXRandom.Range(0.4f,0.9f);
+		lavaPD.startScale = RXRandom.Range(0.0f,0.1f);
+		lavaPD.endScale = RXRandom.Range(0.3f,0.4f);
 		
 		lavaPD.lifetime = RXRandom.Range(2.0f, 3.0f);
 		

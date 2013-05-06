@@ -97,17 +97,17 @@ public class Walls
 
 	void HandleUpdate()
 	{
-		if (Input.GetMouseButtonDown(1))
-		{
-			System.IO.File.WriteAllText("Assets/Notes/Polygon.txt", result);
-			Debug.Log(result);
-			result = "";
-		}
-		else if (Input.GetMouseButtonDown(0))
-		{
-			Vector2 mousePos = world.effectHolder.GetLocalMousePosition();
-			result += "lavaPositions.Add(new Vector2("+mousePos.x+"f,"+mousePos.y+"f));\n";
-		}
+//		if (Input.GetMouseButtonDown(1))
+//		{
+//			System.IO.File.WriteAllText("Assets/Notes/Polygon.txt", result);
+//			Debug.Log(result);
+//			result = "";
+//		}
+//		else if (Input.GetMouseButtonDown(0))
+//		{
+//			Vector2 mousePos = world.effectHolder.GetLocalMousePosition();
+//			result += "lavaPositions.Add(new Vector2("+mousePos.x+"f,"+mousePos.y+"f));\n";
+//		}
 	}
 	
 	void HandleFixedUpdate()
