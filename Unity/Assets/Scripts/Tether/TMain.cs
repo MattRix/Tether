@@ -20,7 +20,7 @@ public class TMain : MonoBehaviour
 	
 	private FStage _stage;
 
-	private Background _background;
+	public Background background;
 	
 	private void Start()
 	{
@@ -41,7 +41,7 @@ public class TMain : MonoBehaviour
 		
 		FutileParams fparams = new FutileParams(landscape, landscape, portrait, shouldSupportPortraitUpsideDown);
 		
-		fparams.backgroundColor = RXUtils.GetColorFromHex(0xE7F5FF); //light blue 0x94D7FF or 0x74CBFF
+		fparams.backgroundColor = RXUtils.GetColorFromHex(0x000000); //light blue 0x94D7FF or 0x74CBFF
 		
 		fparams.AddResolutionLevel(2560.0f,	2.0f,	2.0f,	""); //1280x720
 		fparams.AddResolutionLevel(1280.0f,	1.0f,	2.0f,	""); //1280x720
@@ -77,7 +77,7 @@ public class TMain : MonoBehaviour
 
         _stage = Futile.stage;
 
-		_stage.AddChild(_background = new Background());
+		_stage.AddChild(background = new Background());
 
         GoToPage(TPageType.PagePlayerSelect);
        
