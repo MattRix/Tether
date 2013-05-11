@@ -29,7 +29,7 @@ public class TMain : MonoBehaviour
 		Go.defaultEaseType = EaseType.Linear;
 		Go.duplicatePropertyRule = DuplicatePropertyRuleType.RemoveRunningProperty;
 
-		Screen.showCursor = false;
+		//Screen.showCursor = false;
 
 		//Time.timeScale = 0.1f;
 		
