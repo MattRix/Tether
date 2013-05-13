@@ -16,11 +16,8 @@ public class GamepadManager
 
     public GamepadManager()
     {
-		GenerateInputManagerData ();
-
-
+		//GenerateInputManagerData ();
         Update();
-
     }
 
     public Gamepad GetGamepad(int index)

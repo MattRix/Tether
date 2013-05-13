@@ -1,4 +1,34 @@
 
 
+ControlManager notes:
 
-Menu
+ControlMode cm = new ControlMode();
+
+[DUALAXIS/SINGLEAXIS/BUTTON]
+
+ControlButton cb = new ControlButton("Attack","AdvanceScreen"); [multiple names for the same button]
+cb.AddButton(XboxControls.X);
+cb.AddButton(PS3Controls.Square);
+cb.AddButton(WiiControls.Y);
+cb.AddButton(GenericGamepadButton.WestButton);
+cb.AddKey(Keyboard.Enter);
+cb.AddKey(Keyboard.X);
+
+cm.AddControl(cb);
+
+ControlDualAxis cda = new ControlDualAxis("Movement");
+cda.circular = true;
+
+[also could be cda.menuStyle = true for dpad/menu input (fourWay or discrete or menuStyle or cardinal)]
+
+cda.AddDualAxis(XboxControls.LeftStick);
+cda.AddDualAxis(XboxControls.DPad);
+cda.AddDualAxis(PS3Controls.LeftStick);
+cda.AddDualAxis(PS3Controls.DPad);
+cda.AddDualAxis(WiiControls.LeftStick);
+cda.AddDualAxis(WiiControls.DPad);
+
+cm.AddControl(cda);
+
+ControlManager.instance.AddControlMode(cm);
+
