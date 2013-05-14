@@ -10,6 +10,8 @@ public class PlayerSelectPage : TPage
 
 	public bool areAllPlayersReady = false;
 
+	public FSliceButton startButton;
+
 	public PlayerSelectPage()
 	{
 
@@ -32,6 +34,14 @@ public class PlayerSelectPage : TPage
 		allReadyLabel.y = 190;
 		allReadyLabel.scale = 0.75f;
 
+		startButton = new FSliceButton(230, 110, "Popup_Bg", "Popup_Bg", Color.blue, Color.white, "click1");
+		AddChild(startButton);
+		startButton.x = TMain.instance.background.sprite.width/2.0f - 215.0f;
+		startButton.y = 240;
+		startButton.sprite.alpha = 0.6f;
+		startButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
+		startButton.SignalRelease += HandleStartButtonClick;
+
 		float spreadX = 280;
 		float spreadY = 120;
 
@@ -46,6 +56,11 @@ public class PlayerSelectPage : TPage
 		HandlePanelStateChange();
 
 		ListenForUpdate (HandleUpdate);
+	}
+
+	void HandleStartButtonClick (FSliceButton button)
+	{
+		
 	}
 
 	void CreatePlayerPanel(int index, float createX, float createY)
@@ -136,86 +151,5 @@ public class PlayerSelectPage : TPage
 
 		GameManager.instance.SetRoundData(activePlayers);
 		TMain.instance.GoToPage(TPageType.PageInGame);
-	}
-}
-
-public class PlayerSelectPanel : FContainer
-{
-	public FLabel nameLabel;
-	public FLabel readyLabel;
-	
-	public Player player;
-
-	public FSliceSprite background;
-
-	public Action signalStateChange;
-	
-	public PlayerSelectPanel(Player player)
-	{
-		this.player = player;
-
-		AddChild(background = new FSliceSprite("Popup_Bg",520,200,16,16,16,16));
-		background.color = player.color;
-		background.alpha = 0.4f;
-
-		AddChild(nameLabel = new FLabel("CubanoBig", player.name));
-		nameLabel.scale = 1.0f;
-		nameLabel.y = 30.0f;
-
-		AddChild(readyLabel = new FLabel("CubanoBig", ""));
-		readyLabel.y = -30.0f;
-		readyLabel.scale = 0.75f;
-
-		ListenForUpdate(HandleUpdate);
-
-		UpdateState();
-	}
-
-	void HandleUpdate()
-	{
-		if (player.isConnected)
-		{
-			if(player.gamepad.GetButtonDown(PS3ButtonType.X))
-			{
-				player.isReady = !player.isReady;
-				UpdateState();
-				background.scale = 1.1f;
-
-				if(player.isReady)
-				{
-					FSoundManager.PlaySound("tone");
-				}
-				else 
-				{
-					FSoundManager.PlaySound("click4");
-				}
-			}
-		}
-
-		background.scale += (1.0f - background.scale) / 10.0f;
-	}
-
-	void UpdateState()
-	{
-		if (player.isConnected)
-		{
-			if(player.isReady)
-			{
-				readyLabel.text = "READY!";
-				readyLabel.color = RXColor.GetColorFromHex(0xFFFFFF);
-			}
-			else 
-			{
-				readyLabel.text = "PRESS X!";
-				readyLabel.color = RXColor.GetColorFromHex(0xFF9966);
-			}
-		}
-		else
-		{
-			readyLabel.text = "UNPLUGGED";
-			readyLabel.color = RXColor.GetColorFromHex(0xFF0000);
-		}
-
-		if(signalStateChange != null) signalStateChange();
 	}
 }

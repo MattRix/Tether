@@ -1,5 +1,24 @@
 
 
+
+Control methods:
+
+Keyboard arrows
+Keyboard WASD
+Joystick (1-4, Xbox, PS3, Madcatz)
+AI
+
+Each player control method can be toggled by clicking on it. 
+There should be a "START GAME" button too. 
+
+PlayerController (Joystick or Keyboard or AI) - has "MovementVector" and "Update"
+
+
+
+
+
+
+
 ControlManager notes:
 
 ControlMode cm = new ControlMode();
