@@ -1,1 +1,0 @@
-using System;using UnityEngine;using System.Collections.Generic;public class PlayerControllerManager{	static public PlayerControllerManager instance;	static void Init()	{		instance = new PlayerControllerManager();	}}
