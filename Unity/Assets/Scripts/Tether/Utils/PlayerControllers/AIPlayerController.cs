@@ -1,8 +1,32 @@
 using System;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class AIPlayerController : PlayerController
 {
-	public AIPlayerController()
+	public AISymbolicPlayerController symbolic;
+
+	public AIPlayerController(AISymbolicPlayerController symbolic)
+	{
+		this.symbolic = symbolic;
+
+		title = "AI";
+	}
+
+	override public void Update()
+	{
+		
+	}
+
+	override public bool CanBeUsed()
+	{
+		return true;
+	}
+}
+
+public class AISymbolicPlayerController : PlayerController
+{
+	public AISymbolicPlayerController()
 	{
 		title = "AI";
 	}
@@ -20,5 +44,10 @@ public class AIPlayerController : PlayerController
 	override public Player GetPlayer()
 	{
 		return null;
+	}
+
+	public PlayerController CreateActualController()
+	{
+		return new AIPlayerController(this);
 	}
 }

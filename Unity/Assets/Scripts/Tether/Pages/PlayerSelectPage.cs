@@ -48,6 +48,24 @@ public class PlayerSelectPage : TPage
 		AddChild(panelHolder = new FContainer());
 		panelHolder.y = -90.0f;
 
+		List<Player> players = GameManager.instance.players;
+
+		for(int p = 0; p<players.Count; p++)
+		{
+			Player player = players[p];
+
+			if(player.controller != GameManager.instance.unusedPlayerController && player.controller.CanBeUsed())
+			{
+				AIPlayerController aiController = player.controller as AIPlayerController;
+
+				if(aiController != null)
+				{
+					player.controller.SetPlayer(null);
+					player.controller = aiController.symbolic;
+				}
+			}
+		}
+
 		CreatePlayerPanel(0, -spreadX, spreadY);
 		CreatePlayerPanel(1, spreadX, spreadY);
 		CreatePlayerPanel(2, -spreadX, -spreadY);
@@ -162,6 +180,14 @@ public class PlayerSelectPage : TPage
 			if(player.controller != GameManager.instance.unusedPlayerController && player.controller.CanBeUsed())
 			{
 				activePlayers.Add(player);
+
+				AISymbolicPlayerController aiController = player.controller as AISymbolicPlayerController;
+
+				if(aiController != null)
+				{
+					player.controller = aiController.CreateActualController();
+					player.controller.SetPlayer(player);
+				}
 			}
 		}
 
