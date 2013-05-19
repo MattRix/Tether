@@ -22,6 +22,7 @@ public class GameManager
 		availablePlayerControllers.Add(unusedPlayerController);
 		availablePlayerControllers.Add(new KeyboardPlayerController(false));
 		availablePlayerControllers.Add(new KeyboardPlayerController(true));
+		availablePlayerControllers.Add(new AIPlayerController());
 
 		players.Add(new Player(0, "PURPLE PLAYER", RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
 		players.Add(new Player(1, "GREEN PLAYER", RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));

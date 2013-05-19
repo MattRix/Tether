@@ -237,7 +237,7 @@ public class FLabel : FFacetElementNode
 			{
 				_text = value; 
 				_doesTextNeedUpdate = true;
-				CreateTextQuads();
+				CreateTextQuads(); //lazily creating the quads was causing too many issues, so just create them when .text is set
 			}
 		}
 	}
