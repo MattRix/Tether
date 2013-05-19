@@ -8,7 +8,7 @@ public class PlayerController
 
 	public string title = "TITLE NOT SET";
 
-	private Player _player = null;
+	protected Player _player = null;
 
 	public PlayerController()
 	{
