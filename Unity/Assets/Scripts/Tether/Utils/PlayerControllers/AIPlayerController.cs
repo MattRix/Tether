@@ -8,7 +8,11 @@ public class AIPlayerController : PlayerController
 
 	public Vector2 targetIdlePos = new Vector2();
 
+
+	public float timeUntilRetarget = 0.0f;
 	public float timeUntilUpdateIdle = 0.0f;
+
+	public Vector2 targetMovementVector = new Vector2();
 
 	public AIPlayerController(AISymbolicPlayerController symbolic)
 	{
@@ -26,15 +30,30 @@ public class AIPlayerController : PlayerController
 			GetNewIdlePos();
 		}
 
+		timeUntilRetarget -= Time.deltaTime;
+
+		if(timeUntilRetarget <= 0)
+		{
+			UpdateMovementVector();
+		}
+
+		movementVector += (targetMovementVector - movementVector) * 0.7f;
+	}
+
+	void UpdateMovementVector()
+	{
+		timeUntilRetarget = RXRandom.Range(0.2f,0.5f);
 
 		World world = World.instance;
 		Beast beast = world.beasts[_player.index];
 
 		Vector2 beastPos = beast.GetPos();
 
-		Orb closestOrb = null;
+		Orb closestOwnOrb = null;
+		Orb closestEnemyOrb = null;
 
-		float closestDist = float.MaxValue;
+		float closestOwnDist = float.MaxValue;
+		float closestEnemyDist = float.MaxValue;
 
 		for(int r = 0; r<world.orbs.Count; r++)
 		{
@@ -44,28 +63,89 @@ public class AIPlayerController : PlayerController
 
 			float dist = delta.magnitude;
 
-			if(dist < closestDist)
+			if(checkOrb.player == _player)
 			{
-				closestDist = dist;
-				closestOrb = checkOrb;
+				if(dist < closestOwnDist)
+				{
+					closestOwnDist = dist;
+					closestOwnOrb = checkOrb;
+				}
 			}
+			else
+			{
+				if(dist < closestEnemyDist)
+				{
+					closestEnemyDist = dist;
+					closestEnemyOrb = checkOrb;
+				}
+			}
+
 
 		}
 
-		if(closestOrb != null)
-		{
-			Vector2 deltaToClosest = closestOrb.GetPos() - beastPos;
+		Orb orbToTarget = null;
+		bool shouldGoTowardsOrb = true;
 
-			if(closestOrb.player == _player) //closest is good!
-			{
-				movementVector = deltaToClosest.normalized;
-			}
-			else //closest is bad!
-			{
-				movementVector = -deltaToClosest.normalized;
-			}
+		//
+		//dist *= 0.8f; //prioritize own orbs slightly
+
+		if(closestOwnDist < closestEnemyDist)
+		{
+			orbToTarget = closestOwnOrb;
+			shouldGoTowardsOrb = true;
 		}
 		else 
+		{
+			if(closestEnemyOrb != null)
+			{
+				bool isPlayerAboutToWin = closestEnemyOrb.player.score == GameConfig.WIN_SCORE-1;
+
+				Beast enemyBeast = world.beasts[closestEnemyOrb.player.index];
+
+				Vector2 enemyDelta = closestEnemyOrb.GetPos() - enemyBeast.GetPos();
+
+				float enemyDist = enemyDelta.magnitude;
+
+				if(enemyDist > closestEnemyDist + 20.0f) //if we're at least 20 px closer, go knock it away!
+				{
+					orbToTarget = closestEnemyOrb;
+					shouldGoTowardsOrb = true;
+				}
+				else
+				{
+					//prioritize our own orbs slightly normally, except when someone is about to win
+					float fearModifier = isPlayerAboutToWin ? 1.2f : 0.8f; //lower means it'll avoid its own orbs to prevent a win
+
+					if(enemyDist < closestOwnDist * fearModifier) 
+					{
+						orbToTarget = closestEnemyOrb;
+						shouldGoTowardsOrb = false;
+					}
+					else 
+					{
+						orbToTarget = closestOwnOrb;
+						shouldGoTowardsOrb = true;
+					}
+				}
+			}
+		}
+
+		//beast.
+
+		if(orbToTarget != null)
+		{
+			Vector2 deltaToClosest = orbToTarget.GetPos() - beastPos;
+
+			if(shouldGoTowardsOrb)
+			{
+				targetMovementVector = deltaToClosest.normalized;
+			}
+			else
+			{
+				targetMovementVector = -deltaToClosest.normalized;
+			}
+		}
+		else //do idle motion
 		{
 			Vector2 deltaToTarget = targetIdlePos - beastPos;
 
@@ -75,9 +155,8 @@ public class AIPlayerController : PlayerController
 				deltaToTarget = targetIdlePos - beastPos;
 			}
 
-			movementVector = deltaToTarget.normalized;
+			targetMovementVector = deltaToTarget.normalized;
 		}
-
 	}
 
 	void GetNewIdlePos()
