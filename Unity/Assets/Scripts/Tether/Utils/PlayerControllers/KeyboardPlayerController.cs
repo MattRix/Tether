@@ -74,20 +74,20 @@ public class KeyboardPlayerController : PlayerController
 				return true;
 			}
 		}
-		else if(buttonType == PlayerControllerButtonType.Start || buttonType == PlayerControllerButtonType.Pause)
-		{
-			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-			{
-				return true;
-			}
-		}
-		else if(buttonType == PlayerControllerButtonType.Reset)
-		{
-			if(Input.GetKeyDown(KeyCode.Backspace))
-			{
-				return true;
-			}
-		}
+//		else if(buttonType == PlayerControllerButtonType.Start || buttonType == PlayerControllerButtonType.Pause)
+//		{
+//			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+//			{
+//				return true;
+//			}
+//		}
+//		else if(buttonType == PlayerControllerButtonType.Reset)
+//		{
+//			if(Input.GetKeyDown(KeyCode.Backspace))
+//			{
+//				return true;
+//			}
+//		}
 
 		return false;
 	}

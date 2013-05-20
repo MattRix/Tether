@@ -60,15 +60,14 @@ public class PlayerSelectPanel : FContainer
 	
 	void HandleUpdate()
 	{
-//		if (player != null && player.controller != null & player.controller.CanBeUsed())
-//		{
-//			if(player.controller.GetButtonDown(PlayerControllerButtonType.Ready))
-//			{
-//				UpdateState();
-//				background.scale = 1.1f;
-//			}
-//		}
-//		
+		if (player.controller.CanBeUsed())
+		{
+			if(player.controller.GetButtonDown(PlayerControllerButtonType.Ready))
+			{
+				background.scale = 1.1f;
+			}
+		}
+
 		background.scaleX += (1.0f - background.scaleX) / 10.0f;
 		background.scaleY += (1.0f - background.scaleY) / 10.0f;
 	}

@@ -123,27 +123,33 @@ public class PlayerSelectPage : TPage
 	{
 		if(areAllPlayersReady)
 		{
-//			if(GameConfig.SHOULD_SKIP_CHAR_SELECT)
-//			{
-//				StartGame();
-//				return;
-//			}
+			if(GameConfig.SHOULD_SKIP_CHAR_SELECT)
+			{
+				StartGame();
+				return;
+			}
 //
-//			List<Player> players = GameManager.instance.players;
-//        
-//			for(int p = 0;p<players.Count;p++)
-//			{
-//				Player player = players[p];
-//			
-//				if(player.controller != null && player.controller.CanBeUsed())
-//				{
-//					if(player.controller.GetButtonDown(PlayerControllerButtonType.Start))
-//					{
-//						StartGame();
-//						return;
-//					}
-//				}
-//			}
+			List<Player> players = GameManager.instance.players;
+        
+			for(int p = 0;p<players.Count;p++)
+			{
+				Player player = players[p];
+			
+				if(player.controller.CanBeUsed())
+				{
+					if(player.controller.GetButtonDown(PlayerControllerButtonType.Start))
+					{
+						StartGame();
+						return;
+					}
+				}
+			}
+
+			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+			{
+				StartGame();
+				return;
+			}
 
 			startButton.alpha = 1.0f;
 			startButton.isEnabled = true;

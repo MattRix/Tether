@@ -39,7 +39,7 @@ public class GamepadManager
             while(countDelta > 0)
             {
                 countDelta --;
-                Gamepad gamepad = new Gamepad();
+				Gamepad gamepad = new Gamepad(joystickNames[gamepads.Count]);
 				Debug.Log("Adding gamepad " + joystickNames[gamepads.Count]);
                 gamepads.Add(gamepad);
             }

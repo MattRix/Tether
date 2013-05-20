@@ -327,8 +327,7 @@ public class World : FContainer
 			{
 				if (beasts [b].player.controller.GetButtonDown(PlayerControllerButtonType.Start))
 				{
-					GameConfig.SHOULD_SKIP_CHAR_SELECT = true;
-					TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+					RestartGame();
 					break;
 				}
 			}
@@ -340,15 +339,30 @@ public class World : FContainer
 				}
 			}
 
-			//if (beasts [b].player.gamepad.GetButton(PS3ButtonType.Start) && beasts [b].player.gamepad.GetButton(PS3ButtonType.Select))
 			if (beasts [b].player.controller.GetButtonDown(PlayerControllerButtonType.Reset))
 			{
-				GameConfig.SHOULD_SKIP_CHAR_SELECT = false;
-				TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+				RestartAtCharSelect();
 				break;
 			}
 		
 		}
+
+		if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+		{	
+			if(isGameOver)
+			{
+				RestartGame();
+			}
+			else 
+			{
+				TogglePause();
+			}
+		}
+		else if(Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Backspace))
+		{
+			RestartAtCharSelect();
+		}
+
 
 
 		bool isOneCloseToWinning = false;
@@ -389,6 +403,18 @@ public class World : FContainer
 				beastPanels[b].goldBG.isVisible = false;
 			}
 		}
+	}
+
+	static void RestartGame()
+	{
+		GameConfig.SHOULD_SKIP_CHAR_SELECT = true;
+		TMain.instance.GoToPage(TPageType.PagePlayerSelect);
+	}
+
+	static void RestartAtCharSelect()
+	{
+		GameConfig.SHOULD_SKIP_CHAR_SELECT = false;
+		TMain.instance.GoToPage(TPageType.PagePlayerSelect);
 	}
 	
 	void CreateOrb()
