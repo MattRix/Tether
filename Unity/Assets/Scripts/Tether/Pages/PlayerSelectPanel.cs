@@ -77,8 +77,8 @@ public class PlayerSelectPanel : FContainer
 	{
 		if (player.controller == GameManager.instance.unusedPlayerController)
 		{
-			readyLabel.text = "[UNUSED]";
-			readyLabel.color = RXColor.GetColorFromHex(0xFF0000);
+			readyLabel.text = "UNUSED";
+			readyLabel.color = RXColor.GetColorFromHex(0x777788);
 		}
 		else
 		{

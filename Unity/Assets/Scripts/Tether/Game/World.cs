@@ -466,6 +466,19 @@ public class World : FContainer
 			AddChild(pauseContainer);
 		}
 	}
+
+	public Beast GetBeastForPlayer(Player player)
+	{
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player == player)
+			{
+				return beasts[b];
+			}
+		}
+
+		return null;
+	}
 }
 
 

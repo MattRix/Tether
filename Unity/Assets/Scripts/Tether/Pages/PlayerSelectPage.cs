@@ -107,7 +107,7 @@ public class PlayerSelectPage : TPage
 
 		if (readyPlayersCount >= 2)
 		{
-			allReadyLabel.text = "PRESS ENTER TO BEGIN!";
+			allReadyLabel.text = "PRESS START TO BEGIN!";
 			allReadyLabel.color = RXColor.GetColorFromHex(0xEECCFF);
 			areAllPlayersReady = true;
         }
