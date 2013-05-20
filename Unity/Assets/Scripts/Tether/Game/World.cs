@@ -39,8 +39,6 @@ public class World : FContainer
 
 	public List<BeastPanel> beastPanels = new List<BeastPanel>();
 	
-	public List<FSprite> beastShadows = new List<FSprite>();
-
 	public World()
 	{
 		instance = this;
@@ -142,7 +140,7 @@ public class World : FContainer
 			beastShadow.alpha = 0.7f;
 			beastShadow.scale = 1.0f;
 
-			beastShadows.Add(beastShadow);
+			beast.shadow = beastShadow;
 		}
 
 		int linkCount = 11;
@@ -390,14 +388,6 @@ public class World : FContainer
 				beasts[b].goldSprite.isVisible = false;
 				beastPanels[b].goldBG.isVisible = false;
 			}
-
-			Vector2 pos = beasts[b].GetPos();
-			pos.y -= 3.0f;
-
-
-			beastShadows[b].SetPosition(pos);
-			beastShadows[b].rotation = beasts[b].holder.rotation;
-
 		}
 	}
 	

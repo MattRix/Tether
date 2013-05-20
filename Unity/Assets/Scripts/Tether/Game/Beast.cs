@@ -30,7 +30,9 @@ public class Beast : MonoBehaviour
 	public Vector2 eyeTarget = new Vector2(3,19);
 	
 	public FSprite goldSprite;
-		
+
+	public FSprite shadow;
+
 	public void Init(Player player, Vector2 startPos)
 	{
 		this.player = player;
@@ -137,6 +139,12 @@ public class Beast : MonoBehaviour
 
 		eyeSprite.x += (eyeTarget.x - eyeSprite.x) / 10.0f;
 		eyeSprite.y += (eyeTarget.y - eyeSprite.y) / 10.0f;
+
+		Vector2 pos = GetPos();
+		pos.y -= 3.0f;
+
+		shadow.SetPosition(pos);
+		shadow.rotation = holder.rotation;
 	}
 
 	void HandleFixedUpdate()

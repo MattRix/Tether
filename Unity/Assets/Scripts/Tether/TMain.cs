@@ -32,7 +32,7 @@ public class TMain : MonoBehaviour
 		//Screen.showCursor = false;
 
 		//Time.timeScale = 0.1f;
-		
+
 		bool landscape = true;
 		bool portrait = false;
 		
@@ -47,13 +47,12 @@ public class TMain : MonoBehaviour
 		fparams.AddResolutionLevel(1280.0f,	1.0f,	2.0f,	""); //1280x720
 		
 		fparams.origin = new Vector2(0.5f,0.5f);
-		
+
 		Futile.instance.Init (fparams);
 		
 		Futile.atlasManager.LoadAtlas("Atlases/UIAtlas");
 		Futile.atlasManager.LoadAtlas("Atlases/UIFonts");
 		Futile.atlasManager.LoadAtlas("Atlases/BackgroundAtlas");
-		// TEMP: Load in all atlases for GDC to keep load times small
 		Futile.atlasManager.LoadAtlas("Atlases/GameAtlas");
 		
 		FTextParams textParams;

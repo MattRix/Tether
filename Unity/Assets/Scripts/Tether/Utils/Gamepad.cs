@@ -26,6 +26,8 @@ public class Gamepad
 		leftStick = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " Axis 1"), Input.GetAxisRaw(axisJoyName + " Axis 2"));
 		rightStick = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " Axis 3"), Input.GetAxisRaw(axisJoyName + " Axis 4"));
         
+		leftStick.y *= -1;
+
 //      for (int b = 0; b<PS3ButtonType.allButtons.Count; b++)
 //		{
 //        	if(GetButtonDown(PS3ButtonType.allButtons[b]))
