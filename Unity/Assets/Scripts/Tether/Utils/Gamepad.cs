@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Gamepad
 {
+	static private bool SHOULD_LOG_ALL_BUTTON_PRESSES = false;
+
     public int index;
     
     public Vector2 direction;
@@ -28,7 +30,7 @@ public class Gamepad
 				Application.platform == RuntimePlatform.WindowsPlayer ||
 				Application.platform == RuntimePlatform.WindowsWebPlayer;
 
-		if(joystickName.Contains("Xbox"))
+		if(joystickName.Contains("Xbox")) //Xbox 360 controller
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
@@ -48,7 +50,7 @@ public class Gamepad
 				buttonReset = XboxButtonType.Back.numStringOSX;
 			}
 		}
-		else if(joystickName.Contains("PS3"))
+		else if(joystickName.Contains("Sony")) //PS3 Controller
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
@@ -59,12 +61,27 @@ public class Gamepad
 			buttonReady = PS3ButtonType.X.numStringOSX;
 			buttonReset = PS3ButtonType.Select.numStringOSX;
 		}
+		else if(joystickName.Contains("Mad Catz")) //for my crappy 10 year old Mad Catz gamepad
+		{
+			axisXName = "Axis 1";
+			axisYName = "Axis 2";
+			shouldInvertX = false;
+			shouldInvertY = true;
+
+			buttonStart = "8";
+			buttonReady = "0";
+			buttonReset = "6";
+		}
 		else
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
 			shouldInvertX = false;
 			shouldInvertY = true;
+
+			buttonStart = "0";
+			buttonReady = "1";
+			buttonReset = "2";
 		}
     }
 
@@ -81,13 +98,16 @@ public class Gamepad
 		if(shouldInvertX) direction.x *= -1.0f;
 		if(shouldInvertY) direction.y *= -1.0f;
 
-//		for (int b = 0; b<20; b++)
-//		{
-//			if(Input.GetKeyDown(buttonJoyName + " button " + b.ToString()))
-//			{
-//				Debug.Log("Joystick " +index + " Button " + b.ToString() + " Pressed!");
-//			}
-//		}
+		if(SHOULD_LOG_ALL_BUTTON_PRESSES)
+		{
+			for (int b = 0; b<20; b++)
+			{
+				if(Input.GetKeyDown(buttonJoyName + " button " + b.ToString()))
+				{
+					Debug.Log("Joystick " +index + " Button " + b.ToString() + " Pressed!");
+				}
+			}
+		}
     }
     
     static public Vector2 Deadzonize(float deadzone, float axisX, float axisY)

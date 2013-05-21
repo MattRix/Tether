@@ -61,7 +61,7 @@ public class GamepadPlayerController : PlayerController
 
 	override public bool CanBeUsed()
 	{
-		Gamepad gamepad = GamepadManager.instance.GetGamepad(index);
+		gamepad = GamepadManager.instance.GetGamepad(index);
 
 		if(gamepad == null)
 		{

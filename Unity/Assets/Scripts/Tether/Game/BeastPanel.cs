@@ -23,7 +23,7 @@ public class BeastPanel : FContainer
 
 		beast.player.SignalPlayerChange += HandleSignalPlayerChange;
 
-		fullWidth = GameConfig.WIN_SCORE * widthPerNib;
+		fullWidth = GameConfig.WINNING_SCORE * widthPerNib;
 
 		bg = new FSliceSprite("PointBarBG", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
 		AddChild(bg);
@@ -34,7 +34,7 @@ public class BeastPanel : FContainer
 		goldBG.alpha = 0.66f;
 		goldBG.isVisible = false;
 
-		for(int p = 0; p<GameConfig.WIN_SCORE; p++)
+		for(int p = 0; p<GameConfig.WINNING_SCORE; p++)
 		{
 			FContainer nib = new FContainer();
 

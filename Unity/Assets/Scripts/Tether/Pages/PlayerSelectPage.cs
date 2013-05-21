@@ -4,7 +4,9 @@ using System;
 
 public class PlayerSelectPage : TPage
 {
-	FLabel allReadyLabel;
+	public FLabel allReadyLabel;
+
+	public FLabel infoLabel;
 
 	public FContainer panelHolder;
 
@@ -34,19 +36,27 @@ public class PlayerSelectPage : TPage
 		allReadyLabel.y = 190;
 		allReadyLabel.scale = 0.75f;
 
+		infoLabel = new FLabel("Franchise", "CLICK THE BOXES OR PRESS BACK/SELECT TO TOGGLE PLAYERS");
+		AddChild(infoLabel);
+		infoLabel.y = -332;
+		infoLabel.scale = 0.5f;
+		infoLabel.alpha = 0.0f;
+
+		Go.to(infoLabel, 0.5f, new TweenConfig().floatProp("alpha", 0.7f).setDelay(0.7f));
+
 		startButton = new FSliceButton(230, 110, "Popup_Bg", "Popup_Bg", Color.blue, Color.white, "click1");
 		AddChild(startButton);
 		startButton.x = TMain.instance.background.sprite.width/2.0f - 215.0f;
 		startButton.y = 240;
-		startButton.sprite.alpha = 0.6f;
+		startButton.sprite.alpha = 0.3f;
 		startButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
 		startButton.SignalRelease += HandleStartButtonClick;
 
-		float spreadX = 280;
-		float spreadY = 120;
+		float spreadX = 275;
+		float spreadY = 115;
 
 		AddChild(panelHolder = new FContainer());
-		panelHolder.y = -90.0f;
+		panelHolder.y = -80.0f;
 
 		List<Player> players = GameManager.instance.players;
 
@@ -83,9 +93,10 @@ public class PlayerSelectPage : TPage
 		panel.SetPosition(createX, createY);
 		panel.signalStateChange = HandlePanelStateChange;
 
-		panel.scale = 0.0f;
+		panel.scale = 0.5f;
+		panel.alpha = 0.0f;
 
-		Go.to(panel, 0.5f, new TweenConfig().floatProp("scale", 1.0f).setEaseType(EaseType.BackOut).setDelay((float)index*0.2f));
+		Go.to(panel, 0.5f, new TweenConfig().floatProp("scale", 1.0f).floatProp("alpha", 1.0f).setEaseType(EaseType.BackOut).setDelay((float)index*0.2f));
 	}
 
 	void HandlePanelStateChange()
@@ -107,7 +118,7 @@ public class PlayerSelectPage : TPage
 
 		if (readyPlayersCount >= 2)
 		{
-			allReadyLabel.text = "PRESS START TO BEGIN!";
+			allReadyLabel.text = "PRESS START/ENTER TO BEGIN!";
 			allReadyLabel.color = RXColor.GetColorFromHex(0xEECCFF);
 			areAllPlayersReady = true;
         }
@@ -121,6 +132,17 @@ public class PlayerSelectPage : TPage
 	
 	protected void HandleUpdate ()
 	{
+		if(startButton.isEnabled)
+		{
+			startButton.scale = 1.0f + Mathf.Sin(Time.time * 10.0f) * 0.05f;
+		}
+		else
+		{
+			startButton.scale = 1.0f;
+		}
+
+		List<Player> players = GameManager.instance.players;
+
 		if(areAllPlayersReady)
 		{
 			if(GameConfig.SHOULD_SKIP_CHAR_SELECT)
@@ -128,9 +150,7 @@ public class PlayerSelectPage : TPage
 				StartGame();
 				return;
 			}
-//
-			List<Player> players = GameManager.instance.players;
-        
+
 			for(int p = 0;p<players.Count;p++)
 			{
 				Player player = players[p];

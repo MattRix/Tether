@@ -98,7 +98,7 @@ public class AIPlayerController : PlayerController
 		{
 			if(closestEnemyOrb != null)
 			{
-				bool isPlayerAboutToWin = closestEnemyOrb.player.score == GameConfig.WIN_SCORE-1;
+				bool isPlayerAboutToWin = closestEnemyOrb.player.score == GameConfig.WINNING_SCORE-1;
 
 				Beast enemyBeast = world.GetBeastForPlayer(closestEnemyOrb.player);
 

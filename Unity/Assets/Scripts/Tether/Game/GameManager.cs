@@ -14,10 +14,12 @@ public class GameManager
 	public List<PlayerController> availablePlayerControllers = new List<PlayerController>();
 
 	public UnusedPlayerController unusedPlayerController;
+	public AISymbolicPlayerController aiPlayerController;
 	
 	public GameManager()
 	{
 		unusedPlayerController = new UnusedPlayerController();
+		aiPlayerController = new AISymbolicPlayerController();
 		
 		availablePlayerControllers.Add(unusedPlayerController);
 		availablePlayerControllers.Add(new KeyboardPlayerController(false));
@@ -26,7 +28,7 @@ public class GameManager
 		availablePlayerControllers.Add(new GamepadPlayerController(1));
 		availablePlayerControllers.Add(new GamepadPlayerController(2));
 		availablePlayerControllers.Add(new GamepadPlayerController(3));
-		availablePlayerControllers.Add(new AISymbolicPlayerController());
+		availablePlayerControllers.Add(aiPlayerController);
 
 		players.Add(new Player(0, "PURPLE PLAYER", RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
 		players.Add(new Player(1, "GREEN PLAYER", RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));

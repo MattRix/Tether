@@ -202,7 +202,7 @@ public class World : FContainer
 	{
 		for(int b = 0; b<beasts.Count; b++)
 		{
-			if(beasts[b].player.score >= GameConfig.WIN_SCORE)
+			if(beasts[b].player.score >= GameConfig.WINNING_SCORE)
 			{
 				this.winningPlayer = beasts[b].player;
 				DoGameOver();
@@ -237,13 +237,13 @@ public class World : FContainer
 		titleLabel.y = 30.0f;
 		gameOverHolder.AddChild(titleLabel);
 
-		FLabel instructionLabel = new FLabel("CubanoBig", "PRESS START TO PLAY AGAIN!");
+		FLabel instructionLabel = new FLabel("CubanoBig", "PRESS START/ENTER TO PLAY AGAIN!");
 		instructionLabel.color = Color.white;
 		instructionLabel.y = -40.0f;
 		instructionLabel.scale = 0.75f;
 		gameOverHolder.AddChild(instructionLabel);
 
-		instructionLabel = new FLabel("CubanoBig", "PRESS SELECT TO CHANGE PLAYERS");
+		instructionLabel = new FLabel("CubanoBig", "PRESS SELECT/BACK/R TO CHANGE PLAYERS");
 		instructionLabel.color = Color.white;
 		instructionLabel.alpha = 0.7f;
 		instructionLabel.y = -150.0f;
@@ -371,7 +371,7 @@ public class World : FContainer
 
 		for (int b = 0; b<beasts.Count; b++)
 		{
-			if(beasts[b].player.score == GameConfig.WIN_SCORE-1)
+			if(beasts[b].player.score == GameConfig.WINNING_SCORE-1)
 			{
 				isOneCloseToWinning = true;
 			}
