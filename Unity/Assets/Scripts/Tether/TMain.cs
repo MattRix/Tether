@@ -89,7 +89,11 @@ public class TMain : MonoBehaviour
 
 	void HandleResize(bool wasResizedDueToOrientationChange)
 	{
-		_stage.scale = Futile.screen.width / 1280.0f; //keep it full screen always!
+		for(int s = 0;s<Futile.GetStageCount();s++)
+		{
+			Futile.GetStageAt(s).scale = Futile.screen.width / 1280.0f; //keep it full screen always!
+		}
+
 	}
 
 	void HandleUpdate ()

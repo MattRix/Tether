@@ -64,6 +64,8 @@ public class World : FContainer
 		uiStage = new FStage("UIStage");
 		Futile.AddStage(uiStage);
 
+		uiStage.scale = Futile.stage.scale;
+
 		uiStage.AddChild(uiHolder = new FContainer());
 
 		InitBeasts();
