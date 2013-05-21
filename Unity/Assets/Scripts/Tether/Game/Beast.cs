@@ -61,6 +61,7 @@ public class Beast : MonoBehaviour
 		InitPhysics();
 
 		holder.ListenForUpdate(HandleUpdate);
+		holder.ListenForLateUpdate(HandleLateUpdate);
 		holder.ListenForFixedUpdate(HandleFixedUpdate);
 
 		//AddTentacle(new Vector2(-20.0f, -20.0f), -90.0f);
@@ -139,7 +140,10 @@ public class Beast : MonoBehaviour
 
 		eyeSprite.x += (eyeTarget.x - eyeSprite.x) / 10.0f;
 		eyeSprite.y += (eyeTarget.y - eyeSprite.y) / 10.0f;
+	}
 
+	void HandleLateUpdate()
+	{
 		Vector2 pos = GetPos();
 		pos.y -= 3.0f;
 

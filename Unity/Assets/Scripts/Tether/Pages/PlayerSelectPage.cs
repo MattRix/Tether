@@ -47,7 +47,7 @@ public class PlayerSelectPage : TPage
 		smallLabel = new FLabel("Franchise", "F: FULLSCREEN");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
-		smallLabel.y = 334.0f;
+		smallLabel.y = 336.0f;
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
@@ -55,7 +55,7 @@ public class PlayerSelectPage : TPage
 		smallLabel = new FLabel("Franchise", "M: MUTE");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
-		smallLabel.y = 334.0f - 28.0f * 1;
+		smallLabel.y = 336.0f - 28.0f * 1;
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
@@ -63,7 +63,7 @@ public class PlayerSelectPage : TPage
 		smallLabel = new FLabel("Franchise", "R: RESET");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
-		smallLabel.y = 334.0f - 28.0f * 2;
+		smallLabel.y = 336.0f - 28.0f * 2;
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
