@@ -112,7 +112,7 @@ public class Beast : MonoBehaviour
 			}
 			else //hit enemy orb
 			{
-				FSoundManager.PlaySound("SnowAttack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.5f);
+				FSoundManager.PlaySound("attack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.5f);
 			}
 		}
 
@@ -120,7 +120,7 @@ public class Beast : MonoBehaviour
 
 		if (beast != null)
 		{
-			FSoundManager.PlaySound("SnowAttack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.2f);
+			FSoundManager.PlaySound("attack", Mathf.Clamp01(coll.impactForceSum.magnitude/10.0f) * 0.2f);
 		}
 	}
 

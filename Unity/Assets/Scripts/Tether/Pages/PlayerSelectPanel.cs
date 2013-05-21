@@ -68,6 +68,14 @@ public class PlayerSelectPanel : FContainer
 	{
 		//first, check if we should add a controller that is pressing its back/select button
 
+		if(!player.controller.CanBeUsed()) //if a controller gets disconnected
+		{
+			player.controller.SetPlayer(null);
+			player.controller = GameManager.instance.unusedPlayerController;
+			UpdateState();
+			DoPulseEffect();
+		}
+
 		bool didJustAddController = false;
 
 		if(player.controller == GameManager.instance.unusedPlayerController)

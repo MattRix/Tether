@@ -116,7 +116,7 @@ public class Orb : MonoBehaviour
 
 	public void Explode(bool isGood)
 	{
-		FSoundManager.PlaySound("BombSmall");
+		FSoundManager.PlaySound("bombSmall");
 		OrbExplosion explosion = new OrbExplosion(isGood, player);
 		explosion.SetPosition(this.GetPos());
 		world.effectHolder.AddChild(explosion);
