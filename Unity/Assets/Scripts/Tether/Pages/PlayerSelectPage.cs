@@ -42,15 +42,41 @@ public class PlayerSelectPage : TPage
 		infoLabel.scale = 0.5f;
 		infoLabel.alpha = 0.0f;
 
-		Go.to(infoLabel, 0.5f, new TweenConfig().floatProp("alpha", 0.7f).setDelay(0.7f));
+		FLabel smallLabel;
 
-		startButton = new FSliceButton(230, 110, "Popup_Bg", "Popup_Bg", Color.blue, Color.white, "click1");
+		smallLabel = new FLabel("Franchise", "F: FULLSCREEN");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 334.0f;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
+
+		smallLabel = new FLabel("Franchise", "M: MUTE");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 334.0f - 28.0f * 1;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
+
+		smallLabel = new FLabel("Franchise", "R: RESET");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 334.0f - 28.0f * 2;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
+
+		startButton = new FSliceButton(220, 80, "Popup_Bg", "Popup_Bg", Color.blue, Color.white, "click1");
 		AddChild(startButton);
-		startButton.x = TMain.instance.background.sprite.width/2.0f - 215.0f;
-		startButton.y = 240;
+		startButton.x = 425.0f;
+		startButton.y = 270;
 		startButton.sprite.alpha = 0.3f;
 		startButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
 		startButton.SignalRelease += HandleStartButtonClick;
+
+		Go.to(infoLabel, 0.5f, new TweenConfig().floatProp("alpha", 0.7f).setDelay(0.7f));
 
 		float spreadX = 275;
 		float spreadY = 115;
@@ -134,7 +160,7 @@ public class PlayerSelectPage : TPage
 	{
 		if(startButton.isEnabled)
 		{
-			startButton.scale = 1.0f + Mathf.Sin(Time.time * 10.0f) * 0.05f;
+			startButton.scale = 1.0f + Mathf.Sin(Time.time * 10.0f) * 0.025f;
 		}
 		else
 		{
@@ -176,7 +202,7 @@ public class PlayerSelectPage : TPage
 		}
 		else
 		{
-			startButton.alpha = 0.5f;
+			startButton.alpha = 0.0f; //hidden when disabled
 			startButton.isEnabled = false;
 		}
     }

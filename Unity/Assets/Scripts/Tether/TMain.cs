@@ -83,6 +83,13 @@ public class TMain : MonoBehaviour
 		_stage.ListenForUpdate (HandleUpdate);
 
 		FSoundManager.isMuted = !GameConfig.IS_SOUND_ON;
+
+		_stage.ListenForResize(HandleResize);
+	}
+
+	void HandleResize(bool wasResizedDueToOrientationChange)
+	{
+		_stage.scale = Futile.screen.width / 1280.0f; //keep it full screen always!
 	}
 
 	void HandleUpdate ()
@@ -97,6 +104,11 @@ public class TMain : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.M)) 
 		{
 			FSoundManager.isMuted = !FSoundManager.isMuted;
+		}
+
+		if (Input.GetKeyDown (KeyCode.F)) 
+		{
+			Screen.fullScreen = !Screen.fullScreen;
 		}
 	}
 

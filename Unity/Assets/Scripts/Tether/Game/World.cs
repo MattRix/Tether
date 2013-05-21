@@ -269,7 +269,7 @@ public class World : FContainer
 
 	void InitUI()
 	{
-		float baseY = TMain.instance.background.sprite.height/2 - 20.0f;
+		float baseY = 340.0f;
 		float spacing = 32.0f;
 
 		CreateBeastPanel(0, new Vector2(0,baseY-spacing*0));
@@ -291,7 +291,7 @@ public class World : FContainer
 		pauseLabel.y = 16.0f;
 		pauseContainer.AddChild(pauseLabel);
 
-		FLabel changeLabel = new FLabel("Franchise", "(PRESS SELECT TO CHANGE PLAYERS)");
+		FLabel changeLabel = new FLabel("Franchise", "(PRESS BACK/SELECT/R TO RESET)");
 		changeLabel.alpha = 0.7f;
 		changeLabel.scale = 0.5f;
 		changeLabel.y = -36.0f;

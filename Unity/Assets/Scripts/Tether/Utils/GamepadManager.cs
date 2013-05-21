@@ -66,6 +66,7 @@ public class GamepadManager
 
 	void GenerateInputManagerData ()
 	{
+		#if !UNITY_WEBPLAYER
 		string fullOutput = "%YAML 1.1\n";
 		fullOutput += "%TAG !u! tag:unity3d.com,2011:\n";
 		fullOutput += "--- !u!13 &1\n";
@@ -86,6 +87,7 @@ public class GamepadManager
 
 		System.IO.File.WriteAllText("Assets/Notes/InputManagerData.txt", fullOutput);
 		Debug.Log(fullOutput);
+		#endif
 	}
 
 	string GetAxisInputManagerData(int ordinal, int invert, string axisName, int axisIndex)

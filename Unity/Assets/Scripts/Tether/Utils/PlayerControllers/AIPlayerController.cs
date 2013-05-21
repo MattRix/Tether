@@ -184,8 +184,8 @@ public class AIPlayerController : PlayerController
 		}
 		else 
 		{
-			float w = TMain.instance.background.sprite.width * 0.33f;
-			float h = TMain.instance.background.sprite.height * 0.33f;
+			float w = 1280.0f * 0.33f;
+			float h = 720.0f * 0.33f;
 			targetIdlePos.x = RXRandom.Range(-w,w);
 			targetIdlePos.y = RXRandom.Range(-h,h);
 		}

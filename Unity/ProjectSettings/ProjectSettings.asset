@@ -13,10 +13,10 @@ PlayerSettings:
   companyName: Matt Rix
   productName: FutileDemo
   AndroidLicensePublicKey: 
-  defaultScreenWidth: 1280
-  defaultScreenHeight: 720
-  defaultScreenWidthWeb: 2560
-  defaultScreenHeightWeb: 1440
+  defaultScreenWidth: 99999
+  defaultScreenHeight: 99999
+  defaultScreenWidthWeb: 1280
+  defaultScreenHeightWeb: 720
   m_RenderingPath: 0
   m_ActiveColorSpace: 0
   m_MTRendering: 1
