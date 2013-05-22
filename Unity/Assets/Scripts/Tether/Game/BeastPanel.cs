@@ -55,6 +55,48 @@ public class BeastPanel : FContainer
 	void HandleUpdate()
 	{
 		scale += (1.0f - scale) / 12.0f;
+
+		//blink lights when about to win
+
+//		if (beast.player.score >= GameConfig.WINNING_SCORE - 1)
+//		{
+//			if(beast.player.score == GameConfig.WINNING_SCORE - 1 && World.instance.isGameOver) return; 
+//
+//			int nibCount = nibs.Count;
+//
+//			if(Time.frameCount % 1 == 0)
+//			{
+//				int randNib = RXRandom.Range(0,nibCount);
+//				for(int n = 0; n<nibCount; n++)
+//				{
+//					bool isVis = n == randNib;
+//					if(nibs[n].GetChildCount() == 3)
+//					{
+//						nibs[n].GetChildAt(1).alpha = 
+//							nibs[n].GetChildAt(2).alpha = isVis ? 1.0f : 0.57f; 
+//					}
+//				}
+//			}
+//		}
+
+		if (beast.player.score >= GameConfig.WINNING_SCORE - 1)
+		{
+			if(beast.player.score == GameConfig.WINNING_SCORE - 1 && World.instance.isGameOver) return; 
+			
+			int nibCount = nibs.Count;
+
+
+			for(int n = 0; n<nibCount; n++)
+			{
+				float pulseAlpha = 0.8f + Mathf.Sin(n * 11.34f + Time.time * 22.0f) * 0.2f;
+				if(nibs[n].GetChildCount() == 3)
+				{
+					nibs[n].GetChildAt(1).alpha = 
+					nibs[n].GetChildAt(2).alpha = pulseAlpha;
+				}
+			}
+
+		}
 	}
 
 	void HandleSignalPlayerChange ()
