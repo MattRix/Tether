@@ -5,9 +5,15 @@ using System.Collections.Generic;
 
 public class GamepadManager
 {
+	static public int CERTAIN_FRAMES = 180;
+
     static public GamepadManager instance;
 
     public List<Gamepad> gamepads = new List<Gamepad>();
+
+	public int framesToWaitBeforeCertain = -1;
+
+	public bool isStateCertain = true;
 
     public static void Init()
     {
@@ -35,7 +41,7 @@ public class GamepadManager
 
         if (countDelta > 0)
         {
-            Debug.Log("Just added " + countDelta + " gamepad" + (countDelta == 1 ? "" : "s"));
+            //Debug.Log("Just added " + countDelta + " gamepad" + (countDelta == 1 ? "" : "s"));
             while(countDelta > 0)
             {
                 countDelta --;
@@ -43,16 +49,23 @@ public class GamepadManager
 				Debug.Log("Adding gamepad " + joystickNames[gamepads.Count]);
                 gamepads.Add(gamepad);
             }
+
+			isStateCertain = false;
+			framesToWaitBeforeCertain = CERTAIN_FRAMES;
         } 
         else if(countDelta < 0)
         {
-            Debug.Log("Just removed " + (-countDelta) + " gamepad" + (countDelta == -1 ? "" : "s"));
+            //Debug.Log("Just removed " + (-countDelta) + " gamepad" + (countDelta == -1 ? "" : "s"));
 
             while(countDelta < 0)
             {
                 countDelta++;
+				Debug.Log("Removing gamepad " + gamepads.GetLastObject().index);
                 gamepads.Pop();
             }
+
+			isStateCertain = false;
+			framesToWaitBeforeCertain = CERTAIN_FRAMES;
         } 
  
         for(int g = 0; g<gamepads.Count; g++)
@@ -60,6 +73,18 @@ public class GamepadManager
             gamepads[g].index = g;
             gamepads[g].Update();
         }
+
+		if (framesToWaitBeforeCertain > 0)
+		{
+			framesToWaitBeforeCertain--;
+			isStateCertain = false;
+		}
+		else if (framesToWaitBeforeCertain == 0)
+		{
+			framesToWaitBeforeCertain = -1;
+
+			isStateCertain = true;
+		}
     }
 
 	private static string TAB_CHAR = "  ";

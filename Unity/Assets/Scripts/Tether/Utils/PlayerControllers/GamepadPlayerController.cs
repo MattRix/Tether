@@ -6,18 +6,33 @@ public class GamepadPlayerController : PlayerController
 {
 	public int index;
 	public Gamepad gamepad = null;
-
+	
 	public GamepadPlayerController(int index)
 	{
 		this.index = index;
 		title = "Gamepad " + (index+1);
 
-		gamepad = GamepadManager.instance.GetGamepad(index);
+		UpdateGamepadState();
+	}
+
+	private void UpdateGamepadState()
+	{
+		if (GamepadManager.instance.isStateCertain)
+		{
+			bool wasGamepadNull = (gamepad == null);
+			
+			gamepad = GamepadManager.instance.GetGamepad(index);
+			
+			if(wasGamepadNull && gamepad != null)
+			{
+				didJustConnect = true;
+			}
+		}
 	}
 
 	override public void Update()
 	{
-		gamepad = GamepadManager.instance.GetGamepad(index);
+		UpdateGamepadState();
 
 		if(gamepad == null)
 		{
@@ -61,7 +76,7 @@ public class GamepadPlayerController : PlayerController
 
 	override public bool CanBeUsed()
 	{
-		gamepad = GamepadManager.instance.GetGamepad(index);
+		UpdateGamepadState();
 
 		if(gamepad == null)
 		{

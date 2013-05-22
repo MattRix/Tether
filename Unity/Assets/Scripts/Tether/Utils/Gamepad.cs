@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Gamepad
 {
-	static private bool SHOULD_LOG_ALL_BUTTON_PRESSES = false;
+	static private bool SHOULD_LOG_ALL_BUTTON_PRESSES = true;
 
     public int index;
     

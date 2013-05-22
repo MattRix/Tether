@@ -10,6 +10,8 @@ public class PlayerController
 
 	protected Player _player = null;
 
+	public bool didJustConnect = false; //can only be true for game controllers
+
 	public PlayerController()
 	{
 
