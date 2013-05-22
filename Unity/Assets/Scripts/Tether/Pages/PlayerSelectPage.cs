@@ -14,6 +14,8 @@ public class PlayerSelectPage : TPage
 
 	public FSliceButton startButton;
 
+	public List<PlayerSelectPanel> panels = new List<PlayerSelectPanel>();
+
 	public PlayerSelectPage()
 	{
 
@@ -123,6 +125,8 @@ public class PlayerSelectPage : TPage
 		panel.alpha = 0.0f;
 
 		Go.to(panel, 0.5f, new TweenConfig().floatProp("scale", 1.0f).floatProp("alpha", 1.0f).setEaseType(EaseType.BackOut).setDelay((float)index*0.2f));
+
+		panels.Add(panel);
 	}
 
 	void HandlePanelStateChange()
@@ -168,6 +172,37 @@ public class PlayerSelectPage : TPage
 		}
 
 		List<Player> players = GameManager.instance.players;
+
+
+		List<PlayerController> pcs = GameManager.instance.availablePlayerControllers;
+		
+		for (int c = 0; c<pcs.Count; c++)
+		{
+			PlayerController pc = pcs[c];
+
+			if(pc.didJustConnect == true)
+			{
+				FSoundManager.PlaySound("pickUpOrb",0.25f);
+				pc.didJustConnect = false;
+
+				for(int p = 0;p<players.Count;p++)
+				{
+					Player player = players[p];
+					
+					if(pc.CanBeUsed() && player.controller == GameManager.instance.unusedPlayerController)
+					{
+						panels[p].SetController(pc);
+						break;
+					}
+				}
+			}
+
+			if(pc.didJustDisconnect == true)
+			{
+				FSoundManager.PlaySound("orbAppears", 0.25f);
+				pc.didJustDisconnect = false;
+			}
+		}
 
 		if(areAllPlayersReady)
 		{

@@ -57,6 +57,16 @@ public class PlayerSelectPanel : FContainer
 		UpdateState();
 	}
 
+	public void SetController(PlayerController pc)
+	{
+		if(!pc.CanBeUsed()) return;
+		player.controller.SetPlayer(null);
+		player.controller = pc;
+		pc.SetPlayer(player);
+		UpdateState();
+		DoPulseEffect();
+	}
+
 	void DoPulseEffect()
 	{
 		background.scaleX = 1.05f;

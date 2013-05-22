@@ -27,6 +27,10 @@ public class GamepadPlayerController : PlayerController
 			{
 				didJustConnect = true;
 			}
+			else if(!wasGamepadNull && gamepad == null)
+			{
+				didJustDisconnect = true;
+			}
 		}
 	}
 

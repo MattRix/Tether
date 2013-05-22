@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GamepadManager
 {
-	static public int CERTAIN_FRAMES = 180;
+	static public int CERTAIN_FRAMES = 70;
 
     static public GamepadManager instance;
 
@@ -14,6 +14,8 @@ public class GamepadManager
 	public int framesToWaitBeforeCertain = -1;
 
 	public bool isStateCertain = true;
+
+	public bool isFirstRun = true;
 
     public static void Init()
     {
@@ -73,6 +75,12 @@ public class GamepadManager
             gamepads[g].index = g;
             gamepads[g].Update();
         }
+
+		if (isFirstRun) //gamepads should be good at first run
+		{
+			isFirstRun = false;
+			framesToWaitBeforeCertain = 0;
+		}
 
 		if (framesToWaitBeforeCertain > 0)
 		{
