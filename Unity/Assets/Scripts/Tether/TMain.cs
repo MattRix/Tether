@@ -102,7 +102,14 @@ public class TMain : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.Escape)) 
 		{
-			Application.Quit();
+			if(Screen.fullScreen)
+			{
+				Screen.fullScreen = false;
+			}
+			else 
+			{
+				Application.Quit();
+			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.M)) 
