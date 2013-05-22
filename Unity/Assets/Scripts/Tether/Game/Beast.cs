@@ -160,6 +160,13 @@ public class Beast : MonoBehaviour
 
 		Vector2 movementVector = player.controller.movementVector;
 
+		movementVector *= 1.5f;
+
+		if (movementVector.magnitude > 1.0f)
+		{
+			movementVector.Normalize();
+		}
+
 		movementVector *= BeastConfig.MOVE_SPEED * Time.smoothDeltaTime * rigidbody.mass;
 
 		if (movementVector.magnitude > 0.1f)
