@@ -30,7 +30,7 @@ public class Gamepad
 				Application.platform == RuntimePlatform.WindowsPlayer ||
 				Application.platform == RuntimePlatform.WindowsWebPlayer;
 
-		if(joystickName.Contains("Xbox")) //Xbox 360 controller
+		if(joystickName.Contains("360") || joystickName.ToLower().Contains("xbox")) //Xbox 360 controller or Microsoft 360 Wireless Controller
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
@@ -50,7 +50,7 @@ public class Gamepad
 				buttonReset = XboxButtonType.Back.numStringOSX;
 			}
 		}
-		else if(joystickName.Contains("Sony")) //PS3 Controller
+		else if(joystickName.ToLower().Contains("sony")) //PS3 Controller
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
@@ -61,7 +61,7 @@ public class Gamepad
 			buttonReady = PS3ButtonType.X.numStringOSX;
 			buttonReset = PS3ButtonType.Select.numStringOSX;
 		}
-		else if(joystickName.Contains("Mad Catz")) //for my crappy 10 year old Mad Catz gamepad
+		else if(joystickName.ToLower().Contains("mad catz")) //for my crappy 10 year old Mad Catz gamepad
 		{
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
