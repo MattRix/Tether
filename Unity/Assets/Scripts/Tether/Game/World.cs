@@ -217,7 +217,7 @@ public class World : FContainer
 	{
 		if (isGameOver) return; //it's already over
 
-		FSoundManager.PlaySound("win", 0.5f);
+		FSoundManager.PlaySound("win", 0.4f);
 		FSoundManager.StopMusic();
 
 		isGameOver = true;
