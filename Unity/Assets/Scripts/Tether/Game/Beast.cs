@@ -225,7 +225,7 @@ public static class BeastConfig
 
 	static BeastConfig()
 	{
-		FWatcher.Watch(typeof(BeastConfig));
+		RXWatcher.Watch(typeof(BeastConfig));
 	}
 }
 
