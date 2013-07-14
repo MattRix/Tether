@@ -108,7 +108,7 @@ public class FNode
 	
 	public void ListenForOrientationChange(FScreen.ScreenOrientationChangeDelegate handleOrientationChangeCallback)
 	{
-		RemoveEnablerOfType(typeof(FNodeEnablerForOrientationChange));;
+		RemoveEnablerOfType(typeof(FNodeEnablerForOrientationChange));
 		AddEnabler(new FNodeEnablerForOrientationChange(handleOrientationChangeCallback));
 	}
 	
@@ -170,6 +170,17 @@ public class FNode
 	public void DisableMultiTouch()
 	{
 		RemoveEnablerOfType(typeof(FNodeEnablerForMultiTouch));
+	}
+
+	public void ListenForAddedOrRemoved(FNodeEnablerForAddedOrRemoved.Delegate handleAddedOrRemoved)
+	{
+		RemoveEnablerOfType(typeof(FNodeEnablerForAddedOrRemoved));
+		AddEnabler(new FNodeEnablerForAddedOrRemoved(handleAddedOrRemoved));
+	}
+
+	public void RemoveListenForAddedOrRemoved()
+	{	
+		RemoveEnablerOfType(typeof(FNodeEnablerForAddedOrRemoved));
 	}
 
 	
@@ -394,10 +405,24 @@ public class FNode
 	{
 		if(_container != null) _container.AddChild(this);
 	}
-	
+
 	public void MoveToBack()
 	{
 		if(_container != null) _container.AddChildAtIndex(this,0);	
+	}
+
+	public void MoveInFrontOfOtherNode(FNode otherNode)
+	{
+		if(_container == null) return; //we have no container
+		if(otherNode.container != _container) return; //we don't share a container
+		_container.AddChildAtIndex(this,_container.GetChildIndex(otherNode)+1);
+	}
+
+	public void MoveBehindOtherNode(FNode otherNode)
+	{
+		if(_container == null) return; //we have no container
+		if(otherNode.container != _container) return; //we don't share a container
+		_container.AddChildAtIndex(this,_container.GetChildIndex(otherNode));
 	}
 
 	public bool isVisible

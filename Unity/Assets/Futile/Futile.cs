@@ -56,12 +56,12 @@ public class Futile : MonoBehaviour
 	public event FutileUpdateDelegate SignalLateUpdate;
     
 	//configuration values
-    public bool shouldRunGCNextUpdate = false;
 	public bool shouldTrackNodesInRXProfiler = true;
     
     private GameObject _cameraHolder;
     private Camera _camera;
-    
+
+	private bool _shouldRunGCNextUpdate = false; //use Futile.instance.ForceGarbageCollectionNextUpdate();
 
     private FutileParams _futileParams;
     
@@ -302,9 +302,9 @@ public class Futile : MonoBehaviour
 
 		screen.Update();
 		
-		if(SignalUpdate != null) SignalUpdate();
-		
 		touchManager.Update();
+
+		if(SignalUpdate != null) SignalUpdate();
 		
 		for(int s = 0; s<_stages.Count; s++)
 		{
@@ -313,9 +313,9 @@ public class Futile : MonoBehaviour
 		
 		_isDepthChangeNeeded = false;
 		
-		if(shouldRunGCNextUpdate)
+		if(_shouldRunGCNextUpdate)
 		{
-			shouldRunGCNextUpdate = false;	
+			_shouldRunGCNextUpdate = false;	
 			GC.Collect();
 		}
 	}
@@ -355,6 +355,11 @@ public class Futile : MonoBehaviour
 		float camYOffset = ((screen.originY - 0.5f) * -screen.pixelHeight)*displayScaleInverse - screenPixelOffset;
 	
 		_camera.transform.position = new Vector3(camXOffset, camYOffset, -10.0f); 	
+	}
+
+	public void ForceGarbageCollectionNextUpdate()
+	{
+		_shouldRunGCNextUpdate = true;
 	}
 	
 	new public Camera camera
