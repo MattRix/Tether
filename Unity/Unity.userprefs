@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Tether\Game\World.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Tether\TMain.cs">
     <Files>
-      <File FileName="Assets\Scripts\Tether\TMain.cs" Line="83" Column="41" />
-      <File FileName="Assets\Scripts\Futile\Core\FScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Tether\TMain.cs" Line="137" Column="4" />
       <File FileName="Assets\Scripts\Tether\Game\World.cs" Line="59" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>

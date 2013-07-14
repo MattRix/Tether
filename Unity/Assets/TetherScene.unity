@@ -1,7 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
-Scene:
+SceneSettings:
   m_ObjectHideFlags: 0
   m_PVSData: 
   m_QueryMode: 1
@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-GameManager:
+LevelGameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -74,12 +74,107 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &1095361630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+  m_PrefabInternal: {fileID: 1172091360}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1095361632}
+  - 114: {fileID: 1095361631}
+  m_Layer: 0
+  m_Name: OuyaGameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1095361631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: ad92c5da04e1b904ead8291e00d4c927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1172091360}
+  m_GameObject: {fileID: 1095361630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc3eaab5f3dea3429191724f83b7d4c, type: 3}
+  m_Name: 
+  DEVELOPER_ID: 541b8123-02c5-4710-b01c-c767cbff25da
+  debugOff: 1
+  showRawAxis: 0
+  Purchasables: []
+  UseLegacyInput: 0
+--- !u!4 &1095361632
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+  m_PrefabInternal: {fileID: 1172091360}
+  m_GameObject: {fileID: 1095361630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1001 &1172091360
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: UseLegacyInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: showRawAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: DEVELOPER_ID
+      value: 541b8123-02c5-4710-b01c-c767cbff25da
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+  m_RootGameObject: {fileID: 1095361630}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &2079660681
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 3
+  serializedVersion: 4
   m_Component:
   - 4: {fileID: 2079660682}
   - 114: {fileID: 2079660683}
@@ -110,9 +205,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2079660681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd2c5fd76e3c8940b0dba7061ce9af1, type: 1}
+  m_Script: {fileID: 11500000, guid: 8cd2c5fd76e3c8940b0dba7061ce9af1, type: 3}
   m_Name: 
-  shouldRunGCNextUpdate: 0
+  shouldTrackNodesInRXProfiler: 1
 --- !u!114 &2079660684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,5 +216,5 @@ MonoBehaviour:
   m_GameObject: {fileID: 2079660681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa199e755fd004b4a9640a73a23dd862, type: 1}
+  m_Script: {fileID: 11500000, guid: aa199e755fd004b4a9640a73a23dd862, type: 3}
   m_Name: 

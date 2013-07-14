@@ -89,7 +89,7 @@ public class Gamepad
     {
         string indexString = (index+1).ToString();
        
-		axisJoyName = "Joystick " + indexString;
+		axisJoyName = "Joy" + indexString;
 		buttonJoyName = "joystick " + indexString;
 
 		direction = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " " + axisXName), Input.GetAxisRaw(axisJoyName + " " + axisYName));
