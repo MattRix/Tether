@@ -43,8 +43,10 @@ public class TMain : MonoBehaviour
 		
 		fparams.backgroundColor = RXUtils.GetColorFromHex(0x000000); //light blue 0x94D7FF or 0x74CBFF
 		
-		fparams.AddResolutionLevel(2560.0f,	2.0f,	2.0f,	""); //1280x720
-		fparams.AddResolutionLevel(1280.0f,	1.0f,	2.0f,	""); //1280x720
+		//fparams.AddResolutionLevel(2560.0f,	2.0f,	2.0f,	""); //1280x720
+		//fparams.AddResolutionLevel(1280.0f,	1.0f,	2.0f,	""); //1280x720
+		fparams.AddResolutionLevel(1920.0f,	1.5f,	2.0f,	""); //1920x1080
+		fparams.AddResolutionLevel(960.0f,	0.75f,	2.0f,	""); //960x540
 		
 		fparams.origin = new Vector2(0.5f,0.5f);
 
@@ -94,6 +96,11 @@ public class TMain : MonoBehaviour
 			Futile.GetStageAt(s).scale = Futile.screen.width / 1280.0f; //keep it full screen always!
 		}
 
+	}
+
+	void OnGUI()
+	{
+		GUI.Label(new Rect(0, 0, 50, 20), Screen.width + "x" + Screen.height);
 	}
 
 	void HandleUpdate ()

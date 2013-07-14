@@ -2,27 +2,27 @@
 
 "TetherLogo.png":
 {
-	"frame": {"x":3,"y":1447,"w":914,"h":220},
+	"frame": {"x":3,"y":1087,"w":686,"h":164},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":914,"h":220},
-	"sourceSize": {"w":914,"h":219}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":686,"h":164},
+	"sourceSize": {"w":686,"h":164}
 },
 "background.png":
 {
-	"frame": {"x":3,"y":3,"w":2560,"h":1440},
+	"frame": {"x":3,"y":3,"w":1920,"h":1080},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":2560,"h":1440},
-	"sourceSize": {"w":2560,"h":1440}
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
+	"sourceSize": {"w":1920,"h":1080}
 }},
 "meta": {
 	"app": "http://www.texturepacker.com",
 	"version": "1.0",
 	"image": "BackgroundAtlas_png.bytes",
 	"format": "RGBA8888",
-	"size": {"w":4096,"h":2048},
+	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:dfcce1ff1a78b924fad87b071d2a30d5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:0844dade60403cbe1073fe01e0051e53$"
 }
 }

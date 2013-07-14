@@ -30,10 +30,10 @@ public class GameManager
 		availablePlayerControllers.Add(new GamepadPlayerController(3));
 		availablePlayerControllers.Add(aiPlayerController);
 
-		players.Add(new Player(0, "PURPLE PLAYER", RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
-		players.Add(new Player(1, "GREEN PLAYER", RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));
-		players.Add(new Player(2, "BLUE PLAYER", RXColor.GetColorFromHex(0x0011EE), unusedPlayerController));
-		players.Add(new Player(3, "RED PLAYER", RXColor.GetColorFromHex(0xFF0011), unusedPlayerController));
+		players.Add(new Player(0, "PURPLE", RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
+		players.Add(new Player(1, "GREEN", RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));
+		players.Add(new Player(2, "BLUE", RXColor.GetColorFromHex(0x0011EE), unusedPlayerController));
+		players.Add(new Player(3, "RED", RXColor.GetColorFromHex(0xFF0011), unusedPlayerController));
 	}
 
 	public void SetRoundData(List<Player> activePlayers)

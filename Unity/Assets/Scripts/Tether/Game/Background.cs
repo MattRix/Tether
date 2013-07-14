@@ -15,6 +15,8 @@ public class Background : FContainer
 	{
 		AddChild(sprite = new FSprite("background"));
 
+		sprite.scale = 1.3333f;
+
 		AddChild(lavaParticles = new FParticleSystem(100));
 		lavaParticles.shader = FShader.Additive;
 
