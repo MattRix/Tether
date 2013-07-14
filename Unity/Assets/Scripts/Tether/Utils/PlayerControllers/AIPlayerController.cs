@@ -38,6 +38,8 @@ public class AIPlayerController : PlayerController
 		}
 
 		movementVector += (targetMovementVector - movementVector) * 0.7f;
+
+		CalcuateDirectionsBasedOnMovementVector();
 	}
 
 	void UpdateMovementVector()

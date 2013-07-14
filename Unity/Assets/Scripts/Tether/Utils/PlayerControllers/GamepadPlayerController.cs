@@ -47,6 +47,8 @@ public class GamepadPlayerController : PlayerController
 		{
 			movementVector = gamepad.direction;
 		}
+
+		CalcuateDirectionsBasedOnMovementVector();
 	}
 
 	override public bool GetButtonDown(PlayerControllerButtonType buttonType)

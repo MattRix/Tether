@@ -20,7 +20,7 @@ public class PlayerSelectPanel : FContainer
 	{
 		this.player = player;
 		
-		AddChild(background = new FSliceSprite("Popup_Bg",520,200,16,16,16,16));
+		AddChild(background = new FSliceSprite("Popup_BG",520,200,16,16,16,16));
 		background.color = player.color;
 		background.alpha = 0.4f;
 		
@@ -32,7 +32,7 @@ public class PlayerSelectPanel : FContainer
 		readyLabel.y = -30.0f;
 		readyLabel.scale = 0.75f;
 
-		AddChild(button = new FButton("Popup_Bg"));
+		AddChild(button = new FButton("Popup_BG"));
 		button.sprite.width = 520;
 		button.sprite.height = 200;
 		button.alpha = 0.0f; //hidden button
@@ -44,6 +44,11 @@ public class PlayerSelectPanel : FContainer
 	}
 
 	void HandleSignalPress (FButton button)
+	{
+		CycleController();
+	}
+
+	public void CycleController()
 	{
 		DoPulseEffect();
 
@@ -86,63 +91,65 @@ public class PlayerSelectPanel : FContainer
 			DoPulseEffect();
 		}
 
-		bool didJustAddController = false;
+//		bool didJustAddController = false;
+//
+//		if(player.controller == GameManager.instance.unusedPlayerController)
+//		{
+//			List<PlayerController> pcs = GameManager.instance.availablePlayerControllers;
+//
+//			for(int p = 0; p<pcs.Count; p++)
+//			{
+//				PlayerController pc = pcs[p];
+//
+//				if(pc.GetPlayer() == null && pc.CanBeUsed() && pc.GetButtonDown(PlayerControllerButtonType.Reset))
+//				{
+//					player.controller.SetPlayer(null);
+//					player.controller = pc;
+//					pc.SetPlayer(player);
+//					UpdateState();
+//					DoPulseEffect();
+//					didJustAddController = true;
+//					break;
+//				}
+//			}
+//		}
+//
+//		//add AI players if someone presses I
+//
+//		if(Input.GetKeyDown(KeyCode.I))
+//		{
+//			if(player.controller == GameManager.instance.unusedPlayerController)
+//			{
+//				player.controller = GameManager.instance.aiPlayerController;
+//				UpdateState();
+//				DoPulseEffect();
+//				didJustAddController = true;
+//			}
+//			return;
+//		}
+//
+//		if (!didJustAddController && player.controller.CanBeUsed())
+//		{
+//			if(player.controller.GetButtonDown(PlayerControllerButtonType.Ready))
+//			{
+//				DoPulseEffect();
+//			}
+//			else if(player.controller.GetButtonDown(PlayerControllerButtonType.Reset)) //toggle it off
+//			{
+//				DoPulseEffect();
+//
+//				player.controller.SetPlayer(null);
+//				player.controller = GameManager.instance.unusedPlayerController;
+//
+//				//reset input so it can't be re-added during this update
+//				//(more of a hack than an ideal way to do this, but I'm lazy)
+//				Input.ResetInputAxes(); 
+//
+//				UpdateState();
+//			}
+//		}
+//
 
-		if(player.controller == GameManager.instance.unusedPlayerController)
-		{
-			List<PlayerController> pcs = GameManager.instance.availablePlayerControllers;
-
-			for(int p = 0; p<pcs.Count; p++)
-			{
-				PlayerController pc = pcs[p];
-
-				if(pc.GetPlayer() == null && pc.CanBeUsed() && pc.GetButtonDown(PlayerControllerButtonType.Reset))
-				{
-					player.controller.SetPlayer(null);
-					player.controller = pc;
-					pc.SetPlayer(player);
-					UpdateState();
-					DoPulseEffect();
-					didJustAddController = true;
-					break;
-				}
-			}
-		}
-
-		//add AI players if someone presses I
-
-		if(Input.GetKeyDown(KeyCode.I))
-		{
-			if(player.controller == GameManager.instance.unusedPlayerController)
-			{
-				player.controller = GameManager.instance.aiPlayerController;
-				UpdateState();
-				DoPulseEffect();
-				didJustAddController = true;
-			}
-			return;
-		}
-
-		if (!didJustAddController && player.controller.CanBeUsed())
-		{
-			if(player.controller.GetButtonDown(PlayerControllerButtonType.Ready))
-			{
-				DoPulseEffect();
-			}
-			else if(player.controller.GetButtonDown(PlayerControllerButtonType.Reset)) //toggle it off
-			{
-				DoPulseEffect();
-
-				player.controller.SetPlayer(null);
-				player.controller = GameManager.instance.unusedPlayerController;
-
-				//reset input so it can't be re-added during this update
-				//(more of a hack than an ideal way to do this, but I'm lazy)
-				Input.ResetInputAxes(); 
-
-				UpdateState();
-			}
-		}
 
 		background.scaleX += (1.0f - background.scaleX) / 10.0f;
 		background.scaleY += (1.0f - background.scaleY) / 10.0f;

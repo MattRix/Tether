@@ -96,7 +96,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":352},
 	"sourceSize": {"w":800,"h":352}
 },
-"Popup_Bg.png":
+"Popup_BG.png":
+{
+	"frame": {"x":483,"y":547,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Selection_BG.png":
 {
 	"frame": {"x":415,"y":547,"w":64,"h":64},
 	"rotated": false,
@@ -111,6 +119,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b0dd4aa254f6d7210a9ef5ffc9d94209$"
+	"smartupdate": "$TexturePacker:SmartUpdate:7162223ffc61cff330ce3000f58d41bd$"
 }
 }

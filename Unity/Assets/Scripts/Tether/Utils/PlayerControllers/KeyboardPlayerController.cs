@@ -63,6 +63,8 @@ public class KeyboardPlayerController : PlayerController
 		}
 
 		movementVector += (targetVector - movementVector) * 0.7f;
+
+		CalcuateDirectionsBasedOnMovementVector();
 	}
 
 	override public bool GetButtonDown(PlayerControllerButtonType buttonType)
