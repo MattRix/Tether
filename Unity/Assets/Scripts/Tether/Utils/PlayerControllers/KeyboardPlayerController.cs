@@ -69,13 +69,13 @@ public class KeyboardPlayerController : PlayerController
 
 	override public bool GetButtonDown(PlayerControllerButtonType buttonType)
 	{
-		if(buttonType == PlayerControllerButtonType.Ready)
-		{
-			if(Input.GetKeyDown(keyUp) || Input.GetKeyDown(keyDown) || Input.GetKeyDown(keyLeft) || Input.GetKeyDown(keyRight))
-			{
-				return true;
-			}
-		}
+//		if(buttonType == PlayerControllerButtonType.Ready)
+//		{
+//			if(Input.GetKeyDown(keyUp) || Input.GetKeyDown(keyDown) || Input.GetKeyDown(keyLeft) || Input.GetKeyDown(keyRight))
+//			{
+//				return true;
+//			}
+//		}
 //		else if(buttonType == PlayerControllerButtonType.Start || buttonType == PlayerControllerButtonType.Pause)
 //		{
 //			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
@@ -90,6 +90,14 @@ public class KeyboardPlayerController : PlayerController
 //				return true;
 //			}
 //		}
+
+		if(buttonType == PlayerControllerButtonType.Ready && !isWASD)
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				return true;
+			}
+		}
 
 		return false;
 	}

@@ -49,31 +49,31 @@ public class PlayerSelectPage : TPage
 //
 //		Go.to(infoLabel, 0.5f, new TweenConfig().floatProp("alpha", 0.7f).setDelay(0.7f));
 
-//		FLabel smallLabel;
+		FLabel smallLabel;
 //
-//		smallLabel = new FLabel("Franchise", "F: FULLSCREEN");
-//		AddChild(smallLabel);
-//		smallLabel.x = -634;
-//		smallLabel.y = 336.0f;
-//		smallLabel.alignment = FLabelAlignment.Left;
-//		smallLabel.scale = 0.4f;
-//		smallLabel.alpha = 0.7f;
+		smallLabel = new FLabel("Franchise", "F: FULLSCREEN");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 336.0f;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
 //
-//		smallLabel = new FLabel("Franchise", "M: MUTE");
-//		AddChild(smallLabel);
-//		smallLabel.x = -634;
-//		smallLabel.y = 336.0f - 28.0f * 1;
-//		smallLabel.alignment = FLabelAlignment.Left;
-//		smallLabel.scale = 0.4f;
-//		smallLabel.alpha = 0.7f;
-//
-//		smallLabel = new FLabel("Franchise", "R: RESET");
-//		AddChild(smallLabel);
-//		smallLabel.x = -634;
-//		smallLabel.y = 336.0f - 28.0f * 2;
-//		smallLabel.alignment = FLabelAlignment.Left;
-//		smallLabel.scale = 0.4f;
-//		smallLabel.alpha = 0.7f;
+		smallLabel = new FLabel("Franchise", "M: MUTE");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 336.0f - 28.0f * 1;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
+
+		smallLabel = new FLabel("Franchise", "R: RESET");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 336.0f - 28.0f * 2;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
 
 
 		startButton = new FSliceButton(220, 80, "Popup_BG", "Popup_BG", Color.blue, Color.white, "click1");
@@ -235,13 +235,13 @@ public class PlayerSelectPage : TPage
 				//DO THE CYCLE ON THE SELECTED PLAYER
 				selectedPanelBorder.scaleX = 1.03f;
 				selectedPanelBorder.scaleY = 1.05f;
-				FSoundManager.PlaySound("click1",0.5f);
+				FSoundManager.PlaySound("click1",0.4f);
 				panels[selectedPanelIndex].CycleController();
 			}
 
 			if(pc.didJustConnect == true)
 			{
-				FSoundManager.PlaySound("pickUpOrb",0.25f);
+				FSoundManager.PlaySound("pickUpOrb",0.2f);
 				pc.didJustConnect = false;
 
 				for(int p = 0;p<players.Count;p++)
@@ -258,7 +258,7 @@ public class PlayerSelectPage : TPage
 
 			if(pc.didJustDisconnect == true)
 			{
-				FSoundManager.PlaySound("orbAppears", 0.25f);
+				FSoundManager.PlaySound("orbAppears", 0.2f);
 				pc.didJustDisconnect = false;
 			}
 		}
@@ -266,7 +266,7 @@ public class PlayerSelectPage : TPage
 
 		if(oldSelectedIndex != selectedPanelIndex)
 		{
-			FSoundManager.PlaySound("click4",0.5f);
+			FSoundManager.PlaySound("click4",0.2f);
 			UpdateSelectedPanel();
 		}
 
@@ -292,7 +292,7 @@ public class PlayerSelectPage : TPage
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return))
 			{
 				StartGame();
 				return;
