@@ -47,14 +47,14 @@ public class World : FContainer
 
 		root = FPWorld.Create(64.0f);
 
-		AddChild(backParticles = new FParticleSystem(100));
+		AddChild(backParticles = new FParticleSystem(150));
 
 		AddChild(chainHolder = new FContainer());
 		AddChild(beastShadowHolder = new FContainer());
 		AddChild(beastHolder = new FContainer());
 		AddChild(effectHolder = new FContainer());
 
-		AddChild(glowParticles = new FParticleSystem(100));
+		AddChild(glowParticles = new FParticleSystem(150));
 		glowParticles.shader = FShader.Additive;
 
 		AddChild(orbHolder = new FContainer());

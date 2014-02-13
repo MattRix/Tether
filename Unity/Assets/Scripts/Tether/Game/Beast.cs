@@ -203,8 +203,8 @@ public class Beast : MonoBehaviour
 
 			pd.startColor = player.color.CloneWithNewAlpha(0.35f);
 			pd.endColor = player.color.CloneWithNewAlpha(-2.5f);
-
-			pd.lifetime = 4.0f;
+			pd.startRotation = RXRandom.Range(0.0f,360.0f);
+			pd.lifetime = 3.0f;
 	
 			world.backParticles.AddParticle(pd);
 		}
