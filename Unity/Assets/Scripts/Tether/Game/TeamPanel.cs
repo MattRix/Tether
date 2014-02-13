@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public class BeastPanel : FContainer
+public class TeamPanel : FContainer
 {
-	public Beast beast;
+	public Team team;
 
 	public FSliceSprite bg;
 	public FSliceSprite goldBG;
@@ -17,17 +17,17 @@ public class BeastPanel : FContainer
 	public List<FContainer>nibs = new List<FContainer>();
 
 
-	public BeastPanel(Beast beast)
+	public TeamPanel(Team team)
 	{
-		this.beast = beast;
+		this.team = team;
 
-		beast.player.SignalPlayerChange += HandleSignalPlayerChange;
+		team.SignalTeamChange += HandleSignalPlayerChange;
 
 		fullWidth = GameConfig.WINNING_SCORE * widthPerNib;
 
 		bg = new FSliceSprite("PointBarBG", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
 		AddChild(bg);
-		bg.color = beast.player.color;
+		bg.color = team.color;
 
 		goldBG = new FSliceSprite("PointBarBGGold", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
 		AddChild(goldBG);
@@ -42,7 +42,7 @@ public class BeastPanel : FContainer
 			nib.y = 0;
 
 			FSprite bgSprite = new FSprite("PointBarNibBG");
-			bgSprite.color = beast.player.color;
+			bgSprite.color = team.color;
 			nib.AddChild(bgSprite);
 
 			AddChild(nib);
@@ -79,9 +79,9 @@ public class BeastPanel : FContainer
 //			}
 //		}
 
-		if (beast.player.score >= GameConfig.WINNING_SCORE - 1)
+		if (team.score >= GameConfig.WINNING_SCORE - 1)
 		{
-			if(beast.player.score == GameConfig.WINNING_SCORE - 1 && World.instance.isGameOver) return; 
+			if(team.score == GameConfig.WINNING_SCORE - 1 && World.instance.isGameOver) return; 
 			
 			int nibCount = nibs.Count;
 
@@ -101,10 +101,10 @@ public class BeastPanel : FContainer
 
 	void HandleSignalPlayerChange ()
 	{
-		while (currentPoints < beast.player.score)
+		while (currentPoints < team.score)
 		{
 			FSprite glowSprite = new FSprite("PointBarNib");
-			glowSprite.color = beast.player.color;
+			glowSprite.color = team.color;
 			glowSprite.alpha = 0.8f;
 			glowSprite.scale = 0.0f;
 			nibs[currentPoints].AddChild(glowSprite);

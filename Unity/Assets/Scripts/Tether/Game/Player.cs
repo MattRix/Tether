@@ -10,35 +10,22 @@ public class Player
 
 	public string numString;
 
-	public Color color;
+	public Team team;
 
 	public int score;
 
-	public event Action SignalPlayerChange;
+	public Color color;
 
-	public Player(int index, String name, Color color, PlayerController controller)
+	public Player(int index, String name, Team team, Color color, PlayerController controller)
 	{
 		this.index = index;
 		this.name = name;
 		this.numString = (index + 1).ToString();
 
 		this.color = color;
+		this.team = team;
 		this.controller = controller;
 		this.controller.SetPlayer(this);
-
-		Reset();
-	}
-
-	public void Reset()
-	{
-		score = 0;
-	}
-
-	public void AddScore()
-	{
-		score++;
-
-		if (SignalPlayerChange != null) SignalPlayerChange();
 	}
 }
 

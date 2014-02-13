@@ -37,7 +37,7 @@ public class World : FContainer
 
 	public FContainer pauseContainer;
 
-	public List<BeastPanel> beastPanels = new List<BeastPanel>();
+	public List<TeamPanel> teamPanels = new List<TeamPanel>();
 	
 	public World()
 	{
@@ -58,8 +58,6 @@ public class World : FContainer
 		glowParticles.shader = FShader.Additive;
 
 		AddChild(orbHolder = new FContainer());
-
-
 
 		uiStage = new FStage("UIStage");
 		Futile.AddStage(uiStage);
@@ -123,6 +121,8 @@ public class World : FContainer
 		float radiansPerPlayer = RXMath.DOUBLE_PI / (float)players.Count;
 		float startRadius = 150.0f;
 
+		List<Team> teams = GameManager.instance.activeTeams;
+
 		for (int p = 0; p < players.Count; p++)
 		{
 			Vector2 startPos = new Vector2();
@@ -131,8 +131,6 @@ public class World : FContainer
 			Beast beast = Beast.Create(this);
 			beast.Init(players[p], startPos);
 			beasts.Add(beast);
-
-			beast.player.SignalPlayerChange += HandleSignalPlayerChange;
 
 			FSprite beastShadow = new FSprite("Evil-Eye_Shadow_1");
 			beastShadowHolder.AddChild(beastShadow);
@@ -143,6 +141,13 @@ public class World : FContainer
 			beastShadow.scale = 1.0f;
 
 			beast.shadow = beastShadow;
+		}
+
+		for(int t = 0; t<teams.Count; t++)
+		{
+			Team team = teams[t];
+
+			team.SignalTeamChange += HandleSignalTeamChange;
 		}
 
 		int linkCount = 11;
@@ -200,7 +205,7 @@ public class World : FContainer
 		}
 	}
 
-	void HandleSignalPlayerChange ()
+	void HandleSignalTeamChange ()
 	{
 		for(int b = 0; b<beasts.Count; b++)
 		{
@@ -274,10 +279,12 @@ public class World : FContainer
 		float baseY = 340.0f;
 		float spacing = 32.0f;
 
-		CreateBeastPanel(0, new Vector2(0,baseY-spacing*0));
-		CreateBeastPanel(1, new Vector2(0,baseY-spacing*1));
-		CreateBeastPanel(2, new Vector2(0,baseY-spacing*2));
-		CreateBeastPanel(3, new Vector2(0,baseY-spacing*3));
+		List<Team> teams = GameManager.instance.activeTeams;
+
+		for(int t = 0; t<teams.Count; t++)
+		{
+			CreateTeamPanel(teams[t], new Vector2(0,baseY-spacing*t));
+		}
 
 		pauseContainer = new FContainer();
 
@@ -300,18 +307,14 @@ public class World : FContainer
 		pauseContainer.AddChild(changeLabel);
 	}
 
-	void CreateBeastPanel(int index, Vector2 pos)
+	void CreateTeamPanel(Team team, Vector2 pos)
 	{
-		if (index > beasts.Count - 1) return;
-
-		Beast beast = beasts [index];
-
-		BeastPanel panel = new BeastPanel(beast);
+		TeamPanel panel = new TeamPanel(team);
 		panel.SetPosition(pos);
 
 		uiHolder.AddChild(panel);
 
-		beastPanels.Add(panel);
+		teamPanels.Add(panel);
 	}
 
 	void HandleUpdate()
@@ -397,12 +400,12 @@ public class World : FContainer
 			if(beasts[b].player.score == winningScore && winningScore != 0)
 			{
 				beasts[b].goldSprite.isVisible = true;
-				beastPanels[b].goldBG.isVisible = true;
+				teamPanels[b].goldBG.isVisible = true;
 			}
 			else 
 			{
 				beasts[b].goldSprite.isVisible = false;
-				beastPanels[b].goldBG.isVisible = false;
+				teamPanels[b].goldBG.isVisible = false;
 			}
 		}
 	}

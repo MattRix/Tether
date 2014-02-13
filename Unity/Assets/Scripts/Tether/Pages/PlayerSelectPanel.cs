@@ -7,6 +7,7 @@ public class PlayerSelectPanel : FContainer
 {
 	public FLabel nameLabel;
 	public FLabel readyLabel;
+	public FLabel teamLabel;
 	
 	public Player player;
 	
@@ -37,6 +38,14 @@ public class PlayerSelectPanel : FContainer
 		button.sprite.height = 200;
 		button.alpha = 0.0f; //hidden button
 		button.SignalPress += HandleSignalPress;
+
+		AddChild(teamLabel = new FLabel("CubanoBig", player.team.name.ToUpper()+ " TEAM"));
+		teamLabel.color = player.team.color;
+		teamLabel.scale = 0.5f;
+		teamLabel.y = -78.0f;
+		teamLabel.anchorX = 1.0f;
+		teamLabel.x = 250;
+
 		
 		ListenForUpdate(HandleUpdate);
 		
