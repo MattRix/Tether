@@ -41,6 +41,17 @@ public class PlayerSelectPage : TPage
 		allReadyLabel.y = 190;
 		allReadyLabel.scale = 0.75f;
 
+		if(GameManager.instance.shouldUseTeams)
+		{
+			FLabel teamLabel = new FLabel("Franchise", "TEAM MODE");
+			AddChild(teamLabel);
+			teamLabel.y = -332;
+			teamLabel.scale = 0.5f;
+			teamLabel.alpha = 0.0f;
+
+			Go.to(teamLabel, 0.5f, new TweenConfig().floatProp("alpha", 0.7f).setDelay(0.7f));
+		}
+
 //		infoLabel = new FLabel("Franchise", "CLICK THE BOXES OR PRESS BACK/SELECT TO TOGGLE PLAYERS");
 //		AddChild(infoLabel);
 //		infoLabel.y = -332;
@@ -58,16 +69,16 @@ public class PlayerSelectPage : TPage
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
-//
-		smallLabel = new FLabel("Franchise", "M: MUTE");
+
+		smallLabel = new FLabel("Franchise", "T: TOGGLE TEAMS");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
 		smallLabel.y = 336.0f - 28.0f * 1;
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
-
-		smallLabel = new FLabel("Franchise", "R: RESET");
+//
+		smallLabel = new FLabel("Franchise", "M: MUTE");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
 		smallLabel.y = 336.0f - 28.0f * 2;
@@ -75,13 +86,15 @@ public class PlayerSelectPage : TPage
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
 
-		smallLabel = new FLabel("Franchise", "T: TEAMS");
+		smallLabel = new FLabel("Franchise", "R: RESET");
 		AddChild(smallLabel);
 		smallLabel.x = -634;
 		smallLabel.y = 336.0f - 28.0f * 3;
 		smallLabel.alignment = FLabelAlignment.Left;
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
+
+
 
 
 
@@ -92,6 +105,8 @@ public class PlayerSelectPage : TPage
 		startButton.sprite.alpha = 0.3f;
 		startButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
 		startButton.SignalRelease += HandleStartButtonClick;
+
+		startButton.alpha = 0.0f;
 
 
 		float spreadX = 275;

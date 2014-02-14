@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Game/World.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Pages/PlayerSelectPage.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tether/Game/Orb.cs" Line="7" Column="23" />
-      <File FileName="Assets/Scripts/Tether/Game/World.cs" Line="473" Column="6" />
+      <File FileName="Assets/Scripts/Tether/Pages/PlayerSelectPage.cs" Line="76" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
