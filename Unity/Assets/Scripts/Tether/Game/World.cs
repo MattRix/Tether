@@ -488,18 +488,38 @@ public class World : FContainer
 		orb.Init(team, createPos);
 		orbs.Add(orb);
 
-		if (beasts.Count == 2)
+		if(GameManager.instance.shouldUseTeams)
 		{
-			timeUntilNextOrb = RXRandom.Range(0.5f,3.5f);
+			if (beasts.Count == 2)
+			{
+				timeUntilNextOrb = RXRandom.Range(0.5f,3.5f);
+			}
+			else if (beasts.Count == 3)
+			{
+				timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
+			}
+			else if (beasts.Count == 4)
+			{
+				timeUntilNextOrb = RXRandom.Range(0.5f,2.5f);
+			}
 		}
-		else if (beasts.Count == 3)
+		else 
 		{
-			timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
+			if (beasts.Count == 2)
+			{
+				timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
+			}
+			else if (beasts.Count == 3)
+			{
+				timeUntilNextOrb = RXRandom.Range(1.5f,4.0f);
+			}
+			else if (beasts.Count == 4)
+			{
+				timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
+			}
 		}
-		else if (beasts.Count == 4)
-		{
-			timeUntilNextOrb = RXRandom.Range(0.5f,2.5f);
-		}
+
+
 
 	}
 

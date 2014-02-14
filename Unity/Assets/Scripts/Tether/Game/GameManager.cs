@@ -40,27 +40,31 @@ public class GameManager
 		teams.Add(new Team(2,"BLUE",RXColor.GetColorFromHex(0x0011EE)));
 		teams.Add(new Team(3,"RED",RXColor.GetColorFromHex(0xFF0011)));
 
+		players.Add(new Player(0, "PURPLE", teams[0], RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
+		players.Add(new Player(1, "GREEN", teams[1],RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));
+		players.Add(new Player(2, "BLUE", teams[2],RXColor.GetColorFromHex(0x0011EE), unusedPlayerController));
+		players.Add(new Player(3, "RED", teams[3],RXColor.GetColorFromHex(0xFF0011), unusedPlayerController));
+
 		RefreshPlayers();
 	}
 
 	public void RefreshPlayers()
 	{
-		players.Clear();
-
 		if(shouldUseTeams)
 		{
-			players.Add(new Player(0, "PURPLE", teams[2], RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
-			players.Add(new Player(1, "GREEN", teams[3],RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));
-			players.Add(new Player(2, "BLUE", teams[2],RXColor.GetColorFromHex(0x0011EE), unusedPlayerController));
-			players.Add(new Player(3, "RED", teams[3],RXColor.GetColorFromHex(0xFF0011), unusedPlayerController));
+			players[0].team = teams[2]; 
+			players[1].team = teams[3]; 
+			players[2].team = teams[2]; 
+			players[3].team = teams[3]; 
 		}
 		else 
 		{
-			players.Add(new Player(0, "PURPLE", teams[0], RXColor.GetColorFromHex(0xFF00EE), unusedPlayerController));
-			players.Add(new Player(1, "GREEN", teams[1],RXColor.GetColorFromHex(0x00FF00), unusedPlayerController));
-			players.Add(new Player(2, "BLUE", teams[2],RXColor.GetColorFromHex(0x0011EE), unusedPlayerController));
-			players.Add(new Player(3, "RED", teams[3],RXColor.GetColorFromHex(0xFF0011), unusedPlayerController));
+			players[0].team = teams[0]; 
+			players[1].team = teams[1]; 
+			players[2].team = teams[2]; 
+			players[3].team = teams[3]; 
 		}
+
 	}
 
 	public void SetRoundData(List<Player> activePlayers)
