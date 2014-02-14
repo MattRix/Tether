@@ -12,8 +12,6 @@ public class Player
 
 	public Team team;
 
-	public int score;
-
 	public Color color;
 
 	public Player(int index, String name, Team team, Color color, PlayerController controller)

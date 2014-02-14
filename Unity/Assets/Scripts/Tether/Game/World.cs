@@ -22,13 +22,15 @@ public class World : FContainer
 	public List<Orb> orbs = new List<Orb>();
 	public TRandomCollection orbColl;
 
+	public List<Team> teams;
+
 	public float timeUntilNextOrb = 0;
 
 	public FStage uiStage;
 
 	public bool isGameOver;
 
-	public Player winningPlayer;
+	public Team winningTeam;
 
 	public FParticleSystem backParticles;
 	public FParticleSystem glowParticles;
@@ -65,6 +67,8 @@ public class World : FContainer
 		uiStage.scale = Futile.stage.scale;
 
 		uiStage.AddChild(uiHolder = new FContainer());
+
+		teams = GameManager.instance.activeTeams;
 
 		InitBeasts();
 
@@ -120,8 +124,6 @@ public class World : FContainer
 		List<Player> players = GameManager.instance.activePlayers;
 		float radiansPerPlayer = RXMath.DOUBLE_PI / (float)players.Count;
 		float startRadius = 150.0f;
-
-		List<Team> teams = GameManager.instance.activeTeams;
 
 		for (int p = 0; p < players.Count; p++)
 		{
@@ -195,7 +197,6 @@ public class World : FContainer
 			hinge.spring = jspring;
 			
 			hinge.axis = new Vector3(0.0f, 0.0f, 1.0f);
-
 		}
 
 
@@ -207,11 +208,11 @@ public class World : FContainer
 
 	void HandleSignalTeamChange ()
 	{
-		for(int b = 0; b<beasts.Count; b++)
+		for(int t = 0; t<teams.Count; t++)
 		{
-			if(beasts[b].player.score >= GameConfig.WINNING_SCORE)
+			if(teams[t].score >= GameConfig.WINNING_SCORE)
 			{
-				this.winningPlayer = beasts[b].player;
+				this.winningTeam = teams[t];
 				DoGameOver();
 				break;
 			}
@@ -239,8 +240,8 @@ public class World : FContainer
 		
 		gameOverHolder.AddChild(blackSprite);
 
-		FLabel titleLabel = new FLabel("CubanoBig", winningPlayer.name + " WON!");
-		titleLabel.color = winningPlayer.color;
+		FLabel titleLabel = new FLabel("CubanoBig", winningTeam.name + " WON!");
+		titleLabel.color = winningTeam.color;
 		titleLabel.y = 30.0f;
 		gameOverHolder.AddChild(titleLabel);
 
@@ -278,8 +279,6 @@ public class World : FContainer
 	{
 		float baseY = 340.0f;
 		float spacing = 32.0f;
-
-		List<Team> teams = GameManager.instance.activeTeams;
 
 		for(int t = 0; t<teams.Count; t++)
 		{
@@ -368,20 +367,18 @@ public class World : FContainer
 			RestartAtCharSelect();
 		}
 
-
-
 		bool isOneCloseToWinning = false;
 
 		int winningScore = 0;
 
-		for (int b = 0; b<beasts.Count; b++)
+		for (int t = 0; t<teams.Count; t++)
 		{
-			if(beasts[b].player.score == GameConfig.WINNING_SCORE-1)
+			if(teams[t].score == GameConfig.WINNING_SCORE-1)
 			{
 				isOneCloseToWinning = true;
 			}
 
-			winningScore = Mathf.Max(beasts[b].player.score, winningScore);
+			winningScore = Mathf.Max(teams[t].score, winningScore);
 		}
 
 		if (!isGameOver)
@@ -397,7 +394,7 @@ public class World : FContainer
 
 		for (int b = 0; b<beasts.Count; b++)
 		{
-			if(beasts[b].player.score == winningScore && winningScore != 0)
+			if(beasts[b].player.team.score == winningScore && winningScore != 0)
 			{
 				beasts[b].goldSprite.isVisible = true;
 				teamPanels[b].goldBG.isVisible = true;

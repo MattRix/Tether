@@ -100,7 +100,7 @@ public class AIPlayerController : PlayerController
 		{
 			if(closestEnemyOrb != null)
 			{
-				bool isPlayerAboutToWin = closestEnemyOrb.player.score == GameConfig.WINNING_SCORE-1;
+				bool isPlayerAboutToWin = closestEnemyOrb.player.team.score == GameConfig.WINNING_SCORE-1;
 
 				Beast enemyBeast = world.GetBeastForPlayer(closestEnemyOrb.player);
 
@@ -122,7 +122,7 @@ public class AIPlayerController : PlayerController
 					{
 						cautionModifier = 1.2f; 
 					}
-					else if(enemyBeast.player.score <= beast.player.score - 2)//if we're beating them by 2, have less fear of them
+					else if(enemyBeast.player.team.score <= beast.player.team.score - 2)//if we're beating them by 2, have less fear of them
 					{
 						cautionModifier = 0.05f;
 					}
