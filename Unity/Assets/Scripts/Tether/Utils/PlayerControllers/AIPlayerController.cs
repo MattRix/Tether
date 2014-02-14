@@ -65,7 +65,7 @@ public class AIPlayerController : PlayerController
 
 			float dist = delta.magnitude;
 
-			if(checkOrb.player == _player)
+			if(checkOrb.team == _player.team)
 			{
 				if(dist < closestOwnDist)
 				{
@@ -100,9 +100,9 @@ public class AIPlayerController : PlayerController
 		{
 			if(closestEnemyOrb != null)
 			{
-				bool isPlayerAboutToWin = closestEnemyOrb.player.team.score == GameConfig.WINNING_SCORE-1;
+				bool isPlayerAboutToWin = closestEnemyOrb.team.score == GameConfig.WINNING_SCORE-1;
 
-				Beast enemyBeast = world.GetBeastForPlayer(closestEnemyOrb.player);
+				Beast enemyBeast = world.GetBeastForTeam(closestEnemyOrb.team);
 
 				Vector2 enemyDelta = closestEnemyOrb.GetPos() - enemyBeast.GetPos();
 

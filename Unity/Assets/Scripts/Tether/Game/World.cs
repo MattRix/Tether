@@ -267,9 +267,9 @@ public class World : FContainer
 	{
 		orbColl = new TRandomCollection();
 
-		for (int b = 0; b<beasts.Count; b++)
+		for (int t = 0; t<teams.Count; t++)
 		{
-			orbColl.AddItem(beasts[b],100.0f);
+			orbColl.AddItem(teams[t],100.0f);
 		}
 
 		timeUntilNextOrb = RXRandom.Range(3.0f,4.0f);
@@ -433,36 +433,59 @@ public class World : FContainer
 	{
 		if (isGameOver) return;
 
-		Beast beast = orbColl.GetRandomItem() as Beast;
+		Team team = orbColl.GetRandomItem() as Team;
 
-		Vector2 beastPos = beast.GetPos();
+		List<Vector2> beastPoses = new List<Vector2>();
+
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player.team == team)
+			{
+				beastPoses.Add(beasts[b].GetPos());
+			}
+		}
+
+		int posCount = beastPoses.Count;
 
 		Vector2 createPos = new Vector2();
 
 		float closeDistance = 250.0f;
 		closeDistance *= closeDistance; //for sqrMagnitude compare
 
-		while (true)
+		int failsafe = 0;
+		while (true && failsafe++ < 100)
 		{
 			float createRadius = RXRandom.Range(0.0f, 300.0f);
 			float angle = RXRandom.Range(0,RXMath.DOUBLE_PI);
 			createPos.x = Mathf.Cos(angle) * createRadius * 1.5f; //elliptical
 			createPos.y = Mathf.Sin(angle) * createRadius;
 
-			float sqrDist = (createPos - beastPos).sqrMagnitude;
+			bool wasTooClose = false;
 
-			if(sqrDist >= closeDistance) //it's far enough away so we can create it
+			for(int b = 0; b<posCount; b++)
 			{
-				break;
+				float sqrDist = (createPos - beastPoses[b]).sqrMagnitude;
+
+				if(sqrDist <= closeDistance) //it's too close
+				{
+					wasTooClose = true;
+					break;
+				}
 			}
-			else 
+
+			if(wasTooClose) 
 			{
 				closeDistance -= 1; //this will help it eventually reach a manageable range and prevent an infite loop
+				break; 
+			}
+			else //it's far enough away so we can create it
+			{
+				 
 			}
 		}
 
 		Orb orb = Orb.Create(this);
-		orb.Init(beast.player, createPos);
+		orb.Init(team, createPos);
 		orbs.Add(orb);
 
 		if (beasts.Count == 2)
@@ -505,6 +528,19 @@ public class World : FContainer
 			}
 		}
 
+		return null;
+	}
+
+	public Beast GetBeastForTeam(Team team) //there could be multiple but we'll just get one
+	{
+		for(int b = 0; b<beasts.Count; b++)
+		{
+			if(beasts[b].player.team == team)
+			{
+				return beasts[b];
+			}
+		}
+		
 		return null;
 	}
 }

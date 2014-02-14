@@ -102,11 +102,11 @@ public class Beast : MonoBehaviour
 
 		if (orb != null)
 		{
-			if(orb.player == this.player)
+			if(orb.team == this.player.team)
 			{
 				if(!world.isGameOver)
 				{
-					orb.player.team.AddScore();
+					orb.team.AddScore();
 					FSoundManager.PlaySound("pickUpOrb");
 				}
 				orb.Explode(true);

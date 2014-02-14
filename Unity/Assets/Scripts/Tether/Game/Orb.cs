@@ -13,7 +13,7 @@ public class Orb : MonoBehaviour
 	}
 	
 	public World world;
-	public Player player;
+	public Team team;
 	
 	public FContainer holder;
 	
@@ -30,9 +30,9 @@ public class Orb : MonoBehaviour
 
 	public FParticleDefinition pd;
 	
-	public void Init(Player player, Vector2 startPos)
+	public void Init(Team team, Vector2 startPos)
 	{
-		this.player = player;
+		this.team = team;
 		
 		world.orbHolder.AddChild(holder = new FContainer());
 		
@@ -51,7 +51,7 @@ public class Orb : MonoBehaviour
 
 		sprite = new FSprite(frames[0].name);
 		holder.AddChild(sprite);
-		sprite.color = player.color;
+		sprite.color = team.color;
 		sprite.scale = scale;
 		
 		InitPhysics();
@@ -63,7 +63,7 @@ public class Orb : MonoBehaviour
 
 		pd = new FParticleDefinition("Particles/Flame");
 		
-		pd.startColor = player.color.CloneWithNewAlpha(0.2f);
+		pd.startColor = team.color.CloneWithNewAlpha(0.2f);
 		pd.endColor = Color.clear;
 	}
 	
@@ -117,7 +117,7 @@ public class Orb : MonoBehaviour
 	public void Explode(bool isGood)
 	{
 		FSoundManager.PlaySound("bombSmall");
-		OrbExplosion explosion = new OrbExplosion(isGood, player);
+		OrbExplosion explosion = new OrbExplosion(isGood, team);
 		explosion.SetPosition(this.GetPos());
 		world.effectHolder.AddChild(explosion);
 		Destroy();

@@ -5,17 +5,17 @@ using UnityEngine;
 public class OrbExplosion : FContainer
 {
 	public bool isGood;
-	public Player player;
+	public Team team;
 
 	public int frameIndex = 0;
 	public FAtlasElement[] frames;
 
 	public FSprite sprite;
 
-	public OrbExplosion(bool isGood, Player player)
+	public OrbExplosion(bool isGood, Team team)
 	{
 		this.isGood = isGood;
-		this.player = player;
+		this.team = team;
 
 		if (isGood)
 		{
@@ -38,7 +38,7 @@ public class OrbExplosion : FContainer
 
 		AddChild(sprite = new FSprite(frames [0].name));
 
-		sprite.color = player.color;
+		sprite.color = team.color;
 
 		if (isGood)
 		{
