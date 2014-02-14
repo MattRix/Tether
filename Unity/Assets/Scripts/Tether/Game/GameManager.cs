@@ -9,7 +9,7 @@ public class GameManager
 	public static void Init() {instance = new GameManager();}
 
 	public List<Team> teams = new List<Team>();
-	public List<Team> activeTeams = null;
+	public List<Team> activeTeams = new List<Team>();
 
 	public List<Player> players = new List<Player>();
 	public List<Player> activePlayers = null;

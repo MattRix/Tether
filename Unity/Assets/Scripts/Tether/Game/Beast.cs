@@ -45,7 +45,7 @@ public class Beast : MonoBehaviour
 		bodyLink = gameObject.AddComponent<FPNodeLink>();
 		bodyLink.Init(holder, false);
 
-		bodySprite = new FSprite("Evil-Eye_"+player.numString+"_01");
+		bodySprite = new FSprite("Evil-Eye_"+player.team.numString+"_01");
 		holder.AddChild(bodySprite);
 
 		eyeSprite = new FSprite("Eye_" + player.numString);

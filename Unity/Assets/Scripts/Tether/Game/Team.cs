@@ -7,6 +7,7 @@ public class Team
 	public int index;
 	public string name;
 	public Color color;
+	public string numString;
 
 	public int score;
 
@@ -17,6 +18,7 @@ public class Team
 		this.index = index;
 		this.name = name;
 		this.color = color;
+		this.numString = (index + 1).ToString();
 		
 		Reset();
 	}
