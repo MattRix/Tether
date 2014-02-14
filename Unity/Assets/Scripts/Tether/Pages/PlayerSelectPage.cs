@@ -75,6 +75,15 @@ public class PlayerSelectPage : TPage
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
 
+		smallLabel = new FLabel("Franchise", "T: TEAMS");
+		AddChild(smallLabel);
+		smallLabel.x = -634;
+		smallLabel.y = 336.0f - 28.0f * 3;
+		smallLabel.alignment = FLabelAlignment.Left;
+		smallLabel.scale = 0.4f;
+		smallLabel.alpha = 0.7f;
+
+
 
 		startButton = new FSliceButton(220, 80, "Popup_BG", "Popup_BG", Color.blue, Color.white, "click1");
 		AddChild(startButton);

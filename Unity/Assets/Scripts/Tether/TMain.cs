@@ -128,6 +128,18 @@ public class TMain : MonoBehaviour
 		{
 			Screen.fullScreen = !Screen.fullScreen;
 		}
+
+		if (Input.GetKeyDown (KeyCode.T)) 
+		{
+			if(_currentPageType == TPageType.PagePlayerSelect)
+			{
+				GameManager.instance.shouldUseTeams = !GameManager.instance.shouldUseTeams;
+				GameManager.instance.RefreshPlayers();
+
+				_currentPageType = TPageType.PageNone;
+				GoToPage(TPageType.PagePlayerSelect);
+			}
+		}
 	}
 
 	public void GoToPage (TPageType pageType)

@@ -20,7 +20,15 @@ public class PlayerSelectPanel : FContainer
 	public PlayerSelectPanel(Player player)
 	{
 		this.player = player;
-		
+
+		if(GameManager.instance.shouldUseTeams)
+		{
+			FSliceSprite teamBG = new FSliceSprite("Selection_BG", 528, 208, 16, 16, 16, 16);
+			AddChild(teamBG);
+			teamBG.alpha = 0.9f;
+			teamBG.color = player.team.color;
+		}
+
 		AddChild(background = new FSliceSprite("Popup_BG",520,200,16,16,16,16));
 		background.color = player.color;
 		background.alpha = 0.4f;
@@ -39,12 +47,6 @@ public class PlayerSelectPanel : FContainer
 		button.alpha = 0.0f; //hidden button
 		button.SignalPress += HandleSignalPress;
 
-		AddChild(teamLabel = new FLabel("CubanoBig", player.team.name.ToUpper()+ " TEAM"));
-		teamLabel.color = player.team.color;
-		teamLabel.scale = 0.5f;
-		teamLabel.y = -78.0f;
-		teamLabel.anchorX = 1.0f;
-		teamLabel.x = 250;
 
 		
 		ListenForUpdate(HandleUpdate);

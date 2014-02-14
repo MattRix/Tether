@@ -397,12 +397,22 @@ public class World : FContainer
 			if(beasts[b].player.team.score == winningScore && winningScore != 0)
 			{
 				beasts[b].goldSprite.isVisible = true;
-				teamPanels[b].goldBG.isVisible = true;
 			}
 			else 
 			{
 				beasts[b].goldSprite.isVisible = false;
-				teamPanels[b].goldBG.isVisible = false;
+			}
+		}
+
+		for (int t = 0; t<teamPanels.Count; t++)
+		{
+			if(teamPanels[t].team.score == winningScore && winningScore != 0)
+			{
+				teamPanels[t].goldBG.isVisible = true;
+			}
+			else 
+			{
+				teamPanels[t].goldBG.isVisible = false;
 			}
 		}
 	}
