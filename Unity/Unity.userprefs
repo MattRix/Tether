@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Pages/PlayerSelectPanel.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Game/World.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tether/Pages/PlayerSelectPage.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Tether/Game/GameManager.cs" Line="42" Column="39" />
-      <File FileName="Assets/Scripts/Tether/Pages/PlayerSelectPanel.cs" Line="45" Column="15" />
+      <File FileName="Assets/Scripts/Tether/Game/Orb.cs" Line="7" Column="23" />
+      <File FileName="Assets/Scripts/Tether/Game/World.cs" Line="473" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -476,11 +476,10 @@ public class World : FContainer
 			if(wasTooClose) 
 			{
 				closeDistance -= 1; //this will help it eventually reach a manageable range and prevent an infite loop
-				break; 
 			}
 			else //it's far enough away so we can create it
 			{
-				 
+				break;  
 			}
 		}
 
