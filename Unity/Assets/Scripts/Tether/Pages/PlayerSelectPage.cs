@@ -94,7 +94,16 @@ public class PlayerSelectPage : TPage
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
 
-
+		FSliceButton teamButton = new FSliceButton(140, 36, "Popup_BG", "Popup_BG", Color.white, Color.white, "click1");
+		AddChild(teamButton);
+		teamButton.x = -Futile.screen.width/2 + 70;
+		teamButton.y = Futile.screen.height/2 - 56;
+		teamButton.sprite.alpha = 0.0f;
+		//teamButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
+		teamButton.SignalRelease += (b) =>
+		{
+			TMain.instance.SwapTeams();
+		};
 
 
 

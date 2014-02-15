@@ -131,14 +131,19 @@ public class TMain : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.T)) 
 		{
-			if(_currentPageType == TPageType.PagePlayerSelect)
-			{
-				GameManager.instance.shouldUseTeams = !GameManager.instance.shouldUseTeams;
-				GameManager.instance.RefreshPlayers();
+			SwapTeams();
+		}
+	}
 
-				_currentPageType = TPageType.PageNone;
-				GoToPage(TPageType.PagePlayerSelect);
-			}
+	public void SwapTeams()
+	{
+		if(_currentPageType == TPageType.PagePlayerSelect)
+		{
+			GameManager.instance.shouldUseTeams = !GameManager.instance.shouldUseTeams;
+			GameManager.instance.RefreshPlayers();
+			
+			_currentPageType = TPageType.PageNone;
+			GoToPage(TPageType.PagePlayerSelect);
 		}
 	}
 
