@@ -322,10 +322,10 @@ public class World : FContainer
 
 	void HandleUpdate()
 	{
-		spawnRateMultiplier += Time.deltaTime * 0.001;
+		spawnRateMultiplier += Time.deltaTime * 0.003;
 		timeUntilNextOrb -= Time.deltaTime * (float)spawnRateMultiplier;
 
-		if(Time.frameCount % 100 == 0)
+		if(Time.frameCount % 120 == 0)
 		{
 			Debug.Log(spawnRateMultiplier);
 		}
