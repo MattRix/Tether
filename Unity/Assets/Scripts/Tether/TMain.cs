@@ -100,7 +100,7 @@ public class TMain : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.Label(new Rect(0, 0, 50, 20), Screen.width + "x" + Screen.height);
+		//GUI.Label(new Rect(0, 0, 50, 20), Screen.width + "x" + Screen.height);
 	}
 
 	void HandleUpdate ()

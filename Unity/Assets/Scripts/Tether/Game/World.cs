@@ -282,11 +282,17 @@ public class World : FContainer
 	void InitUI()
 	{
 		float baseY = 340.0f;
-		float spacing = 32.0f;
+		//float spacing = 32.0f;
+
+		float barWidth = GameConfig.WINNING_SCORE * TeamPanel.WIDTH_PER_NIB;
+		float paddingX = 8.0f;
+		float fullWidth  = barWidth * teams.Count + paddingX * (teams.Count-1);
 
 		for(int t = 0; t<teams.Count; t++)
 		{
-			CreateTeamPanel(teams[t], new Vector2(0,baseY-spacing*t));
+			//CreateTeamPanel(teams[t], new Vector2(0,baseY-spacing*t));
+			float barX = -fullWidth/2 + t*(barWidth+paddingX) + barWidth/2;
+			CreateTeamPanel(teams[t],new Vector2(barX,baseY));
 		}
 
 		pauseContainer = new FContainer();
@@ -322,7 +328,7 @@ public class World : FContainer
 
 	void HandleUpdate()
 	{
-		spawnRateMultiplier += Time.deltaTime * 0.003;
+		spawnRateMultiplier += Time.deltaTime * 0.005;
 		timeUntilNextOrb -= Time.deltaTime * (float)spawnRateMultiplier;
 
 		if(Time.frameCount % 120 == 0)

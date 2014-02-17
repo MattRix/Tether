@@ -11,7 +11,7 @@ public class TeamPanel : FContainer
 
 	public int currentPoints = 0;
 
-	public float widthPerNib = 30.0f;
+	public const float WIDTH_PER_NIB = 30.0f;
 	public float fullWidth;
 
 	public List<FContainer>nibs = new List<FContainer>();
@@ -23,7 +23,7 @@ public class TeamPanel : FContainer
 
 		team.SignalTeamChange += HandleSignalPlayerChange;
 
-		fullWidth = GameConfig.WINNING_SCORE * widthPerNib;
+		fullWidth = GameConfig.WINNING_SCORE * WIDTH_PER_NIB;
 
 		bg = new FSliceSprite("PointBarBG", fullWidth+6.0f, 30.0f, 0, 10, 0, 10);
 		AddChild(bg);
@@ -38,7 +38,7 @@ public class TeamPanel : FContainer
 		{
 			FContainer nib = new FContainer();
 
-			nib.x = -fullWidth*0.5f + 15.0f + p * widthPerNib;
+			nib.x = -fullWidth*0.5f + 15.0f + p * WIDTH_PER_NIB;
 			nib.y = 0;
 
 			FSprite bgSprite = new FSprite("PointBarNibBG");
