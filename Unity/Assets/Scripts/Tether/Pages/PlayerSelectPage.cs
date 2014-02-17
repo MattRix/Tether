@@ -105,6 +105,17 @@ public class PlayerSelectPage : TPage
 			TMain.instance.SwapTeams();
 		};
 
+		FSliceButton fullButton = new FSliceButton(140, 36, "Popup_BG", "Popup_BG", Color.white, Color.white, "click1");
+		AddChild(fullButton);
+		fullButton.x = -Futile.screen.width/2 + 70;
+		fullButton.y = Futile.screen.height/2 - 56 + 28.0f;
+		fullButton.sprite.alpha = 0.0f;
+		//teamButton.AddLabelA("CubanoBig", "START!", 0.75f, 2f, Color.white);
+		fullButton.SignalRelease += (b) =>
+		{
+			TMain.instance.SwapFullScreen();
+		};
+
 
 
 		startButton = new FSliceButton(220, 80, "Popup_BG", "Popup_BG", Color.blue, Color.white, "click1");

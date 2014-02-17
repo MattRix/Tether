@@ -126,13 +126,18 @@ public class TMain : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.F)) 
 		{
-			Screen.fullScreen = !Screen.fullScreen;
+			SwapFullScreen();
 		}
 
 		if (Input.GetKeyDown (KeyCode.T)) 
 		{
 			SwapTeams();
 		}
+	}
+
+	public void SwapFullScreen()
+	{
+		Screen.fullScreen = !Screen.fullScreen;
 	}
 
 	public void SwapTeams()

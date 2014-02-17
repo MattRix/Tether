@@ -3,7 +3,7 @@ using System;
 
 public class GameConfig
 {
-	public static int WINNING_SCORE = 10;
+	public static int WINNING_SCORE = 7;
 
 	public static bool SHOULD_SKIP_CHAR_SELECT = false;
 

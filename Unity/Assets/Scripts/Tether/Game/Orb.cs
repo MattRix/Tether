@@ -96,7 +96,7 @@ public class Orb : MonoBehaviour
 		mat.frictionCombine = PhysicMaterialCombine.Maximum;
 		collider.material = mat;
 
-		float speed = 30.0f;
+		float speed = 100.0f;
 		float angle = RXRandom.Range(0, RXMath.DOUBLE_PI);
 		Vector2 startVector = new Vector2(Mathf.Cos(angle)*speed, Mathf.Sin(angle)*speed);
 		rb.velocity = startVector.ToVector3InMeters();

@@ -40,6 +40,8 @@ public class World : FContainer
 	public FContainer pauseContainer;
 
 	public List<TeamPanel> teamPanels = new List<TeamPanel>();
+
+	public double spawnRateMultiplier = 1.0;
 	
 	public World()
 	{
@@ -75,6 +77,8 @@ public class World : FContainer
 		InitOrbs();
 
 		InitUI();
+
+		spawnRateMultiplier = 1.0f;
 
 		walls = new Walls(this);
 
@@ -318,7 +322,13 @@ public class World : FContainer
 
 	void HandleUpdate()
 	{
-		timeUntilNextOrb -= Time.deltaTime;
+		spawnRateMultiplier += Time.deltaTime * 0.001;
+		timeUntilNextOrb -= Time.deltaTime * (float)spawnRateMultiplier;
+
+		if(Time.frameCount % 100 == 0)
+		{
+			Debug.Log(spawnRateMultiplier);
+		}
 
 		if (timeUntilNextOrb <= 0)
 		{
@@ -487,38 +497,22 @@ public class World : FContainer
 		orb.Init(team, createPos);
 		orbs.Add(orb);
 
-		if(GameManager.instance.shouldUseTeams)
-		{
-			if (beasts.Count == 2)
-			{
-				timeUntilNextOrb = RXRandom.Range(0.5f,3.5f);
-			}
-			else if (beasts.Count == 3)
-			{
-				timeUntilNextOrb = RXRandom.Range(0.5f,3.0f);
-			}
-			else if (beasts.Count == 4)
-			{
-				timeUntilNextOrb = RXRandom.Range(0.5f,2.5f);
-			}
-		}
-		else 
-		{
-			if (beasts.Count == 2)
-			{
-				timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
-			}
-			else if (beasts.Count == 3)
-			{
-				timeUntilNextOrb = RXRandom.Range(1.5f,4.0f);
-			}
-			else if (beasts.Count == 4)
-			{
-				timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
-			}
-		}
+
+		int thingCount = GameManager.instance.shouldUseTeams ? teams.Count : beasts.Count;
 
 
+		if (thingCount == 2)
+		{
+			timeUntilNextOrb = RXRandom.Range(2.5f,5.5f);
+		}
+		else if (thingCount == 3)
+		{
+			timeUntilNextOrb = RXRandom.Range(2f,5f);
+		}
+		else if (thingCount == 4)
+		{
+			timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
+		}
 
 	}
 
