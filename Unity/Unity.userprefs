@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Game/GameConfig.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tether/Game/World.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tether/Game/GameConfig.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Tether/TMain.cs" Line="127" Column="37" />
+      <File FileName="Assets/Scripts/Tether/Game/World.cs" Line="350" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -7,3 +7,4 @@
 *.unityproj
 *.sln
 Unity/Exports/OSX
+Unity/Exports/Win

@@ -4,13 +4,12 @@
 SceneSettings:
   m_ObjectHideFlags: 0
   m_PVSData: 
-  m_QueryMode: 1
   m_PVSObjectsArray: []
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
-    viewCellSize: 1
-    bakeMode: 2
-    memoryUsage: 10485760
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_Fog: 0
@@ -23,6 +22,7 @@ RenderSettings:
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
@@ -97,14 +97,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1172091360}
   m_GameObject: {fileID: 1095361630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc3eaab5f3dea3429191724f83b7d4c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   DEVELOPER_ID: 541b8123-02c5-4710-b01c-c767cbff25da
   debugOff: 1
   showRawAxis: 0
-  Purchasables: []
+  Purchasables:
+  - long_sword
+  - sharp_axe
+  - __DECLINED__THIS_PURCHASE
   UseLegacyInput: 0
 --- !u!4 &1095361632
 Transform:
@@ -164,6 +168,10 @@ Prefab:
       propertyPath: DEVELOPER_ID
       value: 541b8123-02c5-4710-b01c-c767cbff25da
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad92c5da04e1b904ead8291e00d4c927, type: 2}
   m_RootGameObject: {fileID: 1095361630}
@@ -207,6 +215,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cd2c5fd76e3c8940b0dba7061ce9af1, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   shouldTrackNodesInRXProfiler: 1
 --- !u!114 &2079660684
 MonoBehaviour:
@@ -218,3 +227,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa199e755fd004b4a9640a73a23dd862, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 

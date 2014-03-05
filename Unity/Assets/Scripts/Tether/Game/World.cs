@@ -331,10 +331,10 @@ public class World : FContainer
 		spawnRateMultiplier += Time.deltaTime * 0.005;
 		timeUntilNextOrb -= Time.deltaTime * (float)spawnRateMultiplier;
 
-		if(Time.frameCount % 120 == 0)
-		{
-			Debug.Log(spawnRateMultiplier);
-		}
+//		if(Time.frameCount % 120 == 0)
+//		{
+//			Debug.Log(spawnRateMultiplier);
+//		}
 
 		if (timeUntilNextOrb <= 0)
 		{
@@ -380,7 +380,10 @@ public class World : FContainer
 		}
 		else if(Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Backspace))
 		{
-			RestartAtCharSelect();
+			if(pauseContainer.container != null) //can only restart when paused
+			{
+				RestartAtCharSelect();
+			}
 		}
 
 		bool isOneCloseToWinning = false;
@@ -509,15 +512,15 @@ public class World : FContainer
 
 		if (thingCount == 2)
 		{
-			timeUntilNextOrb = RXRandom.Range(2.5f,5.5f);
+			timeUntilNextOrb = RXRandom.Range(2.5f,4.5f);
 		}
 		else if (thingCount == 3)
 		{
-			timeUntilNextOrb = RXRandom.Range(2f,5f);
+			timeUntilNextOrb = RXRandom.Range(2f,4f);
 		}
 		else if (thingCount == 4)
 		{
-			timeUntilNextOrb = RXRandom.Range(1.5f,4.5f);
+			timeUntilNextOrb = RXRandom.Range(1.5f,3.5f);
 		}
 
 	}

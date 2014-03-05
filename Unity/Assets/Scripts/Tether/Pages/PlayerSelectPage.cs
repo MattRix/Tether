@@ -86,13 +86,13 @@ public class PlayerSelectPage : TPage
 		smallLabel.scale = 0.4f;
 		smallLabel.alpha = 0.7f;
 
-		smallLabel = new FLabel("Franchise", "R: RESET");
-		AddChild(smallLabel);
-		smallLabel.x = -634;
-		smallLabel.y = 336.0f - 28.0f * 3;
-		smallLabel.alignment = FLabelAlignment.Left;
-		smallLabel.scale = 0.4f;
-		smallLabel.alpha = 0.7f;
+//		smallLabel = new FLabel("Franchise", "R: RESET");
+//		AddChild(smallLabel);
+//		smallLabel.x = -634;
+//		smallLabel.y = 336.0f - 28.0f * 3;
+//		smallLabel.alignment = FLabelAlignment.Left;
+//		smallLabel.scale = 0.4f;
+//		smallLabel.alpha = 0.7f;
 
 		FSliceButton teamButton = new FSliceButton(140, 36, "Popup_BG", "Popup_BG", Color.white, Color.white, "click1");
 		AddChild(teamButton);
